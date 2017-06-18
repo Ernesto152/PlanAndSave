@@ -66,3 +66,4 @@ public class GoalsEntity extends BaseEntity{
                 goal.getCurrency().getIdAsString() + ")";
         return change(sql);
     }
+}
