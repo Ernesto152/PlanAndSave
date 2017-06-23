@@ -1,58 +1,70 @@
-package pe.edu.utp.hremployees.models;
-import java.util.Date;
+package pe.edu.utp.planandsave.models;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 
 /**
- * Created by usuario on 16/06/2017.
+ * Created by usuario on 17/06/2017.
  */
-public class Expenses {
+public class Expense {
     private int id;
-    private double amount;
-    private Date registration_date;
+    private float amount;
+    private Date registrationDate;
     private String description;
-    private UserEntity user;
-    private UserCategory category;
-    private Currencies currency;
+    private User user;
+    private ExpensesCategory expensesCategory;
+    private Currency currency;
 
-    public Expenses() {
+    public Expense() {
     }
 
-    public Expenses(int id, double amount, Date registration_date, String description, UserEntity user, UserCategory category,
-                  Currencies currency) {
-        this.id = id;
-        this.amount = amount;
-        this.registration_date = registration_date;
-        this.description = description;
-        this.user = user;
-        this.category = category;
-        this.currency = currency;
+    public Expense(int id, float amount, Date registrationDate, String description, User user, ExpensesCategory expensesCategory, Currency currency) {
+        this.setId(id);
+        this.setAmount(amount);
+        this.setRegistrationDate(registrationDate);
+        this.setDescription(description);
+        this.setUser(user);
+        this.setExpensesCategory(expensesCategory);
+        this.setCurrency(currency);
     }
 
     public int getId() {
         return id;
     }
 
-    public Expenses setId(int id) {
+    public String getIdAsString(){
+        return String.valueOf(getId());
+    }
+
+    public Expense setId(int id) {
         this.id = id;
         return this;
     }
 
-    public double getAmount() {
+    public float getAmount() {
         return amount;
     }
 
-    public Expenses setAmount(double amount) {
+    public String getAmountAsString(){
+        return String.valueOf(getAmount());
+    }
+
+    public Expense setAmount(float amount) {
         this.amount = amount;
         return this;
     }
 
-    public Date getRegistration_date() {
-        return registration_date;
+    public Date getRegistrationDate() {
+        return registrationDate;
     }
 
-    public Expenses setRegistration_date(Date registration_date) {
-        this.registration_date = registration_date;
+    public String getRegistrationDateAsValue(){
+        return "'" + getRegistrationDate() + "'";
+    }
+
+    public Expense setRegistrationDate(Date registrationDate) {
+        this.registrationDate = registrationDate;
         return this;
     }
 
@@ -60,53 +72,68 @@ public class Expenses {
         return description;
     }
 
-    public Expenses setDescription(String description) {
+    public String getDescriptionAsValue(){
+        return "'" + getDescription() + "'";
+    }
+
+    public Expense setDescription(String description) {
         this.description = description;
         return this;
     }
 
-    public UserEntity getUser() {
+    public User getUser() {
         return user;
     }
 
-    public Expenses setUser(UserEntity user) {
+    public String getUserAsString(){
+        return String.valueOf(getUser());
+    }
+
+    public Expense setUser(User user) {
         this.user = user;
         return this;
     }
 
-    public UserCategory getUserCategory() {
-        return category;
+    public ExpensesCategory getExpensesCategory() {
+        return expensesCategory;
     }
 
-    public Expenses setUserCategory(UserCategory category) {
-        this.category = category;
+    public String getExpensesCategoryAsString(){
+        return String.valueOf(getExpensesCategory());
+    }
+
+    public Expense setExpensesCategory(ExpensesCategory expensesCategory) {
+        this.expensesCategory = expensesCategory;
         return this;
     }
 
-    public Currencies getCurrency() {
+    public Currency getCurrency() {
         return currency;
     }
 
-    public Expenses setUserCategory(Currencies currency) {
+    public String getCurrencyAsString(){
+        return String.valueOf(getCurrency());
+    }
+
+    public Expense setCurrency(Currency currency) {
         this.currency = currency;
         return this;
     }
 
-    public static Expenses build(ResultSet resultSet) {
+    public static Expense build(ResultSet resultSet, UsersEntity usersEntity, UsersCategoryEntity usersCategoryEntity,
+                                ExpensesCategoryEntity expensesCategoryEntity, CurrenciesEntity currenciesEntity) {
         try {
-            return (new Expenses())
-                    .setId(resultSet.getInt("expense_id"))
-                    .setAmount(resultSet.getDouble("expense_amount"))
-                    .setAmount(resultSet.getDouble("expense_amount"))
-                    .setDescription(resultSet.getString("expense_descripcion"))
-                    .setUserEntity(UserEntity.findById(resultSet.getString("user_id")))
-                    .setUserCategory(UserCategory.findById(resultSet.getString("category_id")))
-                    .setCurrencies(Currencies.findById(resultSet.getString("currency_id")));
+            return (new Expense())
+                    .setId(resultSet.getInt("id"))
+                    .setAmount(resultSet.getFloat("amount"))
+                    .setRegistrationDate(resultSet.getDate("registration_date"))
+                    .setDescription(resultSet.getString("description"))
+                    .setUser(usersEntity.findById(resultSet.getInt("user_id"), usersCategoryEntity))
+                    .setExpensesCategory(expensesCategoryEntity.findById(resultSet.getInt("expense_category_id")))
+                    .setCurrency(currenciesEntity.findById(resultSet.getInt("currency_id")));
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
     }
-
-
 }

@@ -1,7 +1,8 @@
-pacpackage pe.edu.utp.planandsave.models;
+package pe.edu.utp.planandsave.models;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 
 /**
  * Created by usuario on 16/06/2017.
@@ -9,13 +10,30 @@ import java.sql.SQLException;
 public class Debt {
     private int id;
     private String description;
-    private int payment_period;
-    private Date payment_time;
-    private float total_amount;
-    private Date start_date;
+    private String paymentPeriod;
+    private int paymentTime;
+    private float totalAmount;
+    private Date startDate;
     private User user;
-    private ExpenseCategory expenseCategory;
+    private ExpensesCategory expensesCategory;
     private Currency currency;
+
+
+
+    public Debt() {
+    }
+
+    public Debt(int id, String description, String paymentPeriod, int paymentTime, float totalAmount, Date startDate, User user, ExpensesCategory expensesCategory, Currency currency) {
+        this.id = id;
+        this.description = description;
+        this.paymentPeriod = paymentPeriod;
+        this.paymentTime = paymentTime;
+        this.setTotalAmount(totalAmount);
+        this.startDate = startDate;
+        this.user = user;
+        this.expensesCategory = expensesCategory;
+        this.currency = currency;
+    }
 
     public int getId() {
         return id;
@@ -34,51 +52,44 @@ public class Debt {
         return description;
     }
 
-    public String getDescriptionAsValue(){
-        return "'" + getDescription() + "'";
-    }
-
     public Debt setDescription(String description) {
         this.description = description;
         return this;
     }
 
-    public int getPayment_period() { return payment_period; }
-
-    public String getPayment_periodAsString(){
-        return String.valueOf(getPayment_period());
+    public String getPaymentPeriod() {
+        return paymentPeriod;
     }
 
-    public Debt setPayment_period(int payment_period) {
-        this.payment_period = payment_period;
+    public Debt setPaymentPeriod(String paymentPeriod) {
+        this.paymentPeriod = paymentPeriod;
         return this;
     }
 
-    public Date getPayment_time() { return payment_time; }
-
-    public String getPayment_timeAsString(){ return String.valueOf(getPayment_time()); }
-
-    public Debt setPayment_time(Date payment_time) {
-        this.payment_time = payment_time;
-        return this;
-    }
-    public float getTotal_amount() { return total_amount; }
-
-    public String getTotal_amountAsString(){
-        return String.valueOf(getTotal_amount());
+    public int getPaymentTime() {
+        return paymentTime;
     }
 
-    public Debt setTotal_amount(float total_amount) {
-        this.total_amount = total_amouny;
+    public Debt setPaymentTime(int paymentTime) {
+        this.paymentTime = paymentTime;
         return this;
     }
 
-    public Date getStart_date() { return start_date; }
+    public float getTotalAmount() {
+        return totalAmount;
+    }
 
-    public String getStart_dateAsString(){ return String.valueOf(getStart_date()); }
+    public Debt setTotalAmount(float totalAmount) {
+        this.totalAmount = totalAmount;
+        return this;
+    }
 
-    public Debt setStart_date(Date start_date) {
-        this.start_date = start_date;
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public Debt setStartDate(Date startDate) {
+        this.startDate = startDate;
         return this;
     }
 
@@ -86,19 +97,17 @@ public class Debt {
         return user;
     }
 
-
     public Debt setUser(User user) {
         this.user = user;
         return this;
     }
 
-    public ExpenseCategory getExpenseCategory() {
-        return expenseCategory;
+    public ExpensesCategory getExpensesCategory() {
+        return expensesCategory;
     }
 
-
-    public Debt setExpenseCategory(ExpenseCategory expenseCategory) {
-        this.expenseCategory = expenseCategory;
+    public Debt setExpensesCategory(ExpensesCategory expensesCategory) {
+        this.expensesCategory = expensesCategory;
         return this;
     }
 
@@ -111,17 +120,18 @@ public class Debt {
         return this;
     }
 
-    public static Debt build(ResultSet resultSet, CurrenciesEntity currenciesEntity, ExpenseCategoryEntity expenseCategoryEntity, UsersEntity usersEntity){
+    public static Debt build(ResultSet resultSet, UsersEntity usersEntity, UsersCategoryEntity usersCategoryEntity,
+                             ExpensesCategoryEntity expensesCategoryEntity, CurrenciesEntity currenciesEntity){
         try {
             return (new Debt())
                     .setId(resultSet.getInt("id"))
                     .setDescription(resultSet.getString("description"))
-                    .setPayment_period(resultSet.getString("payment_period"))
-                    .setPayment_time(resultSet.getString("payment_time"))
-                    .setTotal_amount(resultSet.getFloat("total_amount"))
-                    .setStart_date(resultSet.getString("start_date"))
-                    .setUser(usersEntity.findById(resultSet.getInt("user_id")))
-                    .setExpenseCategory(expenseCategoryEntity.findById(resultSet.getInt("category_id")))
+                    .setPaymentPeriod(resultSet.getString("payment_period"))
+                    .setPaymentTime(resultSet.getInt("payment_time"))
+                    .setTotalAmount(resultSet.getFloat("total_amount"))
+                    .setStartDate(resultSet.getDate("start_date"))
+                    .setUser(usersEntity.findById(resultSet.getInt("user_id"), usersCategoryEntity))
+                    .setExpensesCategory(expensesCategoryEntity.findById(resultSet.getInt("expense_category_id")))
                     .setCurrency(currenciesEntity.findById(resultSet.getInt("currency_id")));
         } catch (SQLException e) {
             e.printStackTrace();

@@ -9,37 +9,37 @@ import java.util.List;
 /**
  * Created by usuario on 16/06/2017.
  */
-public class UserCategoryEntity extends BaseEntity {
+public class UsersCategoryEntity extends BaseEntity {
 
-    public UserCategoryEntity(Connection connection) {
+    public UsersCategoryEntity(Connection connection) {
         super(connection, "user_category");
     }
 
-    public UserCategoryEntity() {
+    public UsersCategoryEntity() {
     }
 
-    List<UserCategory> findAll(){
+    List<UsersCategory> findAll(){
         return findByCriteria("");
     }
 
-    public UserCategory findById(int id){
+    public UsersCategory findById(int id){
         String criteria = " id = " + String.valueOf(id);
         return findByCriteria(criteria).get(0);
     }
 
-    public UserCategory findByName(String name){
+    public UsersCategory findByName(String name){
         String criteria = " name = '" + name + "'";
         return findByCriteria(criteria).get(0);
     }
 
-    public List<UserCategory> findByCriteria(String criteria){
+    public List<UsersCategory> findByCriteria(String criteria){
         String sql = getDefaultQuery() + criteria == "" ? "" : " WHERE " + criteria;
-        List<UserCategory> userCategories = new ArrayList<>();
+        List<UsersCategory> userCategories = new ArrayList<>();
         try {
             ResultSet resultSet = getConnection().createStatement().executeQuery(sql);
             if (resultSet == null) return null;
             while (resultSet.next()){
-                userCategories.add(UserCategory.build(resultSet));
+                userCategories.add(UsersCategory.build(resultSet));
             }
             return userCategories;
         } catch (SQLException e) {

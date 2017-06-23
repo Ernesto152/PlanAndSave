@@ -19,38 +19,38 @@ public class UsersEntity extends BaseEntity{
         super();
     }
 
-    List<User> findAll(UserCategoryEntity userCategoryEntity){
-        return findByCriteria("", userCategoryEntity);
+    List<User> findAll(UsersCategoryEntity usersCategoryEntity){
+        return findByCriteria("", usersCategoryEntity);
     }
 
-    public User findById(int id, UserCategoryEntity userCategoryEntity){
+    public User findById(int id, UsersCategoryEntity usersCategoryEntity){
         String criteria = " id = " + id;
-        return findByCriteria(criteria, userCategoryEntity).get(0);
+        return findByCriteria(criteria, usersCategoryEntity).get(0);
     }
 
-    public User findByFirstName(String firstName, UserCategoryEntity userCategoryEntity){
+    public User findByFirstName(String firstName, UsersCategoryEntity usersCategoryEntity){
         String criteria = " first_name = '" + firstName + "'";
-        return findByCriteria(criteria, userCategoryEntity).get(0);
+        return findByCriteria(criteria, usersCategoryEntity).get(0);
     }
 
-    public User findByLastName(String lastName, UserCategoryEntity userCategoryEntity){
+    public User findByLastName(String lastName, UsersCategoryEntity usersCategoryEntity){
         String criteria = " last_name = '" + lastName + "'";
-        return findByCriteria(criteria, userCategoryEntity).get(0);
+        return findByCriteria(criteria, usersCategoryEntity).get(0);
     }
 
-    public User findByEmail(String email, UserCategoryEntity userCategoryEntity){
+    public User findByEmail(String email, UsersCategoryEntity usersCategoryEntity){
         String criteria = " email = '" + email + "'";
-        return findByCriteria(criteria, userCategoryEntity).get(0);
+        return findByCriteria(criteria, usersCategoryEntity).get(0);
     }
 
-    public List<User> findByCriteria(String criteria, UserCategoryEntity userCategoryEntity){
+    public List<User> findByCriteria(String criteria, UsersCategoryEntity usersCategoryEntity){
         String sql = getDefaultQuery() + (criteria.isEmpty() ? "" : " WHERE " + criteria);
         List<User> users = new ArrayList<>();
         try {
             ResultSet resultSet = getConnection().createStatement().executeQuery(sql);
             if (resultSet == null) return null;
             while (resultSet.next()){
-                users.add(User.build(resultSet, userCategoryEntity));
+                users.add(User.build(resultSet, usersCategoryEntity));
             }
             return users;
         } catch (SQLException e) {
@@ -68,22 +68,7 @@ public class UsersEntity extends BaseEntity{
                     user.getEmailAsValue() + ", " +
                     user.getPasswordAsValue() + ", " +
                     user.getSalaryAsString() + ", " +
-                    user.getUserCategory().getIdAsString() + ")";
+                    user.getUsersCategory().getIdAsString() + ")";
         return change(sql);
     }
-
-    /*
-    public boolean add(User user){
-        String sql = "INSERT INTO users(id, first_name, last_name, email, password, salary, user_category_id)" +
-                " VALUES(" +
-                    user.getIdAsString() + ", " +
-                    user.getFirstNameAsValue() + ", " +
-                    user.getLastNameAsValue() + ", " +
-                    user.getEmailAsValue() + ", " +
-                    user.getPasswordAsValue() + ", " +
-                    user.getSalaryAsString() + ", " +
-                    user.getUserCategory().getIdAsString() + ")";
-        return change(sql);
-    }
-    */
 }

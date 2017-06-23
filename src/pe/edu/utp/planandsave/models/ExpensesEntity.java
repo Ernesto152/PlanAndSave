@@ -1,4 +1,4 @@
-package pe.edu.utp.hremployees.models;
+package pe.edu.utp.planandsave.models;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -9,51 +9,41 @@ import java.util.List;
 /**
  * Created by usuario on 16/06/2017.
  */
-public class ExpensesEntity  extends  BaseEntity {
-
-    public ExpensesEntity() {
-        super();
-        setTableName("expenses");
-    }
+public class ExpensesEntity extends BaseEntity {
 
     public ExpensesEntity(Connection connection) {
         super(connection, "expenses");
     }
 
-    public List<Expenses> findByCriteria(
-            String criteria,
-            UserEntity userEntity,
-            UserCategory userCategory,
-            Currencies currencies) {
-        String sql = getDefaultQuery() +
-                (criteria.isEmpty() ? "" : " WHERE " + criteria);
-        List<Expenses> expenses = new ArrayList<>();
+    public ExpensesEntity() {
+        super();
+    }
+
+    List<Expense> findAll(UsersEntity usersEntity, UsersCategoryEntity usersCategoryEntity, ExpensesCategoryEntity expensesCategoryEntity,
+                          CurrenciesEntity currenciesEntity){
+        return findByCriteria("", usersEntity, usersCategoryEntity, expensesCategoryEntity, currenciesEntity);
+    }
+
+    public Expense findById(int id, UsersEntity usersEntity, UsersCategoryEntity usersCategoryEntity,
+                            ExpensesCategoryEntity expensesCategoryEntity, CurrenciesEntity currenciesEntity){
+        String criteria = " id = " + id;
+        return findByCriteria(criteria, usersEntity, usersCategoryEntity, expensesCategoryEntity, currenciesEntity).get(0);
+    }
+
+    public List<Expense> findByCriteria(String criteria, UsersEntity usersEntity, UsersCategoryEntity usersCategoryEntity,
+                                        ExpensesCategoryEntity expensesCategoryEntity, CurrenciesEntity currenciesEntity) {
+        String sql = getDefaultQuery() + (criteria.isEmpty() ? "" : " WHERE " + criteria);
+        List<Expense> expenses = new ArrayList<>();
         try {
-            ResultSet rs = getConnection()
-                    .createStatement()
-                    .executeQuery(sql);
-            if(rs == null) return null;
-            while(rs.next()) {
-                expenses.add(
-                        Expenses.build(rs, userEntity, userCategory, currencies));
+            ResultSet resultSet = getConnection().createStatement().executeQuery(sql);
+            if(resultSet == null) return null;
+            while(resultSet.next()) {
+                expenses.add(Expense.build(resultSet, usersEntity, usersCategoryEntity,
+                        expensesCategoryEntity, currenciesEntity));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return expenses;
-    }
-
-    public List<Expenses> findAll(UserEntity userEntity, UserCategory userCategory, Currencies currencies) {
-        return findByCriteria("", userEntity, userCategory, currencies);
-    }
-
-    public Expenses findById(int id, UserEntity userEntity, UserCategory userCategory, Currencies currencies) {
-        try {
-            String sql = "expense_id = " + String.valueOf(id);
-            return findByCriteria(sql, userEntity, userCategory, currencies ).get(0);
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 }

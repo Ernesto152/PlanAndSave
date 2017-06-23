@@ -4,11 +4,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Created by usuario on 16/06/2017.
+ * Created by Ernesto Chira on 16/06/2017.
  */
-public class ExpenseCategory {
+public class UsersCategory {
     private int id;
     private String name;
+    private float price;
 
     public int getId() {
         return id;
@@ -18,7 +19,7 @@ public class ExpenseCategory {
         return String.valueOf(getId());
     }
 
-    public ExpenseCategory setId(int id) {
+    public UsersCategory setId(int id) {
         this.id = id;
         return this;
     }
@@ -31,16 +32,30 @@ public class ExpenseCategory {
         return "'" + getName() + "'";
     }
 
-    public ExpenseCategory setName(String name) {
+    public UsersCategory setName(String name) {
         this.name = name;
         return this;
     }
 
-    public static ExpenseCategory build(ResultSet resultSet){
+    public float getPrice() {
+        return price;
+    }
+
+    public String getPriceAsString(){
+        return String.valueOf(getPrice());
+    }
+
+    public UsersCategory setPrice(float price) {
+        this.price = price;
+        return this;
+    }
+
+    public static UsersCategory build(ResultSet resultSet){
         try {
-            return (new ExpenseCategory())
+            return (new UsersCategory())
                     .setId(resultSet.getInt("id"))
-                    .setName(resultSet.getString("name"));
+                    .setName(resultSet.getString("name"))
+                    .setPrice(resultSet.getFloat("price"));
         } catch (SQLException e) {
             e.printStackTrace();
         }

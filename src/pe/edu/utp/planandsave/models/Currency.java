@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class Currency {
     private int id;
     private String name;
-    private float exchange_rate;
+    private float exchangeRate;
 
     public int getId() {
         return id;
@@ -37,16 +37,16 @@ public class Currency {
         return this;
     }
 
-    public float getExchange_rate() {
-        return exchange_rate;
+    public float getExchangeRate() {
+        return exchangeRate;
     }
 
-    public String getExchange_rateAsString(){
-        return String.valueOf(getExchange_rate());
+    public String getExchangeRateAsString(){
+        return String.valueOf(getExchangeRate());
     }
 
-    public Currency setPrice(float exchange_rate) {
-        this.exchange_rate = exchange_rate;
+    public Currency setExchangeRate(float exchangeRate) {
+        this.exchangeRate = exchangeRate;
         return this;
     }
 
@@ -55,11 +55,10 @@ public class Currency {
             return (new Currency())
                     .setId(resultSet.getInt("id"))
                     .setName(resultSet.getString("name"))
-                    .setPrice(resultSet.getFloat("exchange_rate"));
+                    .setExchangeRate(resultSet.getFloat("exchange_rate"));
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
     }
-}
 }

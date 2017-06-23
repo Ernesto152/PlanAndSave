@@ -13,7 +13,20 @@ public class User {
     private String email;
     private String password;
     private float salary;
-    private UserCategory userCategory;
+    private UsersCategory usersCategory;
+
+    public User(int id, String firstName, String lastName, String email, String password, float salary, UsersCategory usersCategory) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.salary = salary;
+        this.usersCategory = usersCategory;
+    }
+
+    public User() {
+    }
 
     public int getId() {
         return id;
@@ -93,17 +106,17 @@ public class User {
         return this;
     }
 
-    public UserCategory getUserCategory() {
-        return userCategory;
+    public UsersCategory getUsersCategory() {
+        return usersCategory;
     }
 
 
-    public User setUserCategory(UserCategory userCategory) {
-        this.userCategory = userCategory;
+    public User setUsersCategory(UsersCategory usersCategory) {
+        this.usersCategory = usersCategory;
         return this;
     }
 
-    public static User build(ResultSet resultSet, UserCategoryEntity userCategoryEntity){
+    public static User build(ResultSet resultSet, UsersCategoryEntity usersCategoryEntity){
         try {
             return (new User())
                     .setId(resultSet.getInt("id"))
@@ -112,7 +125,7 @@ public class User {
                     .setEmail(resultSet.getString("email"))
                     .setPassword(resultSet.getString("password"))
                     .setSalary(resultSet.getFloat("salary"))
-                    .setUserCategory(userCategoryEntity.findById(resultSet.getInt("user_category_id")));
+                    .setUsersCategory(usersCategoryEntity.findById(resultSet.getInt("user_category_id")));
         } catch (SQLException e) {
             e.printStackTrace();
         }
