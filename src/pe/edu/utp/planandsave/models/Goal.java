@@ -5,7 +5,7 @@ import java.sql.SQLException;
 /**
  * Created by usuario on 16/06/2017.
  */
-public class Goal {
+public class Goal {//SDFSFFSDF
     private int id;
     private String name;
     private float progress;
