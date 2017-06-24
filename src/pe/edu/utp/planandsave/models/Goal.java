@@ -5,7 +5,7 @@ import java.sql.SQLException;
 /**
  * Created by usuario on 16/06/2017.
  */
-public class Goal {//SDFSFFSDF
+public class Goal {
     private int id;
     private String name;
     private float progress;
@@ -99,15 +99,15 @@ public class Goal {//SDFSFFSDF
         return this;
     }
 
-    public static Goal build(ResultSet resultSet, UsersEntity usersEntity, CurrenciesEntity currenciesEntity){
+    public static Goal build(ResultSet resultSet, UsersEntity usersEntity,UsersCategoryEntity usersCategoryEntity, CurrenciesEntity currenciesEntity){
         try {
             return (new Goal())
                     .setId(resultSet.getInt("id"))
                     .setName(resultSet.getString("name"))
                     .setProgress(resultSet.getFloat("progress"))
                     .setImage(resultSet.getString("image"))
-                    .setCost(resultSet.getString("cost"))
-                    .setUser(usersEntity.findById(resultSet.getInt("user_id")))
+                    .setCost(resultSet.getFloat("cost"))
+                    .setUser(usersEntity.findById(resultSet.getInt("user_id"), usersCategoryEntity))
                     .setCurrency(currenciesEntity.findById(resultSet.getInt("currency_id")));
         } catch (SQLException e) {
             e.printStackTrace();
