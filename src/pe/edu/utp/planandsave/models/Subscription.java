@@ -6,7 +6,7 @@ import java.sql.SQLException;
 /**
  * Created by Ernesto Chira on 16/06/2017.
  */
-public class UsersCategory {
+public class Subscription {
     private int id;
     private String name;
     private float price;
@@ -19,7 +19,7 @@ public class UsersCategory {
         return String.valueOf(getId());
     }
 
-    public UsersCategory setId(int id) {
+    public Subscription setId(int id) {
         this.id = id;
         return this;
     }
@@ -32,7 +32,7 @@ public class UsersCategory {
         return "'" + getName() + "'";
     }
 
-    public UsersCategory setName(String name) {
+    public Subscription setName(String name) {
         this.name = name;
         return this;
     }
@@ -45,14 +45,14 @@ public class UsersCategory {
         return String.valueOf(getPrice());
     }
 
-    public UsersCategory setPrice(float price) {
+    public Subscription setPrice(float price) {
         this.price = price;
         return this;
     }
 
-    public static UsersCategory build(ResultSet resultSet){
+    public static Subscription build(ResultSet resultSet){
         try {
-            return (new UsersCategory())
+            return (new Subscription())
                     .setId(resultSet.getInt("id"))
                     .setName(resultSet.getString("name"))
                     .setPrice(resultSet.getFloat("price"));

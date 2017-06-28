@@ -120,7 +120,7 @@ public class Debt {
         return this;
     }
 
-    public static Debt build(ResultSet resultSet, UsersEntity usersEntity, UsersCategoryEntity usersCategoryEntity,
+    public static Debt build(ResultSet resultSet, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity,
                              ExpensesCategoryEntity expensesCategoryEntity, CurrenciesEntity currenciesEntity){
         try {
             return (new Debt())
@@ -130,7 +130,7 @@ public class Debt {
                     .setPaymentTime(resultSet.getInt("payment_time"))
                     .setTotalAmount(resultSet.getFloat("total_amount"))
                     .setStartDate(resultSet.getDate("start_date"))
-                    .setUser(usersEntity.findById(resultSet.getInt("user_id"), usersCategoryEntity))
+                    .setUser(usersEntity.findById(resultSet.getInt("user_id"), subscriptionsEntity))
                     .setExpensesCategory(expensesCategoryEntity.findById(resultSet.getInt("expense_category_id")))
                     .setCurrency(currenciesEntity.findById(resultSet.getInt("currency_id")));
         } catch (SQLException e) {

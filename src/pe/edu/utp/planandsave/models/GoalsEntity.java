@@ -19,51 +19,43 @@ public class GoalsEntity extends BaseEntity{
         super();
     }
 
-    List<Goal> findAll(UsersEntity usersEntity, CurrenciesEntity currenciesEntity){
-        return findByCriteria("", usersEntity, currenciesEntity);
+    List<Goal> findAll(UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity,
+                       CurrenciesEntity currenciesEntity){
+        return findByCriteria("", usersEntity, subscriptionsEntity, currenciesEntity);
     }
 
-    public Goal findById(int id, UsersEntity usersEntity, CurrenciesEntity currenciesEntity){
+    public Goal findById(int id, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity,
+                         CurrenciesEntity currenciesEntity){
         String criteria = " id = " + id;
-        return findByCriteria(criteria, usersEntity, currenciesEntity).get(0);
+        return findByCriteria(criteria, usersEntity, subscriptionsEntity, currenciesEntity).get(0);
     }
 
-    public Goal findByName(String name, UsersEntity usersEntity, CurrenciesEntity currenciesEntity){
+    public Goal findByName(String name, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity,
+                           CurrenciesEntity currenciesEntity){
         String criteria = " name = '" + name + "'";
-        return findByCriteria(criteria, usersEntity, currenciesEntity).get(0);
+        return findByCriteria(criteria, usersEntity, subscriptionsEntity, currenciesEntity).get(0);
     }
 
-    public Goal findByCost(String cost, UsersEntity usersEntity, CurrenciesEntity currenciesEntity){
+    public Goal findByCost(String cost, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity,
+                           CurrenciesEntity currenciesEntity){
         String criteria = " cost = '" + cost + "'";
-        return findByCriteria(criteria, usersEntity, currenciesEntity).get(0);
+        return findByCriteria(criteria, usersEntity, subscriptionsEntity, currenciesEntity).get(0);
     }
 
-    public List<Goal> findByCriteria(String criteria, UsersEntity usersEntity, CurrenciesEntity currenciesEntity){
+    public List<Goal> findByCriteria(String criteria, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity,
+                                     CurrenciesEntity currenciesEntity){
         String sql = getDefaultQuery() + (criteria.isEmpty() ? "" : " WHERE " + criteria);
         List<Goal> goals = new ArrayList<>();
         try {
             ResultSet resultSet = getConnection().createStatement().executeQuery(sql);
             if (resultSet == null) return null;
             while (resultSet.next()){
-                goals.add(Goal.build(resultSet, usersEntity, currenciesEntity));
+                goals.add(Goal.build(resultSet, usersEntity, subscriptionsEntity, currenciesEntity));
             }
             return goals;
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
-    }
-
-    public boolean add(Goal goal){
-        String sql = "INSERT INTO goals(id, name, progress, image, cost, user_id, currency_id)" +
-                " VALUES(" +
-                goal.getIdAsString() + ", " +
-                goal.getNameAsValue() + ", " +
-                goal.getProgressAsString() + ", " +
-                goal.getImageAsValue() + ", " +
-                goal.getCostAsString() + ", " +
-                goal.getUser().getIdAsString() + ", " +
-                goal.getCurrency().getIdAsString() + ")";
-        return change(sql);
     }
 }

@@ -120,7 +120,7 @@ public class Expense {
         return this;
     }
 
-    public static Expense build(ResultSet resultSet, UsersEntity usersEntity, UsersCategoryEntity usersCategoryEntity,
+    public static Expense build(ResultSet resultSet, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity,
                                 ExpensesCategoryEntity expensesCategoryEntity, CurrenciesEntity currenciesEntity) {
         try {
             return (new Expense())
@@ -128,7 +128,7 @@ public class Expense {
                     .setAmount(resultSet.getFloat("amount"))
                     .setRegistrationDate(resultSet.getDate("registration_date"))
                     .setDescription(resultSet.getString("description"))
-                    .setUser(usersEntity.findById(resultSet.getInt("user_id"), usersCategoryEntity))
+                    .setUser(usersEntity.findById(resultSet.getInt("user_id"), subscriptionsEntity))
                     .setExpensesCategory(expensesCategoryEntity.findById(resultSet.getInt("expense_category_id")))
                     .setCurrency(currenciesEntity.findById(resultSet.getInt("currency_id")));
         } catch (SQLException e) {

@@ -8,9 +8,9 @@ import java.sql.SQLException;
 public class Goal {
     private int id;
     private String name;
-    private float progress;
-    private String image;
-    private float cost;
+    private float amount;
+    private String status;
+    private String imageUrl;
     private User user;
     private Currency currency;
 
@@ -40,49 +40,48 @@ public class Goal {
         return this;
     }
 
-    public float getProgress() {
-        return progress;
+    public float getAmount() {
+        return amount;
     }
 
-    public String getProgressAsString(){
-        return String.valueOf(getProgress());
+    public String getAmountAsString(){
+        return String.valueOf(getAmount());
     }
 
-    public Goal setProgress(float progress) {
-        this.progress = progress;
+    public Goal setAmount(float amount) {
+        this.amount = amount;
         return this;
     }
 
-    public String getImage() {
-        return image;
+    public String getStatus() {
+        return status;
     }
 
-    public String getImageAsValue(){
-        return "'" + getImage() + "'";
+    public String getStatusAsValue(){
+        return "'" + getStatus() + "'";
     }
 
-    public Goal setImage(String image) {
-        this.image = image;
+    public Goal setStatus(String status) {
+        this.status = status;
         return this;
     }
 
-    public float getCost() {
-        return cost;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public String getCostAsString(){
-        return String.valueOf(getCost());
+    public String getImageUrlAsValue(){
+        return "'" + getImageUrl() + "'";
     }
 
-    public Goal setCost(float cost) {
-        this.cost = cost;
+    public Goal setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
         return this;
     }
 
     public User getUser() {
         return user;
     }
-
 
     public Goal setUser(User user) {
         this.user = user;
@@ -93,21 +92,21 @@ public class Goal {
         return currency;
     }
 
-
     public Goal setCurrency(Currency currency) {
         this.currency = currency;
         return this;
     }
 
-    public static Goal build(ResultSet resultSet, UsersEntity usersEntity,UsersCategoryEntity usersCategoryEntity, CurrenciesEntity currenciesEntity){
+    public static Goal build(ResultSet resultSet, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity,
+                             CurrenciesEntity currenciesEntity){
         try {
             return (new Goal())
                     .setId(resultSet.getInt("id"))
                     .setName(resultSet.getString("name"))
-                    .setProgress(resultSet.getFloat("progress"))
-                    .setImage(resultSet.getString("image"))
-                    .setCost(resultSet.getFloat("cost"))
-                    .setUser(usersEntity.findById(resultSet.getInt("user_id"), usersCategoryEntity))
+                    .setAmount(resultSet.getFloat("amount"))
+                    .setStatus(resultSet.getString("status"))
+                    .setImageUrl(resultSet.getString("image_url"))
+                    .setUser(usersEntity.findById(resultSet.getInt("user_id"), subscriptionsEntity))
                     .setCurrency(currenciesEntity.findById(resultSet.getInt("currency_id")));
         } catch (SQLException e) {
             e.printStackTrace();
@@ -116,3 +115,4 @@ public class Goal {
     }
 
 }
+

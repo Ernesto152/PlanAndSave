@@ -9,37 +9,37 @@ import java.util.List;
 /**
  * Created by usuario on 16/06/2017.
  */
-public class UsersCategoryEntity extends BaseEntity {
+public class SubscriptionsEntity extends BaseEntity {
 
-    public UsersCategoryEntity(Connection connection) {
+    public SubscriptionsEntity(Connection connection) {
         super(connection, "user_category");
     }
 
-    public UsersCategoryEntity() {
+    public SubscriptionsEntity() {
     }
 
-    List<UsersCategory> findAll(){
+    List<Subscription> findAll(){
         return findByCriteria("");
     }
 
-    public UsersCategory findById(int id){
+    public Subscription findById(int id){
         String criteria = " id = " + String.valueOf(id);
         return findByCriteria(criteria).get(0);
     }
 
-    public UsersCategory findByName(String name){
+    public Subscription findByName(String name){
         String criteria = " name = '" + name + "'";
         return findByCriteria(criteria).get(0);
     }
 
-    public List<UsersCategory> findByCriteria(String criteria){
+    public List<Subscription> findByCriteria(String criteria){
         String sql = getDefaultQuery() + criteria == "" ? "" : " WHERE " + criteria;
-        List<UsersCategory> userCategories = new ArrayList<>();
+        List<Subscription> userCategories = new ArrayList<>();
         try {
             ResultSet resultSet = getConnection().createStatement().executeQuery(sql);
             if (resultSet == null) return null;
             while (resultSet.next()){
-                userCategories.add(UsersCategory.build(resultSet));
+                userCategories.add(Subscription.build(resultSet));
             }
             return userCategories;
         } catch (SQLException e) {

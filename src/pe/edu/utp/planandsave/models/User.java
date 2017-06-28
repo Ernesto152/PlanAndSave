@@ -13,16 +13,16 @@ public class User {
     private String email;
     private String password;
     private float salary;
-    private UsersCategory usersCategory;
+    private Subscription subscription;
 
-    public User(int id, String firstName, String lastName, String email, String password, float salary, UsersCategory usersCategory) {
+    public User(int id, String firstName, String lastName, String email, String password, float salary, Subscription subscription) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.salary = salary;
-        this.usersCategory = usersCategory;
+        this.subscription = subscription;
     }
 
     public User() {
@@ -106,17 +106,17 @@ public class User {
         return this;
     }
 
-    public UsersCategory getUsersCategory() {
-        return usersCategory;
+    public Subscription getSubscription() {
+        return subscription;
     }
 
 
-    public User setUsersCategory(UsersCategory usersCategory) {
-        this.usersCategory = usersCategory;
+    public User setSubscription(Subscription subscription) {
+        this.subscription = subscription;
         return this;
     }
 
-    public static User build(ResultSet resultSet, UsersCategoryEntity usersCategoryEntity){
+    public static User build(ResultSet resultSet, SubscriptionsEntity subscriptionsEntity){
         try {
             return (new User())
                     .setId(resultSet.getInt("id"))
@@ -125,7 +125,7 @@ public class User {
                     .setEmail(resultSet.getString("email"))
                     .setPassword(resultSet.getString("password"))
                     .setSalary(resultSet.getFloat("salary"))
-                    .setUsersCategory(usersCategoryEntity.findById(resultSet.getInt("user_category_id")));
+                    .setSubscription(subscriptionsEntity.findById(resultSet.getInt("user_category_id")));
         } catch (SQLException e) {
             e.printStackTrace();
         }

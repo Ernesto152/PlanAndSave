@@ -19,18 +19,18 @@ public class ExpensesEntity extends BaseEntity {
         super();
     }
 
-    List<Expense> findAll(UsersEntity usersEntity, UsersCategoryEntity usersCategoryEntity, ExpensesCategoryEntity expensesCategoryEntity,
+    List<Expense> findAll(UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity, ExpensesCategoryEntity expensesCategoryEntity,
                           CurrenciesEntity currenciesEntity){
-        return findByCriteria("", usersEntity, usersCategoryEntity, expensesCategoryEntity, currenciesEntity);
+        return findByCriteria("", usersEntity, subscriptionsEntity, expensesCategoryEntity, currenciesEntity);
     }
 
-    public Expense findById(int id, UsersEntity usersEntity, UsersCategoryEntity usersCategoryEntity,
+    public Expense findById(int id, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity,
                             ExpensesCategoryEntity expensesCategoryEntity, CurrenciesEntity currenciesEntity){
         String criteria = " id = " + id;
-        return findByCriteria(criteria, usersEntity, usersCategoryEntity, expensesCategoryEntity, currenciesEntity).get(0);
+        return findByCriteria(criteria, usersEntity, subscriptionsEntity, expensesCategoryEntity, currenciesEntity).get(0);
     }
 
-    public List<Expense> findByCriteria(String criteria, UsersEntity usersEntity, UsersCategoryEntity usersCategoryEntity,
+    public List<Expense> findByCriteria(String criteria, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity,
                                         ExpensesCategoryEntity expensesCategoryEntity, CurrenciesEntity currenciesEntity) {
         String sql = getDefaultQuery() + (criteria.isEmpty() ? "" : " WHERE " + criteria);
         List<Expense> expenses = new ArrayList<>();
@@ -38,7 +38,7 @@ public class ExpensesEntity extends BaseEntity {
             ResultSet resultSet = getConnection().createStatement().executeQuery(sql);
             if(resultSet == null) return null;
             while(resultSet.next()) {
-                expenses.add(Expense.build(resultSet, usersEntity, usersCategoryEntity,
+                expenses.add(Expense.build(resultSet, usersEntity, subscriptionsEntity,
                         expensesCategoryEntity, currenciesEntity));
             }
         } catch (SQLException e) {

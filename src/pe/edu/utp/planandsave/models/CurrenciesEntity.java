@@ -28,7 +28,9 @@ public class CurrenciesEntity extends BaseEntity {
     }
 
     public List<Currency> findByCriteria(String criteria) {
-        String sql = getDefaultQuery() + criteria == "" ? "" : " WHERE " + criteria;
+        //String sql = getDefaultQuery() + criteria == "" ? "" : " WHERE " + criteria;
+        String sql = getDefaultQuery() +
+                (criteria.equalsIgnoreCase("") ? "" : " WHERE " + criteria);
         List<Currency> currencies = new ArrayList<>();
         try {
             ResultSet resultSet = getConnection().createStatement().executeQuery(sql);
@@ -42,4 +44,27 @@ public class CurrenciesEntity extends BaseEntity {
         }
         return null;
     }
+
+    /*
+    public List<Region> findByCriteria(String criteria) {
+        String sql = getDefaultQuery() +
+                (criteria.equalsIgnoreCase("") ? "" : " WHERE " + criteria);
+        List<Region> regions = new ArrayList<>();
+        try {
+            ResultSet resultSet = getConnection()
+                    .createStatement()
+                    .executeQuery(sql);
+            if(resultSet == null) return null;
+            while(resultSet.next()) {
+                regions.add((new Region())
+                        .setId(resultSet.getInt("region_id"))
+                        .setName(resultSet.getString("region_name")));
+            }
+            return regions;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+     */
 }
