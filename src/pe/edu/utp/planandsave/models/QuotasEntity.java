@@ -14,21 +14,24 @@ public class QuotasEntity extends BaseEntity {
 
     public QuotasEntity() { super();}
 
-    List<Quota> findAll(DebtsEntity debtsEntity){
-        return findByCriteria("", debtsEntity);
+    List<Quota> findAll(DebtsEntity debtsEntity, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity, ExpensesCategoryEntity expensesCategoryEntity,
+                        CurrenciesEntity currenciesEntity){
+        return findByCriteria("", debtsEntity, usersEntity, subscriptionsEntity,expensesCategoryEntity,currenciesEntity);
     }
-    public Quota findByCriteria(int id, DebtsEntity debtsEntity){
+    public Quota findByCriteria(int id, DebtsEntity debtsEntity, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity, ExpensesCategoryEntity expensesCategoryEntity,
+                                CurrenciesEntity currenciesEntity){
         String criteria = " id = " + id;
-        return findByCriteria(criteria, debtsEntity).get(0);
+        return findByCriteria(criteria, debtsEntity, usersEntity, subscriptionsEntity,expensesCategoryEntity,currenciesEntity).get(0);
     }
-    public List<Quota> findByCriteria(String criteria, DebtsEntity debtsEntity) {
+    public List<Quota> findByCriteria(String criteria, DebtsEntity debtsEntity, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity, ExpensesCategoryEntity expensesCategoryEntity,
+                                      CurrenciesEntity currenciesEntity) {
         String sql = getDefaultQuery() + (criteria.isEmpty() ? "" : " WHERE " + criteria);
         List<Quota> quotas = new ArrayList<>();
         try {
             ResultSet resultSet = getConnection().createStatement().executeQuery(sql);
             if(resultSet == null) return null;
             while(resultSet.next()) {
-                quotas.add(Quota.build(resultSet, debtsEntity));
+                quotas.add(Quota.build(resultSet, debtsEntity, usersEntity, subscriptionsEntity, expensesCategoryEntity, currenciesEntity));
             }
             return quotas;
         } catch (SQLException e) {
