@@ -19,8 +19,7 @@ public class UsersEntity extends BaseEntity{
         super();
     }
 
-    List<User> findAll(SubscriptionsEntity subscriptionsEntity){
-        return findByCriteria("", subscriptionsEntity);
+    List<User> findAll(SubscriptionsEntity subscriptionsEntity){ return findByCriteria("", subscriptionsEntity);
     }
 
     public User findById(int id, SubscriptionsEntity subscriptionsEntity){

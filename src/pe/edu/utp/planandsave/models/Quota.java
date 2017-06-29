@@ -77,7 +77,6 @@ public class Quota {
                     .setPaymentDate(resultSet.getDate("payment_date"))
                     .setAmount(resultSet.getFloat("amount"))
                     .setDebt(debtsEntity.findById(resultSet.getInt("debt_id")));
-
         } catch (SQLException e) {
             e.printStackTrace();
 
