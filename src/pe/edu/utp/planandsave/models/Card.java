@@ -7,6 +7,7 @@ import java.sql.SQLException;
  * Created by usuario on 27/06/2017.
  */
 public class Card {
+
     private  int id;
     private  int number;
     private User user;
@@ -73,4 +74,5 @@ public class Card {
         }
         return null;
     }
+
 }
