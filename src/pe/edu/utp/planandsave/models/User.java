@@ -1,5 +1,6 @@
 package pe.edu.utp.planandsave.models;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -12,20 +13,22 @@ public class User {
     private String lastName;
     private String email;
     private String password;
-    private float salary;
+    private Date subscriptionRenovation;
     private Subscription subscription;
 
-    public User(int id, String firstName, String lastName, String email, String password, float salary, Subscription subscription) {
+
+
+    public User() {
+    }
+
+    public User(int id, String firstName, String lastName, String email, String password, Date subscriptionRenovation, Subscription subscription) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-        this.salary = salary;
+        this.setSubscriptionRenovation(subscriptionRenovation);
         this.subscription = subscription;
-    }
-
-    public User() {
     }
 
     public int getId() {
@@ -93,23 +96,27 @@ public class User {
         return this;
     }
 
-    public float getSalary() {
-        return salary;
+    public Date getSubscriptionRenovation() {
+        return subscriptionRenovation;
     }
 
-    public String getSalaryAsString(){
-        return String.valueOf(getSalary());
+    public String getSubscriptionRenovationAsValue(){
+        return "'" + getSubscriptionRenovation() + "'";
     }
 
-    public User setSalary(float salary) {
-        this.salary = salary;
+    public User setSubscriptionRenovation(Date subscriptionRenovation) {
+        this.subscriptionRenovation = subscriptionRenovation;
         return this;
     }
+
 
     public Subscription getSubscription() {
         return subscription;
     }
 
+    public String getSubscriptionAsString(){
+        return String.valueOf(getSubscription());
+    }
 
     public User setSubscription(Subscription subscription) {
         this.subscription = subscription;
@@ -124,7 +131,7 @@ public class User {
                     .setLastName(resultSet.getString("last_name"))
                     .setEmail(resultSet.getString("email"))
                     .setPassword(resultSet.getString("password"))
-                    .setSalary(resultSet.getFloat("salary"))
+                    .setSubscriptionRenovation(resultSet.getDate("subscription_renovation"))
                     .setSubscription(subscriptionsEntity.findById(resultSet.getInt("user_category_id")));
         } catch (SQLException e) {
             e.printStackTrace();

@@ -33,7 +33,7 @@ public class SubscriptionsEntity extends BaseEntity {
     }
 
     public List<Subscription> findByCriteria(String criteria){
-        String sql = getDefaultQuery() + criteria == "" ? "" : " WHERE " + criteria;
+        String sql = getDefaultQuery() + (criteria.equalsIgnoreCase("") ? "" : " WHERE " + criteria);
         List<Subscription> userCategories = new ArrayList<>();
         try {
             ResultSet resultSet = getConnection().createStatement().executeQuery(sql);

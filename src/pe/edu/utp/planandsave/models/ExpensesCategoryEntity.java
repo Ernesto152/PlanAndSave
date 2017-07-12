@@ -33,7 +33,7 @@ public class ExpensesCategoryEntity extends BaseEntity {
     }
 
     public List<ExpensesCategory> findByCriteria(String criteria){
-        String sql = getDefaultQuery() + criteria == "" ? "" : " WHERE " + criteria;
+        String sql = getDefaultQuery() +(criteria.equalsIgnoreCase("") ? "" : " WHERE " + criteria);
         List<ExpensesCategory> expenseCategories = new ArrayList<>();
         try {
             ResultSet resultSet = getConnection().createStatement().executeQuery(sql);
