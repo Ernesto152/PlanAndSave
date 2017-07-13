@@ -12,11 +12,6 @@
 
 <html>
 <head title="Sign Up">
-    <style>
-        body {
-            background: rgba(251, 31, 58, 0.84);
-        }
-    </style>
 </head>
 <body>
 <b:container>
