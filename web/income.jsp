@@ -25,7 +25,7 @@
 <b:container>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
-            <table class="table table-bordered table-inverse">
+            <table class="table table-bordered table-inverse table-striped">
                 <thead>
                 <tr class="bg-primary">
                     <th>#</th>

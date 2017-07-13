@@ -9,7 +9,7 @@
 <%@ taglib prefix="b" uri="http://bootstrapjsp.org/" %>
 <jsp:include page="bootstrap.jsp"/>
 
-        <nav class="navbar navbar-inverse navbar-fixed-top">
+        <nav class="navbar navbar-fixed-top navbar-default">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -23,7 +23,7 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="index.jsp">Home</a></li>
-                        <li><a href="#">Monitorea</a></li>
+                        <li ><a href="overview.jsp">Monitorea</a></li>
                         <li><a href="income.jsp">Reduce tus gastos</a></li>
                         <li><a href="#">Alcanza tus metas</a></li>
                         <li class="dropdown">
