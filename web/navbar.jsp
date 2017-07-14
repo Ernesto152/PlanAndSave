@@ -31,7 +31,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="#">Ingresos</a></li>
                                 <li><a href="#">Gastos</a></li>
-                                <li><a href="#">Deudas</a></li>
+                                <li><a href="expense.jsp">Deudas</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#">Metas</a></li>
                             </ul>
