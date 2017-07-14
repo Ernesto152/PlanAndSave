@@ -7,12 +7,16 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="b" uri="http://bootstrapjsp.org/" %>
+
 <jsp:include page="bootstrap.jsp"/>
 <jsp:include page="navbar.jsp"/>
 
 
 <html>
 <head title="Plan&Save">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="js/overviewChart.js"></script>
 </head>
 <body>
 
@@ -25,13 +29,15 @@
 
 <b:container>
     <b:row>
-        <div class="col-xs-4 col-xs-offset-4 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4">
-            Main Column
+        <div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 col-lg-10 col-lg-offset-2">
+            <div class="chart">
+                <div id="chart_div1"/>
+            </div>
         </div>
     </b:row>
 
     <b:row>
-        <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2  table-responsive">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
             <table class="table table-bordered table-inverse table-striped">
                 <thead>
                 <tr class="bg-primary">
