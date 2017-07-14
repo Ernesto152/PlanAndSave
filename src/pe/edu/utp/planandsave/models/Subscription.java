@@ -10,6 +10,7 @@ public class Subscription {
     private int id;
     private String name;
     private float price;
+    private int duration;
 
     public int getId() {
         return id;
@@ -50,15 +51,30 @@ public class Subscription {
         return this;
     }
 
+    public int getDuration() {
+        return duration;
+    }
+
+    public String getDurationAsString(){
+        return String.valueOf(getDuration());
+    }
+
+    public Subscription setDuration(int duration) {
+        this.duration = duration;
+        return this;
+    }
+
     public static Subscription build(ResultSet resultSet){
         try {
             return (new Subscription())
                     .setId(resultSet.getInt("id"))
                     .setName(resultSet.getString("name"))
-                    .setPrice(resultSet.getFloat("price"));
+                    .setPrice(resultSet.getFloat("price"))
+                    .setDuration(resultSet.getInt("duration"));
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
     }
+
 }
