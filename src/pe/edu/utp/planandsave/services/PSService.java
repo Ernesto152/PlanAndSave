@@ -1,5 +1,6 @@
 package pe.edu.utp.planandsave.services;
 
+import pe.edu.utp.planandsave.models.ExpensesCategory;
 import pe.edu.utp.planandsave.models.Currency;
 import pe.edu.utp.planandsave.models.PSDataStore;
 
@@ -52,6 +53,18 @@ public class PSService {
     public List<Currency> getCurrencies(){
         return getDataStore().findAllCurrencies();
     }
+
+    /*--------------------------------------------------------------*/
+
+    public List<ExpensesCategory> getExpenseCategories() {
+        return getDataStore().findAllExpenseCategories();
+    }
+
+    public boolean createExpenseCategory(ExpensesCategory expensesCategory){
+        return getDataStore().createExpenseCategory(expensesCategory);
+    }
+
+
 
     /*
     public List<Region> getRegions() {

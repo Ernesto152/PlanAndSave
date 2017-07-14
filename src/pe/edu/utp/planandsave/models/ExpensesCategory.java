@@ -10,6 +10,14 @@ public class ExpensesCategory {
     private int id;
     private String name;
 
+    public ExpensesCategory(){
+    }
+
+    public ExpensesCategory(int id, String name){
+        this.id=id;
+        this.name=name;
+    }
+
     public int getId() {
         return id;
     }

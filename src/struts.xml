@@ -10,5 +10,11 @@
             <result name="success">welcome.jsp</result>
             <result name="input">pruebastruts.jsp</result>
         </action>
+
+
+        <action name="ExpenseCategory" class="pe.edu.utp.planandsave.actions.ExpensesCategoryAction">
+            <result name="success">pruebaExpenseCategories.jsp</result>
+            <result name="input">ExpenseCategories.jsp</result>
+        </action>
     </package>
 </struts>

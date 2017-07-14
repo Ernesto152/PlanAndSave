@@ -75,7 +75,7 @@
                 </tbody>
             </table>
             <div class="pull-right">
-                <button type="submit" class="btn btn-primary">Registrar nuevo ingreso</button>
+                <a href="ExpenseCategories.jsp" type="button" class="btn btn-primary">Registrar nuevo ingreso</a>
             </div>
         </div>
     </div>

@@ -38,5 +38,16 @@ public class IncomesEntity extends BaseEntity {
         }
         return null;
     }
+
+    public boolean add(Income income) {
+        String sql = "INSERT INTO incomes(id, amount, description, registration_date, user_id, currency_id) " +
+                "VALUES(" + income.getIdAsString() + ", " +
+                            income.getAmount() + ", " +
+                            income.getDescriptionAsValue() + ", " +
+                            income.getRegistrationDateAsValue() + ", " +
+                            income.getUserAsString() + ", " +
+                            income.getCurrencyAsString() + ")";
+        return change(sql);
+    }
 }
 
