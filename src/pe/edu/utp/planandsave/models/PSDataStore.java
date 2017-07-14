@@ -9,12 +9,11 @@ import java.util.List;
 public class PSDataStore {
     private Connection connection;
     private CurrenciesEntity currenciesEntity;
-
     private ExpensesCategoryEntity expensesCategoryEntity;
-
     private UsersEntity usersEntity;
     private SubscriptionsEntity subscriptionsEntity;
     private IncomesEntity incomesEntity;
+
 
     public PSDataStore(Connection connection) {
         this.setConnection(connection);

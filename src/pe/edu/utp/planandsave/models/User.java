@@ -13,6 +13,7 @@ public class User {
     private String lastName;
     private String email;
     private String password;
+    private Date subscriptionStart;
     private Date subscriptionRenovation;
     private Subscription subscription;
 
@@ -96,6 +97,19 @@ public class User {
         return this;
     }
 
+    public Date getSubscriptionStart() {
+        return subscriptionStart;
+    }
+
+    public String getSubscriptionStartAsValue(){
+        return "'" + getSubscriptionStart() + "'";
+    }
+
+    public User setSubscriptionStart(Date subscriptionStart) {
+        this.subscriptionStart = subscriptionStart;
+        return this;
+    }
+
     public Date getSubscriptionRenovation() {
         return subscriptionRenovation;
     }
@@ -131,11 +145,13 @@ public class User {
                     .setLastName(resultSet.getString("last_name"))
                     .setEmail(resultSet.getString("email"))
                     .setPassword(resultSet.getString("password"))
+                    .setSubscriptionStart(resultSet.getDate("subscription_start"))
                     .setSubscriptionRenovation(resultSet.getDate("subscription_renovation"))
-                    .setSubscription(subscriptionsEntity.findById(resultSet.getInt("user_category_id")));
+                    .setSubscription(subscriptionsEntity.findById(resultSet.getInt("subscriptions")));
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
     }
+
 }
