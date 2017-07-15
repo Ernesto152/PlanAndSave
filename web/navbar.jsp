@@ -23,13 +23,13 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="index.jsp">Home</a></li>
-                        <li ><a href="#">Monitorea</a></li>
+                        <li ><a href="overview.jsp">Monitorea</a></li>
                         <li><a href="income.jsp">Reduce tus gastos</a></li>
                         <li><a href="#">Alcanza tus metas</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">¿Deseas registrar algo? <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Ingresos</a></li>
+                                <li><a href="formIncome.jsp">Ingresos</a></li>
                                 <li><a href="#">Gastos</a></li>
                                 <li><a href="debt.jsp">Deudas</a></li>
                                 <li role="separator" class="divider"></li>

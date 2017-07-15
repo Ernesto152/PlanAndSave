@@ -1,8 +1,6 @@
 package pe.edu.utp.planandsave.services;
 
-import pe.edu.utp.planandsave.models.ExpensesCategory;
-import pe.edu.utp.planandsave.models.Currency;
-import pe.edu.utp.planandsave.models.PSDataStore;
+import pe.edu.utp.planandsave.models.*;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -50,11 +48,24 @@ public class PSService {
         return dataStore;
     }
 
+    //Currencies
+
     public List<Currency> getCurrencies(){
         return getDataStore().findAllCurrencies();
     }
 
-    /*--------------------------------------------------------------*/
+    public Currency getCurrenciesById(int id){
+        return  getDataStore().findCurrencyById(id);
+    }
+
+    public Currency getCurrenciesById(String id){
+        return getDataStore().findCurrencyById(Integer.parseInt(id));
+    }
+
+
+    //Subscriptions
+
+    //Expenses
 
     public List<ExpensesCategory> getExpenseCategories() {
         return getDataStore().findAllExpenseCategories();
@@ -63,6 +74,24 @@ public class PSService {
     public boolean createExpenseCategory(ExpensesCategory expensesCategory){
         return getDataStore().createExpenseCategory(expensesCategory);
     }
+
+    //Incomes
+
+    public List<Income> getIncomes() {
+        return getDataStore().findAllIncomes();
+    }
+
+    public boolean createIncome(Income income){
+        return getDataStore().createIncome(income);
+    }
+
+    //Users
+
+    public boolean createUser(User user){
+        return getDataStore().createUser(user);
+    }
+
+
 
 
 

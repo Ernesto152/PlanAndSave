@@ -25,57 +25,59 @@
 <b:container>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
-            <table class="table table-bordered table-inverse table-striped">
-                <thead>
-                <tr class="bg-primary">
-                    <th>#</th>
-                    <th>Monto</th>
-                    <th>Fecha</th>
-                    <th>Descripción</th>
-                    <th>Acción</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>s/. 4500. 00</td>
-                    <td>20/04</td>
-                    <td>Sueldo</td>
-                    <td>
-                        <p>
-                            <button type="button" class="btn btn-sm btn-info">Editar</button>
-                            <button type="button" class="btn btn-sm btn-danger">Eliminar</button>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>$ 100. 00</td>
-                    <td>21/04</td>
-                    <td>Bono</td>
-                    <td>
-                        <p>
-                            <button type="button" class="btn btn-sm btn-info">Editar</button>
-                            <button type="button" class="btn btn-sm btn-danger">Eliminar</button>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>s/. 750. 00</td>
-                    <td>10/04</td>
-                    <td>Regalías</td>
-                    <td>
-                        <p>
-                            <button type="button" class="btn btn-sm btn-info">Editar</button>
-                            <button type="button" class="btn btn-sm btn-danger">Eliminar</button>
-                        </p>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="table table-bordered table-inverse table-striped table-responsive">
+                    <thead>
+                    <tr class="bg-primary">
+                        <th>#</th>
+                        <th>Monto</th>
+                        <th>Fecha</th>
+                        <th>Descripción</th>
+                        <th>Acción</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>s/. 4500. 00</td>
+                        <td>20/04</td>
+                        <td>Sueldo</td>
+                        <td>
+                            <p>
+                                <button type="button" class="btn btn-sm btn-info">Editar</button>
+                                <button type="button" class="btn btn-sm btn-danger">Eliminar</button>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>$ 100. 00</td>
+                        <td>21/04</td>
+                        <td>Bono</td>
+                        <td>
+                            <p>
+                                <button type="button" class="btn btn-sm btn-info">Editar</button>
+                                <button type="button" class="btn btn-sm btn-danger">Eliminar</button>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>s/. 750. 00</td>
+                        <td>10/04</td>
+                        <td>Regalías</td>
+                        <td>
+                            <p>
+                                <button type="button" class="btn btn-sm btn-info">Editar</button>
+                                <button type="button" class="btn btn-sm btn-danger">Eliminar</button>
+                            </p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
             <div class="pull-right">
-                <a href="ExpenseCategories.jsp" type="button" class="btn btn-primary">Registrar nuevo ingreso</a>
+                <a href="#" type="button" class="btn btn-primary">Registrar nuevo ingreso</a>
             </div>
         </div>
     </div>

@@ -12,9 +12,19 @@
         </action>
 
 
-        <action name="ExpenseCategory" class="pe.edu.utp.planandsave.actions.ExpensesCategoryAction">
+        <action name="*Expense" class="pe.edu.utp.planandsave.actions.ExpensesCategoryAction" method="{1}">
             <result name="success">pruebaExpenseCategories.jsp</result>
-            <result name="input">ExpenseCategories.jsp</result>
+            <result name="input">error.jsp</result>
+        </action>
+
+        <action name="*Income" class="pe.edu.utp.planandsave.actions.IncomeAction" method="{1}">
+            <result name="success">formIncome.jsp</result>
+            <result name="input">formIncome.jsp</result>
+        </action>
+
+        <action name="*User" class="pe.edu.utp.planandsave.actions.UserAction" method="{1}">
+            <result name="success">signup.jsp</result>
+            <result name="input">error.jsp</result>
         </action>
     </package>
 </struts>

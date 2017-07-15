@@ -59,16 +59,17 @@ public class UsersEntity extends BaseEntity{
     }
 
     public boolean add(User user){
-        String sql = "INSERT INTO users(id, first_name, last_name, email, password, subscription_start, subscription_renovation, subscription_id)" +
+        String sql = "INSERT INTO users(first_name, last_name, email, password, subscription_start, subscription_renovation, subscription_id)" +
                 " VALUES(" +
-                    user.getIdAsString() + ", " +
                     user.getFirstNameAsValue() + ", " +
                     user.getLastNameAsValue() + ", " +
                     user.getEmailAsValue() + ", " +
                     user.getPasswordAsValue() + ", " +
-                    user.getSubscriptionStartAsValue() + ", " +
-                    user.getSubscriptionRenovationAsValue() + ", " +
-                    user.getSubscription().getIdAsString() + ")";
+                    "CURDATE(), " +
+                    "DATE_ADD(CURDATE(), INTERVAL 180 DAY), " +
+                    "1)";
         return change(sql);
+
+
     }
 }

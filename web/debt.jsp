@@ -57,10 +57,7 @@
             </div>
         </div>
         <div class="form-group">
-            <div class="col-md-2 col-md-offset-2">
-                <input class="btn btn-sm btn-default" type="button" value="Nueva Categoria">
-            </div>
-            <div class="dropdown col-md-2">
+            <div class="dropdown col-md-2 col-md-offset-2 col-lg-offset-2">
                 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownmenu1" data-toggle="dropdown" aria-extended="true">
                     Categoria
                     <span class="caret"></span>

@@ -17,7 +17,8 @@ public class Income {
 
     public Income() {
     }
-    public Income(int id, float amount, String description, Date registrationDate, User user, Currency currency){
+
+    public Income(int id, float amount, String description, Date registrationDate, User user, Currency currency) {
         this.setId(id);
         this.setAmount(amount);
         this.setDescription(description);
@@ -26,9 +27,11 @@ public class Income {
         this.setCurrency(currency);
     }
 
-    public int getId() {return id;    }
+    public int getId() {
+        return id;
+    }
 
-    public String getIdAsString(){
+    public String getIdAsString() {
         return String.valueOf(getId());
     }
 
@@ -37,9 +40,11 @@ public class Income {
         return this;
     }
 
-    public float getAmount() { return amount;   }
+    public float getAmount() {
+        return amount;
+    }
 
-    public String getAmountAsString(){
+    public String getAmountAsString() {
         return String.valueOf(getAmount());
     }
 
@@ -48,9 +53,11 @@ public class Income {
         return this;
     }
 
-    public String getDescription() { return description;   }
+    public String getDescription() {
+        return description;
+    }
 
-    public String getDescriptionAsValue(){
+    public String getDescriptionAsValue() {
         return "'" + getDescription() + "'";
     }
 
@@ -59,9 +66,11 @@ public class Income {
         return this;
     }
 
-    public Date getRegistrationDate() { return registrationDate; }
+    public Date getRegistrationDate() {
+        return registrationDate;
+    }
 
-    public String getRegistrationDateAsValue(){
+    public String getRegistrationDateAsValue() {
         return "'" + getRegistrationDate() + "'";
     }
 
@@ -70,9 +79,11 @@ public class Income {
         return this;
     }
 
-    public User getUser() { return user;    }
+    public User getUser() {
+        return user;
+    }
 
-    public String getUserAsString(){
+    public String getUserAsString() {
         return String.valueOf(getUser());
     }
 
@@ -81,9 +92,11 @@ public class Income {
         return this;
     }
 
-    public Currency getCurrency() { return currency;    }
+    public Currency getCurrency() {
+        return currency;
+    }
 
-    public String getCurrencyAsString(){
+    public String getCurrencyAsString() {
         return String.valueOf(getCurrency());
     }
 
@@ -91,8 +104,9 @@ public class Income {
         this.currency = currency;
         return this;
     }
+
     public static Income build(ResultSet resultSet, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity,
-                               CurrenciesEntity currenciesEntity){
+                               CurrenciesEntity currenciesEntity) {
         try {
             return (new Income())
                     .setId(resultSet.getInt("id"))
@@ -107,6 +121,4 @@ public class Income {
         }
         return null;
     }
-
-
 }

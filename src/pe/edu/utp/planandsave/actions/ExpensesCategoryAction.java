@@ -40,7 +40,7 @@ public class ExpensesCategoryAction extends ActionSupport {
         this.expensesCategory = expensesCategory;
     }
 
-    public String execute() {
+    public String add() {
         expensesCategory = new ExpensesCategory(id, name);
         try {
             PSService PSS = new PSService();
@@ -51,4 +51,9 @@ public class ExpensesCategoryAction extends ActionSupport {
             return "input";
         }
     }
+
+    public String execute() {
+        return SUCCESS;
+    }
+
     }

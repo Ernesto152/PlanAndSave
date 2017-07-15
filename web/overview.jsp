@@ -29,52 +29,56 @@
 
 <b:container>
     <b:row>
-        <div class="col-xs-10 col-xs-offset-2 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 col-lg-10 col-lg-offset-2">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
             <div class="chart">
                 <div id="chart_div1"/>
             </div>
         </div>
     </b:row>
+</b:container>
 
+<b:container>
     <b:row>
         <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
-            <table class="table table-bordered table-inverse table-striped">
-                <thead>
-                <tr class="bg-primary">
-                    <th>Año</th>
-                    <th>Mes</th>
-                    <th>Ingreso</th>
-                    <th>Gasto</th>
-                    <th>Deuda</th>
-                    <th>Saldo</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>2017</td>
-                    <td>Abril</td>
-                    <td>s/. 4500. 00</td>
-                    <td>s/. 1000. 00</td>
-                    <td>s/. 1500. 00</td>
-                    <td>s/. 2000. 00</td>
-                </tr>
-                <tr>
-                    <td>2017</td>
-                    <td>Mayo</td>
-                    <td>s/. 5000. 00</td>
-                    <td>s/. 800. 00</td>
-                    <td>s/. 1500. 00</td>
-                    <td>s/. 2700. 00</td>
-                </tr>
-                <tr class="info">
-                    <td colspan="2">Total</td>
-                    <td>s/. 9500. 00</td>
-                    <td>s/. 1800. 00</td>
-                    <td>s/. 3000. 00</td>
-                    <td>s/. 4700. 00</td>
-                </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="table table-bordered table-inverse table-striped">
+                    <thead>
+                    <tr class="bg-primary">
+                        <th>Año</th>
+                        <th>Mes</th>
+                        <th>Ingreso</th>
+                        <th>Gasto</th>
+                        <th>Deuda</th>
+                        <th>Saldo</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>2017</td>
+                        <td>Abril</td>
+                        <td>s/. 4500. 00</td>
+                        <td>s/. 1000. 00</td>
+                        <td>s/. 1500. 00</td>
+                        <td>s/. 2000. 00</td>
+                    </tr>
+                    <tr>
+                        <td>2017</td>
+                        <td>Mayo</td>
+                        <td>s/. 5000. 00</td>
+                        <td>s/. 800. 00</td>
+                        <td>s/. 1500. 00</td>
+                        <td>s/. 2700. 00</td>
+                    </tr>
+                    <tr class="info">
+                        <td colspan="2">Total</td>
+                        <td>s/. 9500. 00</td>
+                        <td>s/. 1800. 00</td>
+                        <td>s/. 3000. 00</td>
+                        <td>s/. 4700. 00</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </b:row>
     <jsp:include page="footer.jsp"/>

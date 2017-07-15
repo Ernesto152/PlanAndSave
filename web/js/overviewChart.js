@@ -30,7 +30,7 @@ function drawChart() {
         fontName: 'Arial',
         colors:['#CC0000', '#FF8C00', '#1E90FF'],
         pieSliceText: 'value',
-        'height':500};
+        'height': 600};
 
     var chart = new google.visualization.PieChart(document.getElementById('chart_div1'));
     chart.draw(data, options);

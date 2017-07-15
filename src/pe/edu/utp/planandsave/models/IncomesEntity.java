@@ -40,13 +40,13 @@ public class IncomesEntity extends BaseEntity {
     }
 
     public boolean add(Income income) {
-        String sql = "INSERT INTO incomes(id, amount, description, registration_date, user_id, currency_id) " +
-                "VALUES(" + income.getIdAsString() + ", " +
+        String sql = "INSERT INTO incomes(amount, description, registration_date, user_id, currency_id) " +
+                "VALUES(    " +
                             income.getAmount() + ", " +
                             income.getDescriptionAsValue() + ", " +
-                            income.getRegistrationDateAsValue() + ", " +
-                            income.getUserAsString() + ", " +
-                            income.getCurrencyAsString() + ")";
+                            "CURDATE(), " +
+                            "1 , " +
+                            income.getCurrency().getIdAsString() +")";
         return change(sql);
     }
 }

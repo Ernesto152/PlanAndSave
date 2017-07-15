@@ -31,6 +31,7 @@ public class PSDataStore {
         return this;
     }
 
+    //Currencies
     private CurrenciesEntity getCurrenciesEntity(){
         if (currenciesEntity == null){
             currenciesEntity = new CurrenciesEntity(getConnection());
@@ -42,8 +43,11 @@ public class PSDataStore {
         return getCurrenciesEntity().findAll();
     }
 
-    /*----------------------------------------------------
+    public Currency findCurrencyById(int id){
+        return getCurrenciesEntity().findById(id);
+    }
 
+    //Subscriptions
     private SubscriptionsEntity getSubscriptionsEntity(){
         if (subscriptionsEntity == null){
             subscriptionsEntity = new SubscriptionsEntity(getConnection());
@@ -55,6 +59,7 @@ public class PSDataStore {
         return getSubscriptionsEntity().findAll();
     }
 
+    //Users
     private UsersEntity getUsersEntity(){
         if (usersEntity == null){
             usersEntity = new UsersEntity(getConnection());
@@ -66,6 +71,11 @@ public class PSDataStore {
         return getUsersEntity().findAll(getSubscriptionsEntity());
     }
 
+    public boolean createUser(User user){
+        return getUsersEntity().add((user));
+    }
+
+    //Incomes
     private IncomesEntity getIncomesEntity(){
         if (incomesEntity == null){
             incomesEntity = new IncomesEntity(getConnection());
@@ -81,7 +91,7 @@ public class PSDataStore {
         return getIncomesEntity().add(income);
     }
 
-    ------------------------------------------------------------*/
+    // Expenses
     private ExpensesCategoryEntity getExpensesCategoryEntity(){
         if(expensesCategoryEntity == null){
             expensesCategoryEntity = new ExpensesCategoryEntity(getConnection());
