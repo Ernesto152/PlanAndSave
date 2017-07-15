@@ -7,11 +7,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <jsp:include page="bootstrap.jsp"/>
 <jsp:include page="navbar.jsp"/>
 <html>
-<head title="Expense"></head>
+<head title="Debt"></head>
 <body>
 <b:container>
 <div>
@@ -24,7 +23,7 @@
         <div class="form-group">
           <label for="monto" class="control-label col-md-2">Monto: </label>
             <div class="col-md-4"> <%--5 columnas de tamaño mediano--%>
-                <input class="form-control" type="text"  id="monto" placeholder="Ingrese aquí su sueldo...." required/></td>
+                <input class="form-control" type="text"  id="monto" placeholder="Ingrese aquí la cantidad de su deuda...." required/></td>
             </div>
         </div>
         <div class="form-group">
