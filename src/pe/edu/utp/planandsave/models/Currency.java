@@ -11,6 +11,15 @@ public class Currency {
     private String name;
     private float exchangeRate;
 
+    public Currency(){
+    }
+
+    public Currency(int id, String name, float exchangeRate){
+        this.id=id;
+        this.name=name;
+        this.exchangeRate=exchangeRate;
+    }
+
     public int getId() {
         return id;
     }

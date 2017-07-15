@@ -62,8 +62,6 @@ public class Quota {
 
     public Debt getDebt() { return debt;}
 
-    public String getDebtAsString() {return String.valueOf(getDebt());}
-
     public Quota setDebt(Debt debt) {
         this.debt = debt;
         return this;

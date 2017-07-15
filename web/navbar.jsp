@@ -30,7 +30,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">¿Deseas registrar algo? <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="formIncome.jsp">Ingresos</a></li>
-                                <li><a href="#">Gastos</a></li>
+                                <li><a href="formExpense.jsp">Gastos</a></li>
                                 <li><a href="debt.jsp">Deudas</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#">Metas</a></li>

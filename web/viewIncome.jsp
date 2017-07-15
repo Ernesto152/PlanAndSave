@@ -16,13 +16,16 @@
 <jsp:useBean id="service" class="pe.edu.utp.planandsave.services.PSService"/>
 <c:forEach var="income" items="${service.incomes}">
     <table border="1">
-        <th>Monto</th><th>Descripcion</th><th>Moneda</th>
+        <th>Monto<th>Descripcion<th>Fecha<th>Moneda
         <tr>
             <td><c:out value="${income.amount}"/>
             <td><c:out value="${income.description}"/>
+            <td><c:out value="${income.registrationDate}"/>
             <td><c:out value="${income.currency.id}"/>
     </table>
 </c:forEach>
+
+<p><a href="formIncome.jsp">Volver a Ingresar</a></p>
 
 </body>
 </html>

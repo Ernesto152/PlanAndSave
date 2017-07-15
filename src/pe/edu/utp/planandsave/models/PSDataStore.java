@@ -13,6 +13,7 @@ public class PSDataStore {
     private UsersEntity usersEntity;
     private SubscriptionsEntity subscriptionsEntity;
     private IncomesEntity incomesEntity;
+    private ExpensesEntity expensesEntity;
 
 
     public PSDataStore(Connection connection) {
@@ -91,7 +92,24 @@ public class PSDataStore {
         return getIncomesEntity().add(income);
     }
 
-    // Expenses
+    //Expenses
+
+    private ExpensesEntity getExpensesEntity(){
+        if(expensesEntity == null){
+            expensesEntity = new ExpensesEntity(getConnection());
+        }
+        return expensesEntity;
+    }
+
+    public List<Expense> findAllExpenses(){
+        return  getExpensesEntity().findAll(getUsersEntity(),getSubscriptionsEntity(),getExpensesCategoryEntity(),getCurrenciesEntity());
+    }
+
+    public boolean createExpense(Expense expense){
+        return getExpensesEntity().add(expense);
+    }
+
+    // Expense Categories
     private ExpensesCategoryEntity getExpensesCategoryEntity(){
         if(expensesCategoryEntity == null){
             expensesCategoryEntity = new ExpensesCategoryEntity(getConnection());
@@ -101,6 +119,10 @@ public class PSDataStore {
 
     public List<ExpensesCategory> findAllExpenseCategories() {
         return getExpensesCategoryEntity().findAll();
+    }
+
+    public ExpensesCategory findExpenseCategoriesById(int id){
+        return  getExpensesCategoryEntity().findById(id);
     }
 
     public boolean createExpenseCategory(ExpensesCategory expensesCategory){

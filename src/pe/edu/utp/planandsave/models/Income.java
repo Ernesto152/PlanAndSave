@@ -83,10 +83,6 @@ public class Income {
         return user;
     }
 
-    public String getUserAsString() {
-        return String.valueOf(getUser());
-    }
-
     public Income setUser(User user) {
         this.user = user;
         return this;
@@ -94,10 +90,6 @@ public class Income {
 
     public Currency getCurrency() {
         return currency;
-    }
-
-    public String getCurrencyAsString() {
-        return String.valueOf(getCurrency());
     }
 
     public Income setCurrency(Currency currency) {

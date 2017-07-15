@@ -46,4 +46,17 @@ public class ExpensesEntity extends BaseEntity {
         }
         return expenses;
     }
+
+    public boolean add(Expense expense) {
+        String sql = "INSERT INTO expenses(amount, registration_date, description, user_id, expense_category_id, currency_id) " +
+                "VALUES(    " +
+                            expense.getAmount() + ", " +
+                            "CURDATE(), " +
+                            expense.getDescriptionAsValue() + "," +
+                            "1 , " +
+                            expense.getExpensesCategory().getIdAsString() + "," +
+                            expense.getCurrency().getIdAsString() + ")";
+        return change(sql);
+    }
+
 }

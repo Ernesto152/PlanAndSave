@@ -129,10 +129,6 @@ public class User {
         return subscription;
     }
 
-    public String getSubscriptionAsString(){
-        return String.valueOf(getSubscription());
-    }
-
     public User setSubscription(Subscription subscription) {
         this.subscription = subscription;
         return this;

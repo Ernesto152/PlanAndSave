@@ -67,8 +67,26 @@ public class PSService {
 
     //Expenses
 
+    public List<Expense> getExpenses(){
+        return getDataStore().findAllExpenses();
+    }
+
+    public boolean createExpense(Expense expense){
+        return getDataStore().createExpense(expense);
+    }
+
+    //ExpenseCategories
+
     public List<ExpensesCategory> getExpenseCategories() {
         return getDataStore().findAllExpenseCategories();
+    }
+
+    public ExpensesCategory getExpenseCategoriesById(int id){
+        return getDataStore().findExpenseCategoriesById(id);
+    }
+
+    public ExpensesCategory getExpenseCategoriesById(String id){
+        return getDataStore().findExpenseCategoriesById(Integer.parseInt(id));
     }
 
     public boolean createExpenseCategory(ExpensesCategory expensesCategory){

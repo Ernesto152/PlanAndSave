@@ -45,16 +45,12 @@ public class Card {
 
     public User getUser() {return user;}
 
-    public  String getUserAsString(){return String.valueOf(getUser());}
-
     public Card setUser(User user) {
         this.user = user;
         return this;
     }
 
     public CardsType getCardsType() {return cardsType;}
-
-    public String getCardsTypeAsString(){ return String.valueOf(getCardsType());}
 
     public Card setCardsType(CardsType cardsType) {
         this.cardsType = cardsType;

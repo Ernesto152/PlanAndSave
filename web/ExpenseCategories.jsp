@@ -12,7 +12,7 @@
     <title>Expense Category Add</title>
 </head>
 <body>
-<s:form action="addExpense">
+<s:form action="addExpenseCategory">
     <s:textfield name="id" label="ID"/>
     <s:textfield name="name" label="Name"/>
     <s:submit value="Save"/>

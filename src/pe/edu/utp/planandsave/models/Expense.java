@@ -85,10 +85,6 @@ public class Expense {
         return user;
     }
 
-    public String getUserAsString(){
-        return String.valueOf(getUser());
-    }
-
     public Expense setUser(User user) {
         this.user = user;
         return this;
@@ -98,10 +94,6 @@ public class Expense {
         return expensesCategory;
     }
 
-    public String getExpensesCategoryAsString(){
-        return String.valueOf(getExpensesCategory());
-    }
-
     public Expense setExpensesCategory(ExpensesCategory expensesCategory) {
         this.expensesCategory = expensesCategory;
         return this;
@@ -109,10 +101,6 @@ public class Expense {
 
     public Currency getCurrency() {
         return currency;
-    }
-
-    public String getCurrencyAsString(){
-        return String.valueOf(getCurrency());
     }
 
     public Expense setCurrency(Currency currency) {
