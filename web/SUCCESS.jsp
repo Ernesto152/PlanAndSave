@@ -24,6 +24,5 @@
                 <td><c:out value="${income.currency.id}"/>
         </table>
     </c:forEach>*/%>
-<c:forEach var="user" items="${service.use}"
 </body>
 </html>
