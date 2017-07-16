@@ -22,14 +22,14 @@
             <result name="input">formIncome.jsp</result>
         </action>
 
-        <!--
+
         <action name="*User" class="pe.edu.utp.planandsave.actions.UserAction" method="{1}">
             <result name="success">index.jsp</result>
-            <result name="input">error.jsp</result>
-        </action> -->
+            <result name="input">ERROR.jsp</result>
+        </action>
 
         <action name="login" class="pe.edu.utp.planandsave.actions.UserAction" method="login">
-            <result name="success">SUCCESS.jsp</result>
+            <result name="success">index.jsp</result>
             <result name="input">ERROR.jsp</result>
         </action>
     </package>

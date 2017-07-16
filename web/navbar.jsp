@@ -51,9 +51,10 @@
                                                 <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
                                                 <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
                                             </div>
-                                            o
-                                            <s:form action="login">
-                                                
+                                            <s:form action="login" id="contact">
+                                                <s:textfield name="email" placeholder="Email"/>
+                                                <s:password name="password" placeholder="Password"/>
+                                                <s:submit cssClass="btn btn-primary" value="Iniciar sesión"/>
                                             </s:form>
 
 
