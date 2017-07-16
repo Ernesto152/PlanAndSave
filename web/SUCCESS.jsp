@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: Abraham
@@ -13,16 +14,6 @@
 </head>
 <body>
     <h1>SUCCESS</h1>
-    <jsp:useBean id="service" class="pe.edu.utp.planandsave.services.PSService"/>
-    <%/*<c:forEach var="income" items="${service.incomes}">
-        <table border="1">
-            <th>Monto<th>Descripcion<th>Fecha<th>Moneda
-            <tr>
-                <td><c:out value="${income.amount}"/>
-                <td><c:out value="${income.description}"/>
-                <td><c:out value="${income.registrationDate}"/>
-                <td><c:out value="${income.currency.id}"/>
-        </table>
-    </c:forEach>*/%>
+    <p>Welcome <s:property value="email"/></p>
 </body>
 </html>

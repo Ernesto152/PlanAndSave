@@ -117,33 +117,15 @@ public class UserAction extends ActionSupport{
     }
 
     public String login(){
-        /*PSService PSS = new PSService();
-        try {
-            PSS.getUsersByEmail(email);
-            if(PSS.getUsersByEmail(email) == null) {
-                return "input";
-            }else {
-                User user = new User();
-                if(user.getPassword().equals(password)) {
-                    return SUCCESS;
-                }
-            }
-            PSS.getUsersById(0);
-            return "input";
-        }catch (Exception e){
-            e.printStackTrace();
-            return "input";
-        }
-        */
+        user = new User(id, firstName, lastName, email, password, subscriptionStart, subscriptionRenovation, subscription);
         try {
             PSService PSS = new PSService();
-            PSS.getUsersByEmail(email);
+            PSS.getUsersByEmail(user.getEmail());
             return SUCCESS;
         }catch (Exception e){
             e.printStackTrace();
             return "input";
         }
-
     }
 
 

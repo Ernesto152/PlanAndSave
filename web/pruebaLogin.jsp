@@ -14,7 +14,6 @@
 <body>
 <s:form action="login">
     <s:textfield name="email" label="Email"/>
-    <s:textfield name="password" label="Password"/>
     <s:submit value="Login"/>
 </s:form>
 
