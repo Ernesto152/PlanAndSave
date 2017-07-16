@@ -42,7 +42,7 @@ public class IncomesEntity extends BaseEntity {
     public boolean add(Income income) {
         String sql = "INSERT INTO incomes(amount, description, registration_date, user_id, currency_id) " +
                 "VALUES(    " +
-                            income.getAmount() + ", " +
+                            income.getAmountAsString() + ", " +
                             income.getDescriptionAsValue() + ", " +
                             "CURDATE(), " +
                             income.getUser().getIdAsString() +" , " +

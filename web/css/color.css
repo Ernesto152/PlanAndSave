@@ -7,7 +7,7 @@ body {
 }
 
 .navbar-default {
-    background-color: #32cd32;
+    background-color: #468555;
     border-color: #239023;
 }
 .navbar-default .navbar-brand {
@@ -22,7 +22,7 @@ body {
 }
 .navbar-default .navbar-nav > li > a {
     color: #ecf0f1;
-    background-color: #32cd32;
+    background-color: #468555;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {

@@ -11,6 +11,19 @@
 <footer>
     <hr class="featurette-divider">
 
-    <p class="pull-right"><a href="#">Volver arriba</a></p>
-    <p>&copy; 2017 Copyright. &middot; <a href="#">Privacidad</a> &middot; <a href="#">Términos</a></p>
+    <div class="row">
+        <p class="pull-right"><a href="#">Volver arriba</a></p>
+        <p>&copy; 2017 JavaDevs. &middot; <a href="#">Privacidad</a> &middot; <a href="#">Términos</a></p>
+    </div>
+    <div class="row">
+        <a class="btn btn-social-icon btn-twitter">
+            <span class="fa fa-twitter"></span>
+        </a>
+        <a class="btn btn-social-icon btn-facebook">
+            <span class="fa fa-facebook"></span>
+        </a>
+        <a class="btn btn-social-icon btn-linkedin">
+            <span class="fa fa-linkedin"></span>
+        </a>
+    </div>
 </footer>

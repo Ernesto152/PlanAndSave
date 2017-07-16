@@ -11,6 +11,12 @@
 <jsp:include page="navbar.jsp"/>
 <html>
 <head title="Plan&Save">
+  <style>
+    #color{
+      background-color: #768576;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
 <!---->
@@ -31,7 +37,7 @@
         <div class="carousel-caption">
           <h1><strong>Ingresa</strong></h1>
           <p>Tendrás la oportunidad de ingresar todo tipo de gastos y deudas que hayas o vayas a realizar</p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Registrate Ahora</a></p>
+          <p><a class="btn btn-lg btn-primary" href="signup.jsp" role="button">Registrate Ahora</a></p>
         </div>
       </div>
     </div>
@@ -41,7 +47,7 @@
         <div class="carousel-caption">
           <h1><strong>Identifica</strong></h1>
           <p class="color-bar">Con Plan&Save podrás visualizarás con mayor facilidad las deudas o gastos que quieres eliminar</p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Quiero registrarme</a></p>
+          <p><a class="btn btn-lg btn-primary" href="signup.jsp" role="button">Quiero registrarme</a></p>
         </div>
       </div>
     </div>
@@ -51,7 +57,7 @@
         <div class="carousel-caption">
           <h1><strong>Elimina</strong></h1>
           <p>Con nuestra ayuda, podrás eliminar las deudas o gastos que deberás cancelar primero antes que se acumulen</p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Deseo unirme</a></p>
+          <p><a class="btn btn-lg btn-primary" href="signup.jsp" role="button">Deseo unirme</a></p>
         </div>
       </div>
     </div>
@@ -98,17 +104,18 @@
 
   <!-- START THE FEATURETTES -->
 
-  <hr class="featurette-divider" style="color: #000">
+  <hr class="featurette-divider">
 
-  <div class="row featurette">
-    <div class="col-md-7">
-      <h2 class="featurette-heading">Responsablilidad Financiera<span class="text-muted"></span></h2>
-      <p class="lead">Aprenda a realizar mejores decisiones consumiendo de forma inteligente desde ahora, gastando y pagando sus deudas de forma más efectiva</p>
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">Responsablilidad Financiera<span class="text-muted"></span></h2>
+        <p class="lead">Aprenda a realizar mejores decisiones consumiendo de forma inteligente desde ahora, gastando y pagando sus deudas de forma más efectiva</p>
+      </div>
+      <div class="col-md-5">
+        <img class="featurette-image img-responsive center-block" src="img/responsabilidadf.jpg">
+      </div>
     </div>
-    <div class="col-md-5">
-      <img class="featurette-image img-responsive center-block" src="img/responsabilidadf.jpg">
-    </div>
-  </div>
+
 
   <hr class="featurette-divider">
 
@@ -134,6 +141,7 @@
     </div>
   </div>
 </div>
+
   <jsp:include page="footer.jsp"/>
 </b:container>
 -->
