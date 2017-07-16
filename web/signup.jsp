@@ -18,7 +18,7 @@
 <b:container>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <img class="featurette-image img-responsive center-block" src="https://dummyimage.com/500x500/b3b3b3/ffffff.jpg&text=+" style="padding-top: 15px">
+            <img class="featurette-image img-responsive center-block" src="img/ahorro.jpg" style="padding-top: 35px">
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <div class="container" id="container">

@@ -25,7 +25,7 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="index.jsp">Home</a></li>
                         <li ><a href="overview.jsp">Monitorea</a></li>
-                        <li><a href="income.jsp">Reduce tus gastos</a></li>
+                        <li><a href="viewIncome.jsp">Reduce tus gastos</a></li>
                         <li><a href="#">Alcanza tus metas</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">¿Deseas registrar algo? <span class="caret"></span></a>

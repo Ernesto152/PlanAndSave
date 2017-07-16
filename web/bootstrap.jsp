@@ -20,6 +20,7 @@
 <link href="css/signup.css" rel="stylesheet">
 <link href="css/navbar-fixed-top.css" rel="stylesheet">
 <link href="css/color.css" rel="stylesheet">
+<link href="css/bootstrap-social.css" rel="stylesheet">
 
 
 <!--Chart-->
