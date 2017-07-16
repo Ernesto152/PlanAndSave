@@ -113,8 +113,8 @@ public class PSService {
         return getDataStore().createUser(user);
     }
 
-    public User getUsersByEmail(String email){
-        return getDataStore().findUsersByEmail(email);
+    public User getUsersByEmail(String email, String password){
+        return getDataStore().findUsersByEmail(email, password);
     }
 
     public User getUsersById(int id){

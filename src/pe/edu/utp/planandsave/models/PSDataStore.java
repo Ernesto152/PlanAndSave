@@ -76,8 +76,8 @@ public class PSDataStore {
         return getUsersEntity().findAll(getSubscriptionsEntity());
     }
     
-    public User findUsersByEmail(String email){
-        return getUsersEntity().findByEmail(email, getSubscriptionsEntity());
+    public User findUsersByEmail(String email, String password){
+        return getUsersEntity().findByEmail(email, password, getSubscriptionsEntity());
     }
 
     public User findUsersById(int id){

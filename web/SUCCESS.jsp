@@ -14,6 +14,7 @@
 </head>
 <body>
     <h1>SUCCESS</h1>
-    <p>Welcome <s:property value="email"/></p>
+    <p>Welcome</p>
+    <s:property value="email"/>
 </body>
 </html>
