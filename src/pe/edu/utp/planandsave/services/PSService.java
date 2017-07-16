@@ -113,16 +113,16 @@ public class PSService {
         return getDataStore().createUser(user);
     }
 
-    public User getUsersByEmail(String email, SubscriptionsEntity subscriptionsEntity){
-        return getDataStore().findUsersByEmail(email, subscriptionsEntity);
+    public User getUsersByEmail(String email){
+        return getDataStore().findUsersByEmail(email);
     }
 
-    public User getUsersById(int id, SubscriptionsEntity subscriptionsEntity){
-        return getDataStore().findUsersById(id, subscriptionsEntity);
+    public User getUsersById(int id){
+        return getDataStore().findUsersById(id);
     }
 
-    public User getUsersById(String id, SubscriptionsEntity subscriptionsEntity){
-        return getDataStore().findUsersById(Integer.parseInt(id), subscriptionsEntity);
+    public User getUsersById(String id){
+        return getDataStore().findUsersById(Integer.parseInt(id));
     }
 
 

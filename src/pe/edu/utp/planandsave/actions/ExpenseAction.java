@@ -5,7 +5,7 @@ import pe.edu.utp.planandsave.models.Expense;
 import pe.edu.utp.planandsave.models.User;
 import pe.edu.utp.planandsave.services.PSService;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * Created by Abraham on 15/07/2017.
@@ -86,9 +86,9 @@ public class ExpenseAction extends ActionSupport {
     }
 
     public String add() {
-        PSService PSS = new PSService();
-        expense = new Expense(id, amount, registration_date, description, user, PSS.getExpenseCategoriesById(expensecategory), PSS.getCurrenciesById(currency));
         try {
+            PSService PSS = new PSService();
+            expense = new Expense(id, amount, registration_date, description, user, PSS.getExpenseCategoriesById(expensecategory), PSS.getCurrenciesById(currency));
             PSS.createExpense(expense);
             return SUCCESS;
         }catch (Exception e){

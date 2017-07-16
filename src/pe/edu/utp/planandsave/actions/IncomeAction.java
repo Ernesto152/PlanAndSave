@@ -78,10 +78,10 @@ public class IncomeAction extends ActionSupport {
     }
 
     public String add(){
-        PSService PSS = new PSService();
-        User user = new User();
-        income = new Income(id,amount,description,registration_date,PSS.getUsersById(user.getId(),subscriptionsEntity),PSS.getCurrenciesById(currency));
         try {
+            PSService PSS = new PSService();
+            User user = new User();
+            income = new Income(id,amount,description,registration_date,PSS.getUsersById(user.getId()),PSS.getCurrenciesById(currency));
             PSS.createIncome(income);
             return SUCCESS;
         }catch(Exception e) {

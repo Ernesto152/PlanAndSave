@@ -76,12 +76,12 @@ public class PSDataStore {
         return getUsersEntity().findAll(getSubscriptionsEntity());
     }
     
-    public User findUsersByEmail(String email,SubscriptionsEntity subscriptionsEntity){
-        return getUsersEntity().findByEmail(email, subscriptionsEntity);
+    public User findUsersByEmail(String email){
+        return getUsersEntity().findByEmail(email, getSubscriptionsEntity());
     }
 
-    public User findUsersById(int id, SubscriptionsEntity subscriptionsEntity){
-        return getUsersEntity().findById(id, subscriptionsEntity);
+    public User findUsersById(int id){
+        return getUsersEntity().findById(id, getSubscriptionsEntity());
     }
 
     public boolean createUser(User user){

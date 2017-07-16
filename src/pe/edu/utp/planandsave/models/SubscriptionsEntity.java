@@ -34,14 +34,14 @@ public class SubscriptionsEntity extends BaseEntity {
 
     public List<Subscription> findByCriteria(String criteria){
         String sql = getDefaultQuery() + (criteria.equalsIgnoreCase("") ? "" : " WHERE " + criteria);
-        List<Subscription> userCategories = new ArrayList<>();
+        List<Subscription> subscriptions = new ArrayList<>();
         try {
             ResultSet resultSet = getConnection().createStatement().executeQuery(sql);
             if (resultSet == null) return null;
             while (resultSet.next()){
-                userCategories.add(Subscription.build(resultSet));
+                subscriptions.add(Subscription.build(resultSet));
             }
-            return userCategories;
+            return subscriptions;
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -116,10 +116,10 @@ public class UserAction extends ActionSupport{
     }
 
     public String login(){
-        PSService PSS = new PSService();
+        /*PSService PSS = new PSService();
         try {
-            PSS.getUsersByEmail(email, subscriptionsEntity);
-            if(PSS.getUsersByEmail(email, subscriptionsEntity) == null) {
+            PSS.getUsersByEmail(email);
+            if(PSS.getUsersByEmail(email) == null) {
                 return "input";
             }else {
                 User user = new User();
@@ -127,12 +127,14 @@ public class UserAction extends ActionSupport{
                     return SUCCESS;
                 }
             }
-            PSS.getUsersById(0, subscriptionsEntity);
+            PSS.getUsersById(0);
             return "input";
         }catch (Exception e){
             e.printStackTrace();
             return "input";
         }
+        */
+        return SUCCESS;
     }
 
 
