@@ -65,6 +65,10 @@ public class PSService {
 
     //Subscriptions
 
+    public Subscription getSubscriptionsById(int id){
+        return getDataStore().findSubscriptionsById(id);
+    }
+
     //Expenses
 
     public List<Expense> getExpenses(){
@@ -107,6 +111,18 @@ public class PSService {
 
     public boolean createUser(User user){
         return getDataStore().createUser(user);
+    }
+
+    public User getUsersByEmail(String email, SubscriptionsEntity subscriptionsEntity){
+        return getDataStore().findUsersByEmail(email, subscriptionsEntity);
+    }
+
+    public User getUsersById(int id, SubscriptionsEntity subscriptionsEntity){
+        return getDataStore().findUsersById(id, subscriptionsEntity);
+    }
+
+    public User getUsersById(String id, SubscriptionsEntity subscriptionsEntity){
+        return getDataStore().findUsersById(Integer.parseInt(id), subscriptionsEntity);
     }
 
 

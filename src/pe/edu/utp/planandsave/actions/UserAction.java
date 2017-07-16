@@ -2,6 +2,7 @@ package pe.edu.utp.planandsave.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
 import pe.edu.utp.planandsave.models.Subscription;
+import pe.edu.utp.planandsave.models.SubscriptionsEntity;
 import pe.edu.utp.planandsave.models.User;
 import pe.edu.utp.planandsave.services.PSService;
 
@@ -19,6 +20,7 @@ public class UserAction extends ActionSupport{
     private Date subscriptionStart;
     private Date subscriptionRenovation;
     private Subscription subscription;
+    private SubscriptionsEntity subscriptionsEntity;
     private User user;
 
     public int getId() {
@@ -93,6 +95,14 @@ public class UserAction extends ActionSupport{
         this.user = user;
     }
 
+    public SubscriptionsEntity getSubscriptionsEntity() {
+        return subscriptionsEntity;
+    }
+
+    public void setSubscriptionsEntity(SubscriptionsEntity subscriptionsEntity) {
+        this.subscriptionsEntity = subscriptionsEntity;
+    }
+
     public String add(){
         user = new User(id, firstName, lastName, email, password, subscriptionStart, subscriptionRenovation, subscription);
         try {
@@ -103,13 +113,33 @@ public class UserAction extends ActionSupport{
             e.printStackTrace();
             return "input";
         }
+    }
 
+    public String login(){
+        PSService PSS = new PSService();
+        try {
+            PSS.getUsersByEmail(email, subscriptionsEntity);
+            if(PSS.getUsersByEmail(email, subscriptionsEntity) == null) {
+                return "input";
+            }else {
+                User user = new User();
+                if(user.getPassword().equals(password)) {
+                    return SUCCESS;
+                }
+            }
+            PSS.getUsersById(0, subscriptionsEntity);
+            return "input";
+        }catch (Exception e){
+            e.printStackTrace();
+            return "input";
+        }
     }
 
 
     public String execute(){
         return SUCCESS;
     }
+
 
 }
 

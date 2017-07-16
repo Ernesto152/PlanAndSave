@@ -1,9 +1,7 @@
 package pe.edu.utp.planandsave.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
-import pe.edu.utp.planandsave.models.Currency;
-import pe.edu.utp.planandsave.models.Income;
-import pe.edu.utp.planandsave.models.User;
+import pe.edu.utp.planandsave.models.*;
 import pe.edu.utp.planandsave.services.PSService;
 
 import java.util.Date;
@@ -19,6 +17,8 @@ public class IncomeAction extends ActionSupport {
     private User user;
     private int currency;
     private Income income;
+
+    private SubscriptionsEntity subscriptionsEntity;
 
 
     public int getId() {
@@ -79,7 +79,8 @@ public class IncomeAction extends ActionSupport {
 
     public String add(){
         PSService PSS = new PSService();
-        income = new Income(id,amount,description,registration_date,user,PSS.getCurrenciesById(currency));
+        User user = new User();
+        income = new Income(id,amount,description,registration_date,PSS.getUsersById(user.getId(),subscriptionsEntity),PSS.getCurrenciesById(currency));
         try {
             PSS.createIncome(income);
             return SUCCESS;

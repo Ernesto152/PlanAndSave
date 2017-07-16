@@ -45,7 +45,7 @@ public class IncomesEntity extends BaseEntity {
                             income.getAmount() + ", " +
                             income.getDescriptionAsValue() + ", " +
                             "CURDATE(), " +
-                            "1 , " +
+                            income.getUser().getIdAsString() +" , " +
                             income.getCurrency().getIdAsString() +")";
         return change(sql);
     }

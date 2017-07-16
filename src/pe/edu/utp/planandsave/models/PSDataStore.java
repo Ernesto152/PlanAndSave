@@ -60,6 +60,10 @@ public class PSDataStore {
         return getSubscriptionsEntity().findAll();
     }
 
+    public Subscription findSubscriptionsById(int id){
+        return getSubscriptionsEntity().findById(id);
+    }
+
     //Users
     private UsersEntity getUsersEntity(){
         if (usersEntity == null){
@@ -70,6 +74,14 @@ public class PSDataStore {
 
     public List<User> findAllUsers(){
         return getUsersEntity().findAll(getSubscriptionsEntity());
+    }
+    
+    public User findUsersByEmail(String email,SubscriptionsEntity subscriptionsEntity){
+        return getUsersEntity().findByEmail(email, subscriptionsEntity);
+    }
+
+    public User findUsersById(int id, SubscriptionsEntity subscriptionsEntity){
+        return getUsersEntity().findById(id, subscriptionsEntity);
     }
 
     public boolean createUser(User user){

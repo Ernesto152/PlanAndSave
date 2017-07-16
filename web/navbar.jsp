@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="b" uri="http://bootstrapjsp.org/" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <jsp:include page="bootstrap.jsp"/>
 
         <nav class="navbar navbar-fixed-top navbar-default">
@@ -51,7 +52,12 @@
                                                 <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
                                             </div>
                                             o
-                                            <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                                            <s:form action="login">
+                                                
+                                            </s:form>
+
+
+                                          <%/*  <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
                                                 <div class="form-group">
                                                     <label class="sr-only" for="exampleInputEmail2">Email</label>
                                                     <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Correo electrónico" required>
@@ -69,7 +75,7 @@
                                                         <input type="checkbox"> mantenerme conectado
                                                     </label>
                                                 </div>
-                                            </form>
+                                            </form>*/%>
                                         </div>
                                         <div class="bottom text-center">
                                             ¿Nuevo aquí? <a href="signup.jsp"><b>Únete a nosotros</b></a>

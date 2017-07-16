@@ -69,7 +69,5 @@ public class UsersEntity extends BaseEntity{
                     "DATE_ADD(CURDATE(), INTERVAL 180 DAY), " +
                     "1)";
         return change(sql);
-
-
     }
 }
