@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Abraham
@@ -13,7 +14,7 @@
 <body>
     <h1>SUCCESS</h1>
     <jsp:useBean id="service" class="pe.edu.utp.planandsave.services.PSService"/>
-    <c:forEach var="income" items="${service.incomes}">
+    <%/*<c:forEach var="income" items="${service.incomes}">
         <table border="1">
             <th>Monto<th>Descripcion<th>Fecha<th>Moneda
             <tr>
@@ -22,6 +23,7 @@
                 <td><c:out value="${income.registrationDate}"/>
                 <td><c:out value="${income.currency.id}"/>
         </table>
-    </c:forEach>
+    </c:forEach>*/%>
+<c:forEach var="user" items="${service.use}"
 </body>
 </html>

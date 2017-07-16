@@ -1,6 +1,7 @@
 package pe.edu.utp.planandsave.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
+import pe.edu.utp.planandsave.models.Expense;
 import pe.edu.utp.planandsave.models.Subscription;
 import pe.edu.utp.planandsave.models.SubscriptionsEntity;
 import pe.edu.utp.planandsave.models.User;
@@ -134,7 +135,15 @@ public class UserAction extends ActionSupport{
             return "input";
         }
         */
-        return SUCCESS;
+        try {
+            PSService PSS = new PSService();
+            PSS.getUsersByEmail(email);
+            return SUCCESS;
+        }catch (Exception e){
+            e.printStackTrace();
+            return "input";
+        }
+
     }
 
 
