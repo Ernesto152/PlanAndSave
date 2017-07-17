@@ -120,7 +120,7 @@ public class UserAction extends ActionSupport{
         user = new User(id, firstName, lastName, email, password, subscriptionStart, subscriptionRenovation, subscription);
         try {
             PSService PSS = new PSService();
-            PSS.getUsersByEmail(user.getEmail(), user.getPassword());
+            PSS.getUsersByEmail(email, password);
             return SUCCESS;
         }catch (Exception e){
             e.printStackTrace();

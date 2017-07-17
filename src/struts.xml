@@ -18,7 +18,7 @@
         </action>
 
         <action name="*Income" class="pe.edu.utp.planandsave.actions.IncomeAction" method="{1}">
-            <result name="success">formIncome.jsp</result>
+            <result name="success">viewIncome.jsp</result>
             <result name="input">formIncome.jsp</result>
         </action>
 

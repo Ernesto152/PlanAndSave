@@ -14,6 +14,12 @@
 <html>
 <head>
     <title>View Incomes</title>
+    <script>
+        function tablas(){
+            var yea=document.getElementById("tabla1").rows.length;
+            alert(yea);
+        }
+    </script>
 </head>
 <body>
 <b:container>
@@ -28,7 +34,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
                 <div class="table-responsive">
-                    <table class="table table-bordered table-inverse table-striped table-responsive">
+                    <table class="table table-bordered table-inverse table-striped table-responsive" id="tabla1">
                         <thead>
                         <tr class="bg-primary">
                             <th>#</th>
@@ -40,12 +46,12 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach var="income" items="${service.incomes}">
+                        <c:forEach var="income" items="${service.incomes}" varStatus="loop">
                             <tr>
-                                <td>1</td>
-                                <td><c:out value="${income.amount}"/>
-                                <td><c:out value="${income.description}"/>
-                                <td><c:out value="${income.registrationDate}"/>
+                                <td><c:out value="${loop.count}"/></td>
+                                <td><c:out value="${income.amount}"/></td>
+                                <td><c:out value="${income.description}"/></td>
+                                <td><c:out value="${income.registrationDate}"/></td>
                                 <td><c:out value="${income.currency.name}"/></td>
                                 <td>
                                     <p>

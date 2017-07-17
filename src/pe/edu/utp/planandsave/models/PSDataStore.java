@@ -85,7 +85,7 @@ public class PSDataStore {
     }
 
     public boolean createUser(User user){
-        return getUsersEntity().add((user));
+        return getUsersEntity().add(user);
     }
 
     //Incomes
