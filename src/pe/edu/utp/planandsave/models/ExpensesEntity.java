@@ -54,7 +54,7 @@ public class ExpensesEntity extends BaseEntity {
                             "CURDATE(), " +
                             expense.getDescriptionAsValue() + "," +
                             "1 , " +
-                            expense.getExpensesCategory().getIdAsString() + "," +
+                            "1 ," +
                             expense.getCurrency().getIdAsString() + ")";
         return change(sql);
     }

@@ -11,9 +11,8 @@
             <result name="input">pruebastruts.jsp</result>
         </action>
 
-
-        <action name="*Expense" class="pe.edu.utp.planandsave.actions.ExpensesCategoryAction" method="{1}">
-            <result name="success">pruebaExpenseCategories.jsp</result>
+        <action name="*Expense" class="pe.edu.utp.planandsave.actions.ExpenseAction" method="{1}">
+            <result name="success">index.jsp</result>
             <result name="input">ERROR.jsp</result>
         </action>
 
@@ -29,7 +28,7 @@
         </action>
 
         <action name="login" class="pe.edu.utp.planandsave.actions.UserAction" method="login">
-            <result name="success">index.jsp</result>
+            <result name="success">SUCCESS.jsp</result>
             <result name="input">ERROR.jsp</result>
         </action>
     </package>

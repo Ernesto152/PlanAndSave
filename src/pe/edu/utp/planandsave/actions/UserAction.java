@@ -1,13 +1,11 @@
 package pe.edu.utp.planandsave.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
-import pe.edu.utp.planandsave.models.Expense;
-import pe.edu.utp.planandsave.models.Subscription;
-import pe.edu.utp.planandsave.models.SubscriptionsEntity;
-import pe.edu.utp.planandsave.models.User;
+import pe.edu.utp.planandsave.models.*;
 import pe.edu.utp.planandsave.services.PSService;
 
 import java.sql.Date;
+import java.sql.ResultSet;
 
 /**
  * Created by Abraham on 15/07/2017.
@@ -117,7 +115,6 @@ public class UserAction extends ActionSupport{
     }
 
     public String login(){
-        user = new User(id, firstName, lastName, email, password, subscriptionStart, subscriptionRenovation, subscription);
         try {
             PSService PSS = new PSService();
             PSS.getUsersByEmail(email, password);

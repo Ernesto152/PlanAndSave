@@ -1,11 +1,10 @@
 package pe.edu.utp.planandsave.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
-import pe.edu.utp.planandsave.models.Expense;
-import pe.edu.utp.planandsave.models.User;
+import pe.edu.utp.planandsave.models.*;
 import pe.edu.utp.planandsave.services.PSService;
 
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * Created by Abraham on 15/07/2017.
@@ -16,9 +15,11 @@ public class ExpenseAction extends ActionSupport {
     private Date registration_date;
     private String description;
     private User user;
-    private int expensecategory;
+    private int expenseCategory;
     private int currency;
     private Expense expense;
+    ExpensesCategory expensesCategory;
+    Currency currencies;
 
     public int getId() {
         return id;
@@ -60,12 +61,12 @@ public class ExpenseAction extends ActionSupport {
         this.user = user;
     }
 
-    public int getExpensecategory() {
-        return expensecategory;
+    public int getExpenseCategory() {
+        return expenseCategory;
     }
 
-    public void setExpensecategory(int expensecategory) {
-        this.expensecategory = expensecategory;
+    public void setExpenseCategory(int expenseCategory) {
+        this.expenseCategory = expenseCategory;
     }
 
     public int getCurrency() {
@@ -76,7 +77,6 @@ public class ExpenseAction extends ActionSupport {
         this.currency = currency;
     }
 
-
     public Expense getExpense() {
         return expense;
     }
@@ -85,22 +85,20 @@ public class ExpenseAction extends ActionSupport {
         this.expense = expense;
     }
 
-    public String add() {
+    public String add(){
         try {
             PSService PSS = new PSService();
-            expense = new Expense(id, amount, registration_date, description, user, PSS.getExpenseCategoriesById(expensecategory), PSS.getCurrenciesById(currency));
+            expense = new Expense(id, amount, registration_date, description, user,PSS.getExpenseCategoriesById(expenseCategory) , PSS.getCurrenciesById(currency) );
             PSS.createExpense(expense);
             return SUCCESS;
         }catch (Exception e){
             e.printStackTrace();
             return "input";
         }
-
     }
 
     public String execute() {
         return SUCCESS;
     }
-
 }
 

@@ -14,6 +14,7 @@ public class PSDataStore {
     private SubscriptionsEntity subscriptionsEntity;
     private IncomesEntity incomesEntity;
     private ExpensesEntity expensesEntity;
+    private User user;
 
 
     public PSDataStore(Connection connection) {
@@ -79,7 +80,7 @@ public class PSDataStore {
     public User findUsersByEmail(String email, String password){
         return getUsersEntity().findByEmail(email, password, getSubscriptionsEntity());
     }
-
+    
     public User findUsersById(int id){
         return getUsersEntity().findById(id, getSubscriptionsEntity());
     }

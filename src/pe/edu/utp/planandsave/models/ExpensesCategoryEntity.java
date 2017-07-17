@@ -12,7 +12,7 @@ import java.util.List;
 public class ExpensesCategoryEntity extends BaseEntity {
 
     public ExpensesCategoryEntity(Connection connection) {
-        super(connection, "expense_category");
+        super(connection, "expenses_category");
     }
 
     public ExpensesCategoryEntity() {

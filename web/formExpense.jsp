@@ -16,9 +16,10 @@
         <s:textfield name="amount" label="Monto"/>
         <s:textarea name="description" label="Descripcion"/>
         <s:radio list="#{'1':'Soles','2':'Dolares','3':'Euros'}" label="Tipo" name="currency"/>
-        <s:select list="#{'1':'Alimento','2':'Comida'}" label="Categoria" name="expensecategory" headerKey="-1" headerValue="---Seleccionar---"/>
+        <s:select list="#{'1':'Alimento','2':'Comida'}" label="Categoria" name="expenseCategory" headerKey="0" headerValue="---Seleccionar---"/>
         <s:submit value="Save"/>
     </s:form>
+
     <a href="viewExpense.jsp">Ver Gastos</a>
 
 </body>
