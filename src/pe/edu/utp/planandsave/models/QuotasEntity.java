@@ -15,23 +15,23 @@ public class QuotasEntity extends BaseEntity {
     public QuotasEntity() { super();}
 
     List<Quota> findAll(DebtsEntity debtsEntity, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity, ExpensesCategoryEntity expensesCategoryEntity,
-                        CurrenciesEntity currenciesEntity){
-        return findByCriteria("", debtsEntity, usersEntity, subscriptionsEntity,expensesCategoryEntity,currenciesEntity);
+                        CurrenciesEntity currenciesEntity, PeriodsEntity periodsEntity){
+        return findByCriteria("", debtsEntity, usersEntity, subscriptionsEntity,expensesCategoryEntity,currenciesEntity, periodsEntity);
     }
-    public Quota findByCriteria(int id, DebtsEntity debtsEntity, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity, ExpensesCategoryEntity expensesCategoryEntity,
-                                CurrenciesEntity currenciesEntity){
+    public Quota findById(int id, DebtsEntity debtsEntity, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity, ExpensesCategoryEntity expensesCategoryEntity,
+                                CurrenciesEntity currenciesEntity, PeriodsEntity periodsEntity){
         String criteria = " id = " + id;
-        return findByCriteria(criteria, debtsEntity, usersEntity, subscriptionsEntity,expensesCategoryEntity,currenciesEntity).get(0);
+        return findByCriteria(criteria, debtsEntity, usersEntity, subscriptionsEntity,expensesCategoryEntity,currenciesEntity, periodsEntity).get(0);
     }
     public List<Quota> findByCriteria(String criteria, DebtsEntity debtsEntity, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity, ExpensesCategoryEntity expensesCategoryEntity,
-                                      CurrenciesEntity currenciesEntity) {
+                                      CurrenciesEntity currenciesEntity, PeriodsEntity periodsEntity) {
         String sql = getDefaultQuery() + (criteria.isEmpty() ? "" : " WHERE " + criteria);
         List<Quota> quotas = new ArrayList<>();
         try {
             ResultSet resultSet = getConnection().createStatement().executeQuery(sql);
             if(resultSet == null) return null;
             while(resultSet.next()) {
-                quotas.add(Quota.build(resultSet, debtsEntity, usersEntity, subscriptionsEntity, expensesCategoryEntity, currenciesEntity));
+                quotas.add(Quota.build(resultSet, debtsEntity, usersEntity, subscriptionsEntity, expensesCategoryEntity, currenciesEntity, periodsEntity));
             }
             return quotas;
         } catch (SQLException e) {

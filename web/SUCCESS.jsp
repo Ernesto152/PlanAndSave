@@ -18,7 +18,7 @@
     <p>Welcome</p>
     <s:property value="email"/>
     <s:property value="user.id"/>
-    
+
   <%/*  <jsp:useBean id="service" class="pe.edu.utp.planandsave.services.PSService"/>
     <c:forEach var="user" items="${service.getUsersByEmail({<s:property value="email">},)}">
         <p><c:out value="${user.id}"/> <c:out value="${user.firstName}"/><c:out value="${user.lastName}"/><c:out value="${user.email}"/></p>

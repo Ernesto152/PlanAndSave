@@ -10,25 +10,28 @@ import java.util.Date;
 public class Debt {
     private int id;
     private String description;
-    private String paymentPeriod;
-    private int paymentTime;
+    private int quota;
+    private float interest;
+    private float freeAmount;
     private float totalAmount;
     private Date startDate;
     private User user;
     private ExpensesCategory expensesCategory;
     private Currency currency;
+    private Period period;
 
 
 
     public Debt() {
     }
 
-    public Debt(int id, String description, String paymentPeriod, int paymentTime, float totalAmount, Date startDate, User user, ExpensesCategory expensesCategory, Currency currency) {
+    public Debt(int id, String description, int quota, float interest, float freeAmount, float totalAmount, Date startDate, User user, ExpensesCategory expensesCategory, Currency currency) {
         this.id = id;
         this.description = description;
-        this.paymentPeriod = paymentPeriod;
-        this.paymentTime = paymentTime;
-        this.setTotalAmount(totalAmount);
+        this.quota = quota;
+        this.totalAmount = totalAmount;
+        this.interest = interest;
+        this.freeAmount = freeAmount;
         this.startDate = startDate;
         this.user = user;
         this.expensesCategory = expensesCategory;
@@ -52,31 +55,60 @@ public class Debt {
         return description;
     }
 
+    public String getDescriptionAsValue(){
+        return "'" + getDescription() + "'";
+    }
+
     public Debt setDescription(String description) {
         this.description = description;
         return this;
     }
 
-    public String getPaymentPeriod() {
-        return paymentPeriod;
+    public int getQuota() {
+        return quota;
     }
 
-    public Debt setPaymentPeriod(String paymentPeriod) {
-        this.paymentPeriod = paymentPeriod;
+    public String getQuotaAsString(){
+        return  String.valueOf(getQuota());
+    }
+
+    public Debt setQuota(int quota) {
+        this.quota = quota;
         return this;
     }
 
-    public int getPaymentTime() {
-        return paymentTime;
+    public float getInterest() {
+        return interest;
     }
 
-    public Debt setPaymentTime(int paymentTime) {
-        this.paymentTime = paymentTime;
+    public String getInterestAsString(){
+        return String.valueOf(getInterest());
+    }
+
+    public Debt setInterest(float interest) {
+        this.interest = interest;
+        return this;
+    }
+
+    public float getFreeAmount() {
+        return freeAmount;
+    }
+
+    public String getFreeAmountAsString(){
+        return String.valueOf(getFreeAmount());
+    }
+
+    public Debt setFreeAmount(float freeAmount) {
+        this.freeAmount = freeAmount;
         return this;
     }
 
     public float getTotalAmount() {
         return totalAmount;
+    }
+
+    public String getTotalAmountAsString(){
+        return String.valueOf(getTotalAmount());
     }
 
     public Debt setTotalAmount(float totalAmount) {
@@ -86,6 +118,10 @@ public class Debt {
 
     public Date getStartDate() {
         return startDate;
+    }
+
+    public String getStartDateAsValue(){
+        return "'" + getStartDate() + "'";
     }
 
     public Debt setStartDate(Date startDate) {
@@ -120,19 +156,30 @@ public class Debt {
         return this;
     }
 
+    public Period getPeriod() {
+        return period;
+    }
+
+    public Debt setPeriod(Period period) {
+        this.period = period;
+        return this;
+    }
+
     public static Debt build(ResultSet resultSet, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity,
-                             ExpensesCategoryEntity expensesCategoryEntity, CurrenciesEntity currenciesEntity){
+                             ExpensesCategoryEntity expensesCategoryEntity, CurrenciesEntity currenciesEntity,PeriodsEntity periodsEntity){
         try {
             return (new Debt())
                     .setId(resultSet.getInt("id"))
                     .setDescription(resultSet.getString("description"))
-                    .setPaymentPeriod(resultSet.getString("payment_period"))
-                    .setPaymentTime(resultSet.getInt("payment_time"))
+                    .setQuota(resultSet.getInt("quota"))
+                    .setInterest(resultSet.getFloat("interest"))
+                    .setFreeAmount(resultSet.getFloat("free_amount"))
                     .setTotalAmount(resultSet.getFloat("total_amount"))
                     .setStartDate(resultSet.getDate("start_date"))
                     .setUser(usersEntity.findById(resultSet.getInt("user_id"), subscriptionsEntity))
                     .setExpensesCategory(expensesCategoryEntity.findById(resultSet.getInt("expense_category_id")))
-                    .setCurrency(currenciesEntity.findById(resultSet.getInt("currency_id")));
+                    .setCurrency(currenciesEntity.findById(resultSet.getInt("currency_id")))
+                    .setPeriod(periodsEntity.findById(resultSet.getInt("period_id")));
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -68,7 +68,7 @@ public class Quota {
     }
 
     public static Quota build(ResultSet resultSet, DebtsEntity debtsEntity, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity,
-                              ExpensesCategoryEntity expensesCategoryEntity, CurrenciesEntity currenciesEntity ){
+                              ExpensesCategoryEntity expensesCategoryEntity, CurrenciesEntity currenciesEntity, PeriodsEntity periodsEntity){
         try {
             return (new Quota())
                     .setId(resultSet.getInt("id"))
@@ -76,7 +76,7 @@ public class Quota {
                     .setPaymentDate(resultSet.getDate("payment_date"))
                     .setAmount(resultSet.getFloat("amount"))
                     .setDebt(debtsEntity.findById(resultSet.getInt("debt_id"), usersEntity,
-                            subscriptionsEntity, expensesCategoryEntity, currenciesEntity));
+                            subscriptionsEntity, expensesCategoryEntity, currenciesEntity, periodsEntity));
 
         } catch (SQLException e) {
             e.printStackTrace();

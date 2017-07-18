@@ -20,24 +20,24 @@ public class DebtsEntity extends BaseEntity{
     }
 
     public List<Debt> findAll(UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity,
-                              ExpensesCategoryEntity expensesCategoryEntity, CurrenciesEntity currenciesEntity){
-        return findByCriteria("", usersEntity, subscriptionsEntity, expensesCategoryEntity, currenciesEntity);
+                              ExpensesCategoryEntity expensesCategoryEntity, CurrenciesEntity currenciesEntity, PeriodsEntity periodsEntity){
+        return findByCriteria("", usersEntity, subscriptionsEntity, expensesCategoryEntity, currenciesEntity, periodsEntity);
     }
 
-    public Debt findById(int id, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity, ExpensesCategoryEntity expensesCategoryEntity, CurrenciesEntity currenciesEntity){
+    public Debt findById(int id, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity, ExpensesCategoryEntity expensesCategoryEntity, CurrenciesEntity currenciesEntity, PeriodsEntity periodsEntity){
         String criteria = " id = " + id;
-        return findByCriteria(criteria, usersEntity, subscriptionsEntity, expensesCategoryEntity, currenciesEntity).get(0);
+        return findByCriteria(criteria, usersEntity, subscriptionsEntity, expensesCategoryEntity, currenciesEntity, periodsEntity).get(0);
     }
 
     public List<Debt> findByCriteria(String criteria, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity,
-                                     ExpensesCategoryEntity expensesCategoryEntity, CurrenciesEntity currenciesEntity){
+                                     ExpensesCategoryEntity expensesCategoryEntity, CurrenciesEntity currenciesEntity, PeriodsEntity periodsEntity){
         String sql = getDefaultQuery() + (criteria.isEmpty() ? "" : " WHERE " + criteria);
         List<Debt> debts = new ArrayList<>();
         try {
             ResultSet resultSet = getConnection().createStatement().executeQuery(sql);
             if (resultSet == null) return null;
             while (resultSet.next()){
-                debts.add(Debt.build(resultSet, usersEntity, subscriptionsEntity, expensesCategoryEntity, currenciesEntity));
+                debts.add(Debt.build(resultSet, usersEntity, subscriptionsEntity, expensesCategoryEntity, currenciesEntity, periodsEntity));
             }
             return debts;
         } catch (SQLException e) {
