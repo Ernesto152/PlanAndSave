@@ -10,12 +10,13 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:include page="navbar.jsp"/>
 <html>
 <head>
     <title>View Incomes</title>
 </head>
-<body>
+<body id="view">
+<jsp:include page="navbar.jsp"/>
+
 <b:container>
     <b:jumbotron title="Sample">
         <h1>Ingresos</h1>

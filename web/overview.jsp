@@ -8,8 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="b" uri="http://bootstrapjsp.org/" %>
 <jsp:include page="bootstrap.jsp"/>
-<jsp:include page="navbar.jsp"/>
-
 
 <html>
 <head title="Plan&Save">
@@ -17,7 +15,8 @@
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript" src="js/overviewChart.js"></script>
 </head>
-<body>
+<body id="overview">
+<jsp:include page="navbar.jsp"/>
 
 <b:container>
     <b:jumbotron title="Sample">

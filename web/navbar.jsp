@@ -10,7 +10,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <jsp:include page="bootstrap.jsp"/>
 
-        <nav class="navbar navbar-fixed-top navbar-default" role="navigation">
+        <nav class="navbar navbar-fixed-top navbar-default">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -23,12 +23,12 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.jsp">Home</a></li>
+                        <li><a href="index.jsp">Home</a></li>
                         <li><a href="overview.jsp">Monitorea</a></li>
                         <li><a href="viewIncome.jsp">Reduce tus gastos</a></li>
                         <li><a href="#">Alcanza tus metas</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">¿Deseas registrar algo? <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">¿Deseas registrar algo?<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="formIncome.jsp">Ingresos</a></li>
                                 <li><a href="formExpense.jsp">Gastos</a></li>
@@ -42,7 +42,7 @@
                         <li><p class="navbar-text">¿Ya tienes una cuenta?</p></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Ingresa</b> <span class="caret"></span></a>
-                            <ul id="login-dp" class="dropdown-menu">
+                            <ul id="login-dp" class="dropdown-menu" style="width: 400%">
                                 <li>
                                     <div class="row">
                                         <div class="col-md-12">
@@ -52,8 +52,8 @@
                                                 <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
                                             </div>
                                             <s:form action="login" id="contact">
-                                                <s:textfield name="email" placeholder="Email"/>
-                                                <s:password name="password" placeholder="Password"/>
+                                                <s:textfield name="email" placeholder="Email" size="100%"/>
+                                                <s:password name="password" placeholder="Password" size="100%"/>
                                                 <s:submit cssClass="btn btn-primary" value="Iniciar sesión"/>
                                             </s:form>
 

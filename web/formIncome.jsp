@@ -14,7 +14,7 @@
 <head>
     <title>formIncome</title>
 </head>
-<body>
+<body id="income">
 <b:container>
     <b:jumbotron title="Sample">
         <h1>Tus Ingresos</h1>

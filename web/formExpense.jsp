@@ -14,7 +14,7 @@
 <head>
     <title>formExpense</title>
 </head>
-<body>
+<body id="expense">
     <b:container>
         <b:jumbotron title="Sample">
             <h1>Tus Gastos</h1>

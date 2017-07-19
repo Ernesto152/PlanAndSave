@@ -8,13 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="b" uri="http://bootstrapjsp.org/" %>
 <jsp:include page="bootstrap.jsp"/>
-<jsp:include page="navbar.jsp"/>
+
 <html>
 <head title="Plan&Save">
 </head>
-<body>
+<body id="index">
 <!---->
-
+<jsp:include page="navbar.jsp"/>
 <!-- Carousel
 ================================================== -->
 <div id="myCarousel" class="carousel slide" data-ride="carousel">

@@ -77,7 +77,7 @@ public class IncomeAction extends ActionSupport {
         this.income = income;
     }
 
-    public String addExpense(){
+    public String add(){
         try {
             PSService PSS = new PSService();
             income = new Income(id,amount,description,registration_date,user,PSS.getCurrenciesById(currency));
