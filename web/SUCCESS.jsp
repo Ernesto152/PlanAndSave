@@ -8,6 +8,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:include page="bootstrap.jsp"/>
+<jsp:useBean id="service" class="pe.edu.utp.planandsave.services.PSService"/>
 
 <html>
 <head>
@@ -17,10 +19,8 @@
     <h1>SUCCESS</h1>
     <p>Welcome</p>
     <s:property value="email"/>
-    <s:property value="user.id"/>
 
-  <%/*  <jsp:useBean id="service" class="pe.edu.utp.planandsave.services.PSService"/>
-    <c:forEach var="user" items="${service.getUsersByEmail({<s:property value="email">},)}">
+   <%/* <c:forEach var="user" items="${service.users}">
         <p><c:out value="${user.id}"/> <c:out value="${user.firstName}"/><c:out value="${user.lastName}"/><c:out value="${user.email}"/></p>
     </c:forEach>*/%>
 

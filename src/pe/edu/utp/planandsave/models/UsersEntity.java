@@ -16,14 +16,13 @@ public class UsersEntity extends BaseEntity{
     }
 
     public UsersEntity() {
-        super();
     }
 
     List<User> findAll(SubscriptionsEntity subscriptionsEntity){ return findByCriteria("", subscriptionsEntity);
     }
 
     public User findById(int id, SubscriptionsEntity subscriptionsEntity){
-        String criteria = " id = " + id;
+        String criteria = " id = " + String.valueOf(id);
         return findByCriteria(criteria, subscriptionsEntity).get(0);
     }
 

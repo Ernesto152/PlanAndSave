@@ -19,7 +19,7 @@ public class IncomesEntity extends BaseEntity {
     }
     public Income findByCriteria(int id, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity,
                                  CurrenciesEntity currenciesEntity){
-        String criteria = " id = " + id;
+        String criteria = " id = " + String.valueOf(id);
         return findByCriteria(criteria, usersEntity, subscriptionsEntity, currenciesEntity).get(0);
     }
     public List<Income> findByCriteria(String criteria, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity,

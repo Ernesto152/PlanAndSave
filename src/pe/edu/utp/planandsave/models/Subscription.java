@@ -12,6 +12,16 @@ public class Subscription {
     private float price;
     private int duration;
 
+    public Subscription(){
+    }
+
+    public Subscription(int id, String name, float price, int duration){
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.duration = duration;
+    }
+
     public int getId() {
         return id;
     }

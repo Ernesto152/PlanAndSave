@@ -144,7 +144,7 @@ public class User {
                     .setPassword(resultSet.getString("password"))
                     .setSubscriptionStart(resultSet.getDate("subscription_start"))
                     .setSubscriptionRenovation(resultSet.getDate("subscription_renovation"))
-                    .setSubscription(subscriptionsEntity.findById(resultSet.getInt("subscriptions")));
+                    .setSubscription(subscriptionsEntity.findById(resultSet.getInt("subscription_id")));
         } catch (SQLException e) {
             e.printStackTrace();
         }

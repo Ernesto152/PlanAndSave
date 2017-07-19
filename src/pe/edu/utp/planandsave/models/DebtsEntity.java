@@ -25,7 +25,7 @@ public class DebtsEntity extends BaseEntity{
     }
 
     public Debt findById(int id, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity, ExpensesCategoryEntity expensesCategoryEntity, CurrenciesEntity currenciesEntity, PeriodsEntity periodsEntity){
-        String criteria = " id = " + id;
+        String criteria = " id = " + String.valueOf(id);
         return findByCriteria(criteria, usersEntity, subscriptionsEntity, expensesCategoryEntity, currenciesEntity, periodsEntity).get(0);
     }
 

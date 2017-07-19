@@ -20,7 +20,7 @@ public class QuotasEntity extends BaseEntity {
     }
     public Quota findById(int id, DebtsEntity debtsEntity, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity, ExpensesCategoryEntity expensesCategoryEntity,
                                 CurrenciesEntity currenciesEntity, PeriodsEntity periodsEntity){
-        String criteria = " id = " + id;
+        String criteria = " id = " + String.valueOf(id);
         return findByCriteria(criteria, debtsEntity, usersEntity, subscriptionsEntity,expensesCategoryEntity,currenciesEntity, periodsEntity).get(0);
     }
     public List<Quota> findByCriteria(String criteria, DebtsEntity debtsEntity, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity, ExpensesCategoryEntity expensesCategoryEntity,

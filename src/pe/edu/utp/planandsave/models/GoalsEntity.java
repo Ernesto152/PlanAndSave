@@ -26,7 +26,7 @@ public class GoalsEntity extends BaseEntity{
 
     public Goal findById(int id, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity,
                          CurrenciesEntity currenciesEntity){
-        String criteria = " id = " + id;
+        String criteria = " id = " + String.valueOf(id);
         return findByCriteria(criteria, usersEntity, subscriptionsEntity, currenciesEntity).get(0);
     }
 
