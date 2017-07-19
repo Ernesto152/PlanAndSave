@@ -17,7 +17,7 @@
 <body>
     <b:container>
         <b:jumbotron title="Sample">
-            <h1>Income</h1>
+            <h1>Tus Gastos</h1>
             <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
         </b:jumbotron>
     </b:container>
@@ -40,7 +40,7 @@
                 </div>
             </div>
         </div>
-        <jsp:include page="footer.jsp"/>
     </b:container>
+    <jsp:include page="footer.jsp"/>
 </body>
 </html>

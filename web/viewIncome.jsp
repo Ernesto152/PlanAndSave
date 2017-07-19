@@ -25,7 +25,7 @@
 <b:container>
     <jsp:useBean id="service" class="pe.edu.utp.planandsave.services.PSService"/>
 
-        <div class="row">
+        <div class="row" style="padding-bottom: 50px">
             <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
                 <div class="table-responsive">
                     <table class="table table-bordered table-inverse table-striped table-responsive">
@@ -63,8 +63,7 @@
                 </div>
             </div>
         </div>
-    <jsp:include page="footer.jsp"/>
 </b:container>
-
+<jsp:include page="footer.jsp"/>
 </body>
 </html>
