@@ -12,7 +12,7 @@
         </action>
 
         <action name="*Expense" class="pe.edu.utp.planandsave.actions.ExpenseAction" method="{1}">
-            <result name="success">index.jsp</result>
+            <result name="success">viewExpense.jsp</result>
             <result name="input">ERROR.jsp</result>
         </action>
 

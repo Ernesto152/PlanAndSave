@@ -14,12 +14,6 @@
 <html>
 <head>
     <title>View Incomes</title>
-    <script>
-        function tablas(){
-            var yea=document.getElementById("tabla1").rows.length;
-            alert(yea);
-        }
-    </script>
 </head>
 <body>
 <b:container>
@@ -34,7 +28,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
                 <div class="table-responsive">
-                    <table class="table table-bordered table-inverse table-striped table-responsive" id="tabla1">
+                    <table class="table table-bordered table-inverse table-striped table-responsive">
                         <thead>
                         <tr class="bg-primary">
                             <th>#</th>
