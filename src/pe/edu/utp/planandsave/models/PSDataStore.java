@@ -14,7 +14,9 @@ public class PSDataStore {
     private SubscriptionsEntity subscriptionsEntity;
     private IncomesEntity incomesEntity;
     private ExpensesEntity expensesEntity;
-    private User user;
+    private DebtsEntity debtsEntity;
+    private PeriodsEntity periodsEntity;
+    private QuotasEntity quotasEntity;
 
 
     public PSDataStore(Connection connection) {
@@ -141,5 +143,57 @@ public class PSDataStore {
     public boolean createExpenseCategory(ExpensesCategory expensesCategory){
         return getExpensesCategoryEntity().add(expensesCategory);
     }
+
+    // Debts
+    private DebtsEntity getDebtsEntity(){
+        if(debtsEntity == null){
+            debtsEntity = new DebtsEntity(getConnection());
+        }
+        return debtsEntity;
+    }
+
+    public Debt findDebtsById(int id){
+        return getDebtsEntity().findById(id, getUsersEntity(), getSubscriptionsEntity(), getExpensesCategoryEntity(), getCurrenciesEntity(), getPeriodsEntity());
+    }
+
+    public boolean createDebt(Debt debt){
+        return getDebtsEntity().add(debt);
+    }
+
+    //Quotes
+    private QuotasEntity getQuotasEntity(){
+        if(quotasEntity == null){
+            quotasEntity = new QuotasEntity(getConnection());
+        }
+        return quotasEntity;
+    }
+
+    public Quota findQuotaById(int id){
+        return getQuotasEntity().findById(id, getDebtsEntity(), getUsersEntity(), getSubscriptionsEntity(), getExpensesCategoryEntity(), getCurrenciesEntity(), getPeriodsEntity());
+    }
+
+    public boolean createQuota(Quota quota){
+        return getQuotasEntity().add(quota);
+    }
+
+
+
+
+    // Periods
+    private PeriodsEntity getPeriodsEntity(){
+        if(periodsEntity == null){
+            periodsEntity = new PeriodsEntity(getConnection());
+        }
+        return periodsEntity;
+    }
+
+    public List<Period> findAllPeriods(){
+        return getPeriodsEntity().findAll();
+    }
+
+    public Period findPeriodById(int id){
+        return getPeriodsEntity().findById(id);
+    }
+
 
 }

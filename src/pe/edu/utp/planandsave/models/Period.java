@@ -9,14 +9,15 @@ import java.sql.SQLException;
 public class Period {
     private int id;
     private String name;
+    private String value;
 
     public Period(){
     }
 
-    public Period(int id, String name){
+    public Period(int id, String name, String value){
         this.id = id;
         this.name = name;
-
+        this.value = value;
     }
 
     public int getId() {
@@ -45,14 +46,26 @@ public class Period {
         return this;
     }
 
+    public String getValue() {
+        return value;
+    }
+
+    public Period setValue(String value) {
+        this.value = value;
+        return this;
+    }
+
     public static Period build(ResultSet resultSet){
         try{
             return (new Period())
                     .setId(resultSet.getInt("id"))
-                    .setName(resultSet.getString("name"));
+                    .setName(resultSet.getString("name"))
+                    .setValue(resultSet.getString("value"));
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
     }
+
+
 }

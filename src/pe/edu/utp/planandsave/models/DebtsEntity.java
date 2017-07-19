@@ -45,4 +45,20 @@ public class DebtsEntity extends BaseEntity{
         }
         return null;
     }
+
+    public boolean add(Debt debt) {
+        String sql = "INSERT INTO debts(description, quota, interest, free_amount, period_amount, start_date, user_id, expense_category_id, currency_id, period_id) " +
+                "VALUES(    " +
+                debt.getDescriptionAsValue() + ", " +
+                debt.getQuotaAsString() + ", " +
+                debt.getInterestAsString() + ", " +
+                debt.getFreeAmountAsString() + ", " +
+                debt.getPeriodAmountAsString() + ", " +
+                "CURDATE(), " +
+                "1 , " +
+                debt.getExpensesCategory().getIdAsString() + ", " +
+                debt.getCurrency().getIdAsString() + ", " +
+                debt.getPeriod().getIdAsString() +")";
+        return change(sql);
+    }
 }

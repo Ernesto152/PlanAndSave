@@ -4,8 +4,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import pe.edu.utp.planandsave.models.*;
 import pe.edu.utp.planandsave.services.PSService;
 
-import java.sql.Date;
-import java.sql.ResultSet;
+import java.util.Date;
 
 /**
  * Created by Abraham on 15/07/2017.

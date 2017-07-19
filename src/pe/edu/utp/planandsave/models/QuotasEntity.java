@@ -39,4 +39,18 @@ public class QuotasEntity extends BaseEntity {
         }
         return null;
     }
+
+    public boolean add(Quota quota) {
+        int i;
+        for (i=1; i<quota.getDebt().getQuota(); i++){
+        String sql = "INSERT INTO quotas(number, payment_date, amount, debt_id) " +
+                "VALUES(    " +
+                quota.getNumberAsString() + ", " +
+                "DATE_ADD(" + quota.getPaymentDateAsValue() + ", INTERVAL " + i + " " + quota.getDebt().getPeriod().getValue() + "), "  +
+                quota.getAmountAsString() + ", " +
+                quota.getDebt().getIdAsString()+")";
+        return change(sql);
+    }
+    return false;
+    }
 }

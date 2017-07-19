@@ -49,7 +49,6 @@ public class PSService {
     }
 
     //Currencies
-
     public List<Currency> getCurrencies(){
         return getDataStore().findAllCurrencies();
     }
@@ -64,7 +63,6 @@ public class PSService {
 
 
     //Subscriptions
-
     public Subscription getSubscriptionsById(int id){
         return getDataStore().findSubscriptionsById(id);
     }
@@ -80,7 +78,6 @@ public class PSService {
     }
 
     //ExpenseCategories
-
     public List<ExpensesCategory> getExpenseCategories() {
         return getDataStore().findAllExpenseCategories();
     }
@@ -108,6 +105,9 @@ public class PSService {
     }
 
     //Users
+    public List<User> getUsers(){
+        return getDataStore().findAllUsers();
+    }
 
     public boolean createUser(User user){
         return getDataStore().createUser(user);
@@ -125,7 +125,32 @@ public class PSService {
         return getDataStore().findUsersById(Integer.parseInt(id));
     }
 
+    // Debts
+    public Debt getDebtById(int id){
+        return getDataStore().findDebtsById(id);
+    }
 
+    public boolean createDebt(Debt debt){
+        return getDataStore().createDebt(debt);
+    }
+
+    //Quotes
+    public boolean createQuota(Quota quota){
+        return getDataStore().createQuota(quota);
+    }
+
+    public Quota getQuotaById(int id){
+        return getDataStore().findQuotaById(id);
+    }
+
+    //Periods
+    public List<Period> getPeriods(){
+        return getDataStore().findAllPeriods();
+    }
+
+    public Period getPeriodById(int id){
+        return getDataStore().findPeriodById(id);
+    }
 
 
 

@@ -42,7 +42,7 @@ public class UsersEntity extends BaseEntity{
         return findByCriteria(criteria, subscriptionsEntity).get(0);
     }
 
-    public User findByEmail(String email, String password, SubscriptionsEntity subscriptionsEntity){
+    public  User findByEmail(String email, String password, SubscriptionsEntity subscriptionsEntity){
         String criteria = " email = '" + email + "' and password = '" + password + "'";
         return findByCriteria(criteria, subscriptionsEntity).get(0);
     }

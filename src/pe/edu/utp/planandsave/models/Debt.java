@@ -13,29 +13,28 @@ public class Debt {
     private int quota;
     private float interest;
     private float freeAmount;
-    private float totalAmount;
+    private float periodAmount;
     private Date startDate;
     private User user;
     private ExpensesCategory expensesCategory;
     private Currency currency;
     private Period period;
 
-
-
     public Debt() {
     }
 
-    public Debt(int id, String description, int quota, float interest, float freeAmount, float totalAmount, Date startDate, User user, ExpensesCategory expensesCategory, Currency currency) {
+    public Debt(int id, String description, int quota, float interest, float freeAmount, float periodAmount, Date startDate, User user, ExpensesCategory expensesCategory, Currency currency, Period period) {
         this.id = id;
         this.description = description;
         this.quota = quota;
-        this.totalAmount = totalAmount;
+        this.periodAmount = periodAmount;
         this.interest = interest;
         this.freeAmount = freeAmount;
         this.startDate = startDate;
         this.user = user;
         this.expensesCategory = expensesCategory;
         this.currency = currency;
+        this.period = period;
     }
 
     public int getId() {
@@ -103,16 +102,16 @@ public class Debt {
         return this;
     }
 
-    public float getTotalAmount() {
-        return totalAmount;
+    public float getPeriodAmount() {
+        return periodAmount;
     }
 
-    public String getTotalAmountAsString(){
-        return String.valueOf(getTotalAmount());
+    public String getPeriodAmountAsString(){
+        return String.valueOf(getPeriodAmount());
     }
 
-    public Debt setTotalAmount(float totalAmount) {
-        this.totalAmount = totalAmount;
+    public Debt setPeriodAmount(float periodAmount) {
+        this.periodAmount = periodAmount;
         return this;
     }
 
@@ -174,7 +173,7 @@ public class Debt {
                     .setQuota(resultSet.getInt("quota"))
                     .setInterest(resultSet.getFloat("interest"))
                     .setFreeAmount(resultSet.getFloat("free_amount"))
-                    .setTotalAmount(resultSet.getFloat("total_amount"))
+                    .setPeriodAmount(resultSet.getFloat("period_amount"))
                     .setStartDate(resultSet.getDate("start_date"))
                     .setUser(usersEntity.findById(resultSet.getInt("user_id"), subscriptionsEntity))
                     .setExpensesCategory(expensesCategoryEntity.findById(resultSet.getInt("expense_category_id")))
