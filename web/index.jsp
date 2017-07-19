@@ -11,12 +11,6 @@
 <jsp:include page="navbar.jsp"/>
 <html>
 <head title="Plan&Save">
-  <style>
-    #color{
-      background-color: #768576;
-      width: 100%;
-    }
-  </style>
 </head>
 <body>
 <!---->
@@ -77,7 +71,7 @@
 ================================================== -->
 <!-- Wrap the rest of the page in another container to center all the content. -->
 
-<div class="container marketing">
+<div class="container marketing" style="padding-bottom: 100px">
 
   <!-- Three columns of text below the carousel -->
   <div class="row">
@@ -141,9 +135,7 @@
     </div>
   </div>
 </div>
-
-  <jsp:include page="footer.jsp"/>
 </b:container>
--->
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

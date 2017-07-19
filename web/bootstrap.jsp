@@ -12,6 +12,9 @@
 <!--Login-->
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
+<link href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="js/ie10-viewport-bug-workaround.js"></script>
 
@@ -19,6 +22,7 @@
 <link href="css/carousel.css" rel="stylesheet">
 <link href="css/signup.css" rel="stylesheet">
 <link href="css/navbar-fixed-top.css" rel="stylesheet">
+<link href="css/Footer-with-social-icons.css" rel="stylesheet">
 <link href="css/color.css" rel="stylesheet">
 <link href="css/bootstrap-social.css" rel="stylesheet">
 
