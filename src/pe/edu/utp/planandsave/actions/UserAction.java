@@ -116,7 +116,10 @@ public class UserAction extends ActionSupport{
     public String login(){
         try {
             PSService PSS = new PSService();
-            PSS.getUsersByEmail(email, password);
+            user = new User(PSS.getUsersByEmail(email, password).getId(),PSS.getUsersByEmail(email, password).getFirstName(),PSS.getUsersByEmail(email, password).getLastName(),PSS.getUsersByEmail(email, password).getEmail(),PSS.getUsersByEmail(email, password).getPassword(),PSS.getUsersByEmail(email, password).getSubscriptionStart(),PSS.getUsersByEmail(email, password).getSubscriptionRenovation(),PSS.getUsersByEmail(email, password).getSubscription());
+            id = user.getId();
+            firstName = user.getFirstName();
+            lastName = user.getLastName();
             return SUCCESS;
         }catch (Exception e){
             e.printStackTrace();

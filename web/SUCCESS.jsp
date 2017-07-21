@@ -18,7 +18,11 @@
 <body>
     <h1>SUCCESS</h1>
     <p>Welcome</p>
-    <s:property value="email"/>
+    <p><s:property value="email"/></p>
+    <p><s:property value="id"/></p>
+    <p><s:property value="firstName"/></p>
+    <p><s:property value="lastName"/></p>
+
 
    <%/* <c:forEach var="user" items="${service.users}">
         <p><c:out value="${user.id}"/> <c:out value="${user.firstName}"/><c:out value="${user.lastName}"/><c:out value="${user.email}"/></p>
