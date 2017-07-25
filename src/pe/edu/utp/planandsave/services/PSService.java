@@ -1,5 +1,7 @@
 package pe.edu.utp.planandsave.services;
 
+import pe.edu.utp.planandsave.actions.IncomeAction;
+import pe.edu.utp.planandsave.actions.UserAction;
 import pe.edu.utp.planandsave.models.*;
 
 import javax.naming.InitialContext;
@@ -15,6 +17,7 @@ import java.util.List;
 public class PSService {
     Connection connection;
     PSDataStore dataStore;
+    User user;
 
     public PSService(InitialContext ctx) {
         try {
@@ -102,6 +105,10 @@ public class PSService {
 
     public boolean createIncome(Income income){
         return getDataStore().createIncome(income);
+    }
+
+    public List<Income> getIncomesByUser_id(){
+        return  getDataStore().findIncomesByUser_id(1);
     }
 
     //Users

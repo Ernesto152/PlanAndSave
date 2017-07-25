@@ -10,16 +10,15 @@ import java.util.Date;
  * Created by Abraham on 15/07/2017.
  */
 public class IncomeAction extends ActionSupport {
+    UserAction userAction;
+
     private int id;
     private float amount;
     private String description;
     private Date registration_date;
-    private User user;
+    private int user;
     private int currency;
     private Income income;
-
-    private SubscriptionsEntity subscriptionsEntity;
-
 
     public int getId() {
         return id;
@@ -53,11 +52,11 @@ public class IncomeAction extends ActionSupport {
         this.registration_date = registration_date;
     }
 
-    public User getUser() {
+    public int getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(int user) {
         this.user = user;
     }
 
@@ -80,7 +79,7 @@ public class IncomeAction extends ActionSupport {
     public String add(){
         try {
             PSService PSS = new PSService();
-            income = new Income(id,amount,description,registration_date,user,PSS.getCurrenciesById(currency));
+            income = new Income(id,amount,description,registration_date, PSS.getUsersById(user), PSS.getCurrenciesById(currency));
             PSS.createIncome(income);
             return SUCCESS;
         }catch(Exception e) {
@@ -92,7 +91,6 @@ public class IncomeAction extends ActionSupport {
     public  String execute(){
         return SUCCESS;
     }
-
 
 }
 

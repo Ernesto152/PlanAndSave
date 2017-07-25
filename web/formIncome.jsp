@@ -31,6 +31,7 @@
                 <s:form action="addIncome" id="contact">
                     <h3>Registra</h3>
                     <h4>Llena este formulario con un nuevo ingreso</h4>
+                    <s:hidden name="user" value="%{#session.user_id}"/>
                     <s:textfield name="amount" placeholder="Monto"/>
                     <s:textarea name="description" placeholder="Descripcion"/>
                     <s:radio list="#{'1':'Soles','2':'Dolares','3':'Euros'}" name="currency"/>

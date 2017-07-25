@@ -10,7 +10,7 @@ import java.util.Date;
  * Created by Abraham on 15/07/2017.
  */
 public class UserAction extends ActionSupport{
-    private int id;
+    public int id;
     private String firstName;
     private String lastName;
     private String email;
@@ -118,15 +118,12 @@ public class UserAction extends ActionSupport{
             PSService PSS = new PSService();
             user = PSS.getUsersByEmail(email, password);
             id = user.getId();
-            firstName = user.getFirstName();
-            lastName = user.getLastName();
             return SUCCESS;
         }catch (Exception e){
             e.printStackTrace();
             return "input";
         }
     }
-
 
     public String execute(){
         return SUCCESS;

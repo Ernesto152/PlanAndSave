@@ -1,5 +1,5 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Abraham
@@ -9,8 +9,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="bootstrap.jsp"/>
-<jsp:useBean id="service" class="pe.edu.utp.planandsave.services.PSService"/>
-
 <html>
 <head>
     <title>SUCCESS</title>
@@ -19,15 +17,10 @@
     <h1>SUCCESS</h1>
     <p>Welcome</p>
     <p><s:property value="email"/></p>
-    <p><s:property value="id"/></p>
-    <p><s:property value="firstName"/></p>
-    <p><s:property value="lastName"/></p>
-
-
-   <%/* <c:forEach var="user" items="${service.users}">
-        <p><c:out value="${user.id}"/> <c:out value="${user.firstName}"/><c:out value="${user.lastName}"/><c:out value="${user.email}"/></p>
-    </c:forEach>*/%>
-
+    <s:set var="user_id" value="id" scope="session"/>
+    <c:set var="user_id" value="${user_id}" scope="session"/>
+    <p><s:property value="#session.user_id"/></p>
+    <p><c:out value="${user_id}"/></p>
 
 
 </body>

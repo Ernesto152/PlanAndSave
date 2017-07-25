@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="b" uri="http://bootstrapjsp.org/" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <jsp:include page="bootstrap.jsp"/>
 
 <%--
@@ -25,7 +26,6 @@
 </b:container>
 <b:container>
     <jsp:useBean id="service" class="pe.edu.utp.planandsave.services.PSService"/>
-
         <div class="row" style="padding-bottom: 50px">
             <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
                 <div class="table-responsive">
@@ -42,6 +42,7 @@
                         </thead>
                         <tbody>
                         <c:forEach var="income" items="${service.incomes}" varStatus="loop">
+                            <c:if test="${income.user.id eq user_id}">
                             <tr>
                                 <td><c:out value="${loop.count}"/></td>
                                 <td><c:out value="${income.amount}"/></td>
@@ -56,6 +57,7 @@
                                     </p>
                                 </td>
                             </tr>
+                            </c:if>
                         </c:forEach>
                         </tbody>
                     </table>

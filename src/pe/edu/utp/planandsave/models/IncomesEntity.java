@@ -17,11 +17,17 @@ public class IncomesEntity extends BaseEntity {
     List<Income> findAll(UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity, CurrenciesEntity currenciesEntity){
         return findByCriteria("", usersEntity, subscriptionsEntity, currenciesEntity);
     }
-    public Income findByCriteria(int id, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity,
+    public Income findById(int id, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity,
                                  CurrenciesEntity currenciesEntity){
         String criteria = " id = " + String.valueOf(id);
         return findByCriteria(criteria, usersEntity, subscriptionsEntity, currenciesEntity).get(0);
     }
+
+    List<Income> findByUser_id(int user_id, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity, CurrenciesEntity currenciesEntity){
+        String criteria = " user_id = " + String.valueOf(user_id);
+        return  findByCriteria(criteria, usersEntity, subscriptionsEntity, currenciesEntity);
+    }
+
     public List<Income> findByCriteria(String criteria, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity,
                                          CurrenciesEntity currenciesEntity) {
         String sql = getDefaultQuery() + (criteria.isEmpty() ? "" : " WHERE " + criteria);
@@ -45,7 +51,7 @@ public class IncomesEntity extends BaseEntity {
                             income.getAmountAsString() + ", " +
                             income.getDescriptionAsValue() + ", " +
                             "CURDATE(), " +
-                            "1 , " +
+                            income.getUser().getIdAsString() + " , " +
                             income.getCurrency().getIdAsString() +")";
         return change(sql);
     }

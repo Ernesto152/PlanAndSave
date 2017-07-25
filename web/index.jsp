@@ -7,12 +7,14 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="b" uri="http://bootstrapjsp.org/" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <jsp:include page="bootstrap.jsp"/>
 
 <html>
 <head title="Plan&Save">
 </head>
 <body id="index">
+<s:set var="user_id" value="id" scope="session"/>
 <!---->
 <jsp:include page="navbar.jsp"/>
 <!-- Carousel
@@ -94,7 +96,6 @@
       <p><a class="btn btn-default" href="#" role="button">Ver detalles &raquo;</a></p>
     </div><!-- /.col-lg-4 -->
   </div><!-- /.row -->
-
 
   <!-- START THE FEATURETTES -->
 
