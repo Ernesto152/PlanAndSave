@@ -12,7 +12,7 @@
 <jsp:include page="navbar.jsp"/>
 <html>
 <head>
-    <title>formExpense</title>
+    <title>Registra tus gastos</title>
 </head>
 <body id="expense">
     <b:container>
@@ -31,10 +31,11 @@
                     <s:form action="addExpense" id="contact">
                         <h3>Registra</h3>
                         <h4>Llena este formulario con un nuevo gasto</h4>
-                        <s:textfield name="amount" placeholder="Monto"/>
-                        <s:textarea name="description" placeholder="Descripcion"/>
-                        <s:radio list="#{'1':'Soles','2':'Dolares','3':'Euros'}" label="Tipo" name="currency"/>
-                        <s:select list="#{'1':'Alimento','2':'Comida'}" label="Categoria" name="expenseCategory" headerKey="0" headerValue="---Seleccionar---"/>
+                        <s:hidden name="user" value="%{#session.user_id}"/>
+                        <s:textfield name="amount" placeholder="Monto" size="100%"/>
+                        <s:textarea name="description" placeholder="Descripcion" size="100%"/>
+                        <s:select list="#{'1':'Alimento','2':'Comida'}" label="Categoria" name="expenseCategory" headerKey="0" headerValue="---Seleccionar---" size="100%"/>
+                        <s:radio list="#{'1':'Soles','2':'Dolares','3':'Euros'}" label="Tipo" name="currency" size="100%"/>
                         <s:submit cssClass="btn btn-primary" value="Registrar"/>
                     </s:form>
                 </div>

@@ -13,7 +13,7 @@
 <jsp:include page="navbar.jsp"/>
 <html>
 <head>
-    <title>Title</title>
+    <title>Tus gastos</title>
 </head>
 <body>
     <b:container>
@@ -24,7 +24,7 @@
     </b:container>
     <b:container>
         <jsp:useBean id="service" class="pe.edu.utp.planandsave.services.PSService"/>
-        <div class="row">
+        <div class="row" style="padding-bottom: 50px">
             <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
                 <div class="table-responsive">
                     <table class="table table-bordered table-inverse table-striped table-responsive" id="tabla1">
@@ -41,20 +41,22 @@
                         </thead>
                         <tbody>
                         <c:forEach var="expense" items="${service.expenses}" varStatus="loop">
-                            <tr>
-                                <td><c:out value="${loop.count}"/></td>
-                                <td><c:out value="${expense.amount}"/>
-                                <td><c:out value="${expense.registrationDate}"/>
-                                <td><c:out value="${expense.description}"/>
-                                <td><c:out value="${expense.expensesCategory.name}"/>
-                                <td><c:out value="${expense.currency.name}"/>
-                                <td>
-                                    <p>
-                                        <button type="button" class="btn btn-sm btn-info">Editar</button>
-                                        <button type="button" class="btn btn-sm btn-danger">Eliminar</button>
-                                    </p>
-                                </td>
-                            </tr>
+                            <c:if test="${expense.user.id eq user_id}">
+                                <tr>
+                                    <td><c:out value="${loop.count}"/></td>
+                                    <td><c:out value="${expense.amount}"/>
+                                    <td><c:out value="${expense.registrationDate}"/>
+                                    <td><c:out value="${expense.description}"/>
+                                    <td><c:out value="${expense.expensesCategory.name}"/>
+                                    <td><c:out value="${expense.currency.name}"/>
+                                    <td>
+                                        <p>
+                                            <button type="button" class="btn btn-sm btn-info">Editar</button>
+                                            <button type="button" class="btn btn-sm btn-danger">Eliminar</button>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </c:if>
                         </c:forEach>
                         </tbody>
                     </table>

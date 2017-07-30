@@ -16,6 +16,7 @@ public class User {
     private Date subscriptionStart;
     private Date subscriptionRenovation;
     private Subscription subscription;
+    private User currentUser;
 
 
 

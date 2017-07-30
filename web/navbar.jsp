@@ -25,8 +25,9 @@
                     <ul class="nav navbar-nav">
                         <li><a href="index.jsp">Home</a></li>
                         <li><a href="overview.jsp">Monitorea</a></li>
-                        <li><a href="viewIncome.jsp">Reduce tus gastos</a></li>
-                        <li><a href="#">Alcanza tus metas</a></li>
+                        <li><a href="viewIncome.jsp">Tus ingresos</a></li>
+                        <li><a href="viewExpense.jsp">Tus gastos</a></li>
+                        <li><a href="#">Tus metas</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">¿Deseas registrar algo?<span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -42,7 +43,7 @@
                         <li><p class="navbar-text">¿Ya tienes una cuenta?</p></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Ingresa</b> <span class="caret"></span></a>
-                            <ul id="login-dp" class="dropdown-menu" style="width: 400%">
+                            <ul id="login-dp" class="dropdown-menu">
                                 <li>
                                     <div class="row">
                                         <div class="col-md-12">
@@ -56,27 +57,6 @@
                                                 <s:password name="password" placeholder="Password" size="100%"/>
                                                 <s:submit cssClass="btn btn-primary" value="Iniciar sesión"/>
                                             </s:form>
-
-
-                                          <%/*  <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-                                                <div class="form-group">
-                                                    <label class="sr-only" for="exampleInputEmail2">Email</label>
-                                                    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Correo electrónico" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="sr-only" for="exampleInputPassword2">Contraseña</label>
-                                                    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Contraseña" required>
-                                                    <div class="help-block text-right"><a href="">¿Olvidaste tu contraseña?</a></div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox"> mantenerme conectado
-                                                    </label>
-                                                </div>
-                                            </form>*/%>
                                         </div>
                                         <div class="bottom text-center">
                                             ¿Nuevo aquí? <a href="signup.jsp"><b>Únete a nosotros</b></a>

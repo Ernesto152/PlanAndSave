@@ -12,7 +12,7 @@
 <jsp:include page="navbar.jsp"/>
 <html>
 <head>
-    <title>formIncome</title>
+    <title>Registra tus ingresos</title>
 </head>
 <body id="income">
 <b:container>
@@ -32,9 +32,9 @@
                     <h3>Registra</h3>
                     <h4>Llena este formulario con un nuevo ingreso</h4>
                     <s:hidden name="user" value="%{#session.user_id}"/>
-                    <s:textfield name="amount" placeholder="Monto"/>
-                    <s:textarea name="description" placeholder="Descripcion"/>
-                    <s:radio list="#{'1':'Soles','2':'Dolares','3':'Euros'}" name="currency"/>
+                    <s:textfield name="amount" placeholder="Monto" size="100%"/>
+                    <s:textarea name="description" placeholder="Descripcion" size="100%"/>
+                    <s:radio list="#{'1':'Soles','2':'Dolares','3':'Euros'}" name="currency" size="100%"/>
                     <s:submit cssClass="btn btn-primary" value="Registrar"/>
                 </s:form>
             </div>

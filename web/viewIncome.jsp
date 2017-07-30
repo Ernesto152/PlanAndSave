@@ -13,7 +13,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>View Incomes</title>
+    <title>Tus ingresos</title>
 </head>
 <body id="view">
 <jsp:include page="navbar.jsp"/>
@@ -49,7 +49,6 @@
                                 <td><c:out value="${income.description}"/></td>
                                 <td><c:out value="${income.registrationDate}"/></td>
                                 <td><c:out value="${income.currency.name}"/></td>
-                                <td><c:out value="${income.user.firstName}"/></td>
                                 <td>
                                     <p>
                                         <button type="button" class="btn btn-sm btn-info">Editar</button>

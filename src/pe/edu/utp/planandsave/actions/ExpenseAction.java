@@ -14,12 +14,10 @@ public class ExpenseAction extends ActionSupport {
     private float amount;
     private Date registration_date;
     private String description;
-    private User user;
+    private int user;
     private int expenseCategory;
     private int currency;
     private Expense expense;
-    ExpensesCategory expensesCategory;
-    Currency currencies;
 
     public int getId() {
         return id;
@@ -53,11 +51,11 @@ public class ExpenseAction extends ActionSupport {
         this.description = description;
     }
 
-    public User getUser() {
+    public int getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(int user) {
         this.user = user;
     }
 
@@ -88,7 +86,7 @@ public class ExpenseAction extends ActionSupport {
     public String add(){
         try {
             PSService PSS = new PSService();
-            expense = new Expense(id, amount, registration_date, description, user,PSS.getExpenseCategoriesById(expenseCategory) , PSS.getCurrenciesById(currency) );
+            expense = new Expense(id, amount, registration_date, description, PSS.getUsersById(user),PSS.getExpenseCategoriesById(expenseCategory) , PSS.getCurrenciesById(currency) );
             PSS.createExpense(expense);
             return SUCCESS;
         }catch (Exception e){
@@ -100,5 +98,6 @@ public class ExpenseAction extends ActionSupport {
     public String execute() {
         return SUCCESS;
     }
+
 }
 
