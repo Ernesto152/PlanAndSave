@@ -125,6 +125,12 @@ public class UserAction extends ActionSupport{
         }
     }
 
+    public String logout(){
+        id = 0;
+        email = "";
+        return SUCCESS;
+    }
+
     public String execute(){
         return SUCCESS;
     }

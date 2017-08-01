@@ -32,6 +32,11 @@
             <result name="input">ERROR.jsp</result>
         </action>
 
+        <action name="logout" class="pe.edu.utp.planandsave.actions.UserAction" method="logout">
+            <result name="success">index.jsp</result>
+            <result name="input">ERROR.jsp</result>
+        </action>
+
         <action name="*Debt" class="pe.edu.utp.planandsave.actions.DebtAction" method="add">
             <result name="success">debt.jsp</result>
             <result name="input">ERROR.jsp</result>

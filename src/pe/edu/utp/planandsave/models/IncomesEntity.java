@@ -23,11 +23,6 @@ public class IncomesEntity extends BaseEntity {
         return findByCriteria(criteria, usersEntity, subscriptionsEntity, currenciesEntity).get(0);
     }
 
-    List<Income> findByUser_id(int user_id, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity, CurrenciesEntity currenciesEntity){
-        String criteria = " user_id = " + String.valueOf(user_id);
-        return  findByCriteria(criteria, usersEntity, subscriptionsEntity, currenciesEntity);
-    }
-
     public List<Income> findByCriteria(String criteria, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity,
                                          CurrenciesEntity currenciesEntity) {
         String sql = getDefaultQuery() + (criteria.isEmpty() ? "" : " WHERE " + criteria);

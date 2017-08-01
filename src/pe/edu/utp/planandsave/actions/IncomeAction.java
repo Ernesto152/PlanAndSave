@@ -10,8 +10,6 @@ import java.util.Date;
  * Created by Abraham on 15/07/2017.
  */
 public class IncomeAction extends ActionSupport {
-    UserAction userAction;
-
     private int id;
     private float amount;
     private String description;

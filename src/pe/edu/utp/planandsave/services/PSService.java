@@ -107,10 +107,6 @@ public class PSService {
         return getDataStore().createIncome(income);
     }
 
-    public List<Income> getIncomesByUser_id(){
-        return  getDataStore().findIncomesByUser_id(1);
-    }
-
     //Users
     public List<User> getUsers(){
         return getDataStore().findAllUsers();

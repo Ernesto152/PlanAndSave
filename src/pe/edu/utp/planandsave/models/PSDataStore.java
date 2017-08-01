@@ -107,10 +107,6 @@ public class PSDataStore {
         return getIncomesEntity().add(income);
     }
 
-    public List<Income> findIncomesByUser_id(int user_id){
-        return getIncomesEntity().findByUser_id(user_id, getUsersEntity(), getSubscriptionsEntity(), getCurrenciesEntity());
-    }
-
     //Expenses
 
     private ExpensesEntity getExpensesEntity(){
