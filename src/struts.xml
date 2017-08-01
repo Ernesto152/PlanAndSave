@@ -32,8 +32,8 @@
             <result name="input">ERROR.jsp</result>
         </action>
 
-        <action name="*Debt" class="pe.edu.utp.planandsave.actions.DebtAction" method="{1}">
-            <result name="success">viewDebt.jsp</result>
+        <action name="*Debt" class="pe.edu.utp.planandsave.actions.DebtAction" method="add">
+            <result name="success">debt.jsp</result>
             <result name="input">ERROR.jsp</result>
         </action>
     </package>

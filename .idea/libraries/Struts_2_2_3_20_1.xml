@@ -14,6 +14,7 @@
       <root url="jar://$PROJECT_DIR$/lib/asm-tree.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/javassist.jar!/" />
       <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/bootstrap.jsp.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/struts2-bootstrap-plugin-2.5.1.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
