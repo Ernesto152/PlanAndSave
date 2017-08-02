@@ -103,8 +103,16 @@ public class PSService {
         return getDataStore().findAllIncomes();
     }
 
+    public Income getIncomesById(int id){
+        return getDataStore().findIncomesById(id);
+    }
+
     public boolean createIncome(Income income){
         return getDataStore().createIncome(income);
+    }
+
+    public boolean deleteIncome(Income income){
+        return getDataStore().deleteIncome(income);
     }
 
     //Users

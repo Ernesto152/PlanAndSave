@@ -41,18 +41,22 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach var="income" items="${service.incomes}" varStatus="loop">
+                        <c:set var="count" value="0" scope="page"/>
+                        <c:forEach var="income" items="${service.incomes}">
                             <c:if test="${income.user.id eq user_id}">
+                                <c:set var="count" value="${count+1}" scope="page"/>
                             <tr>
-                                <td><c:out value="${loop.count}"/></td>
+                                <td><c:out value="${count}"/></td>
                                 <td><c:out value="${income.amount}"/></td>
                                 <td><c:out value="${income.description}"/></td>
                                 <td><c:out value="${income.registrationDate}"/></td>
                                 <td><c:out value="${income.currency.name}"/></td>
                                 <td>
                                     <p>
-                                        <button type="button" class="btn btn-sm btn-info">Editar</button>
-                                        <button type="button" class="btn btn-sm btn-danger">Eliminar</button>
+                                        <a href="#" class="btn btn-sm btn-info">Editar</a>
+                                        <a href="<s:url action="deleteIncome">
+                                        <s:param name="id"><c:out value="${income.id}"/></s:param></s:url>"
+                                           class="btn btn-sm btn-danger">Eliminar</a>
                                     </p>
                                 </td>
                             </tr>

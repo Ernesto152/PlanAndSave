@@ -50,5 +50,18 @@ public class IncomesEntity extends BaseEntity {
                             income.getCurrency().getIdAsString() +")";
         return change(sql);
     }
+
+    public boolean delete(Income income){
+        String sql = "DELETE FROM incomes WHERE id = " + income.getIdAsString();
+        return change(sql);
+    }
+
+    public boolean update(Income income){
+        String sql = "UPDATE incomes SET amount = " + income.getAmountAsString() + ", " +
+                                        "description = " + income.getDescriptionAsValue() + ", " +
+                                        "currency_id = " + income.getCurrency().getId() + ", " +
+                "WHERE id = " + income.getId();
+        return change(sql);
+    }
 }
 

@@ -103,8 +103,16 @@ public class PSDataStore {
         return getIncomesEntity().findAll(getUsersEntity(),getSubscriptionsEntity(),getCurrenciesEntity());
     }
 
+    public Income findIncomesById(int id){
+        return getIncomesEntity().findById(id,getUsersEntity(),getSubscriptionsEntity(),getCurrenciesEntity());
+    }
+
     public boolean createIncome(Income income){
         return getIncomesEntity().add(income);
+    }
+
+    public boolean deleteIncome(Income income){
+        return getIncomesEntity().delete(income);
     }
 
     //Expenses

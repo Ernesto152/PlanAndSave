@@ -16,11 +16,11 @@
 <body>
     <h1>SUCCESS</h1>
     <p>Welcome</p>
-    <p><s:property value="email"/></p>
+    <%/*<p><s:property value="email"/></p>
     <s:set var="user_id" value="id" scope="session"/>
     <c:set var="user_id" value="${user_id}" scope="session"/>
     <p><s:property value="#session.user_id"/></p>
-    <p><c:out value="${user_id}"/></p>
+    <p><c:out value="${user_id}"/></p>*/%>
 
 
 </body>

@@ -16,12 +16,6 @@
             <result name="input">ERROR.jsp</result>
         </action>
 
-        <action name="*Income" class="pe.edu.utp.planandsave.actions.IncomeAction" method="{1}">
-            <result name="success">viewIncome.jsp</result>
-            <result name="input">formIncome.jsp</result>
-        </action>
-
-
         <action name="*User" class="pe.edu.utp.planandsave.actions.UserAction" method="{1}">
             <result name="success">index.jsp</result>
             <result name="input">ERROR.jsp</result>
@@ -37,8 +31,18 @@
             <result name="input">ERROR.jsp</result>
         </action>
 
-        <action name="*Debt" class="pe.edu.utp.planandsave.actions.DebtAction" method="add">
+        <action name="*Debt" class="pe.edu.utp.planandsave.actions.DebtAction" method="{1}">
             <result name="success">debt.jsp</result>
+            <result name="input">ERROR.jsp</result>
+        </action>
+
+        <action name="addIncome" class="pe.edu.utp.planandsave.actions.IncomeAction" method="add">
+            <result name="success">viewIncome.jsp</result>
+            <result name="input">formIncome.jsp</result>
+        </action>
+
+        <action name="deleteIncome" class="pe.edu.utp.planandsave.actions.IncomeAction" method="delete">
+            <result name="success">SUCCESS.jsp</result>
             <result name="input">ERROR.jsp</result>
         </action>
     </package>

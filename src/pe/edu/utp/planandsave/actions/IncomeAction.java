@@ -86,6 +86,17 @@ public class IncomeAction extends ActionSupport {
         }
     }
 
+    public String delete(){
+        try {
+            PSService PSS = new PSService();
+            income = PSS.getIncomesById(id);
+            return SUCCESS;
+        }catch (Exception e){
+            e.printStackTrace();
+            return "input";
+        }
+    }
+
     public  String execute(){
         return SUCCESS;
     }
