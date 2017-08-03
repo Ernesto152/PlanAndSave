@@ -153,6 +153,7 @@ public class PSDataStore {
     }
 
     // Debts
+
     private DebtsEntity getDebtsEntity(){
         if(debtsEntity == null){
             debtsEntity = new DebtsEntity(getConnection());
@@ -164,9 +165,12 @@ public class PSDataStore {
         return getDebtsEntity().findById(id, getUsersEntity(), getSubscriptionsEntity(), getExpensesCategoryEntity(), getCurrenciesEntity(), getPeriodsEntity());
     }
 
-    public boolean createDebt(Debt debt){
-        return getDebtsEntity().add(debt);
+    public boolean createDebt(Debt debt){return getDebtsEntity().add(debt);}
+
+    public List<Debt> findAllDebts(){
+        return  getDebtsEntity().findAll(getUsersEntity(),getSubscriptionsEntity(),getExpensesCategoryEntity(),getCurrenciesEntity(), getPeriodsEntity());
     }
+
 
     //Quotes
     private QuotasEntity getQuotasEntity(){

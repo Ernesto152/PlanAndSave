@@ -1,5 +1,5 @@
-<%@ taglib prefix="b" uri="http://bootstrapjsp.org/" %>
 <%@taglib prefix="s" uri="/struts-tags" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: usuario
@@ -12,7 +12,10 @@
 <jsp:include page="navbar.jsp"/>
 
 <html>
-<head title="Debt"></head>
+<head title="debt">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+</head>
+
 <body>
 <s:div cssClass="container">
 <s:div cssClass="row">
@@ -30,7 +33,10 @@
 
         <s:div cssClass="form-group">
             <s:label cssClass="control-label" for="debt_freeAmount">Monto: </s:label>
-            <s:textfield name="debt_freeAmount" maxLength="7" cssClass="form-control" placeholder="Ingrese su deuda..."/>
+            <s:div>
+                <s:textfield name="debt_freeAmount" maxLength="7" cssClass="form-control" placeholder="Ingrese su deuda..."/>
+            </s:div>
+
         </s:div>
 
         <s:div cssClass="form-group">
@@ -40,7 +46,7 @@
 
         <s:div cssClass="form-group">
             <s:label cssClass="control-label" for="currency">Moneda: </s:label>
-            <s:radio name="currency" list="{'Soles','Dolares','Euros'}" />
+            <s:radio name="currency" list="#{'1':'Soles','2':'Dolares','3':'Euros'}" />
 
         </s:div>
 
@@ -51,17 +57,14 @@
 
         <s:div cssClass="form-group">
             <s:label cssClass="control-label" for="period">Intervalo: </s:label>
-            <s:radio name="period" list="{'Semanal', 'Mensual', 'Anual'}" />
+            <s:radio name="period" list="#{'1':'Semanal','2':'Mensual','3':'Anual'}" />
 
         </s:div>
 
-        <s:div cssClass="form-group">
-            <s:label cssClass="control-label" for="debt_startDate">Fecha Límite: </s:label>
-            <s:textfield name="debt_startDate" type="date" min="1"  max="2" cssClass="form-control"/>
-        </s:div>
+
 
         <s:div cssClass="form-group">
-            <s:select name="expenseCategory" list="{'Alimento','Comida'}" cssClass="form-control"
+            <s:select name="expenseCategory" list="#{'1':'Alimento','2':'Comida'}" cssClass="form-control"
                       headerKey="0" headerValue="--Seleccionar--" required="true"/>
 
         </s:div>

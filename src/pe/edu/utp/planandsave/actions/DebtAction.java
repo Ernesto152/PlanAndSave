@@ -4,8 +4,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import pe.edu.utp.planandsave.models.Debt;
 import pe.edu.utp.planandsave.models.User;
 import pe.edu.utp.planandsave.services.PSService;
-
-import java.util.Date;
+import java.util.*;
 
 /**
  * Created by Abraham on 18/07/2017.
@@ -23,6 +22,7 @@ public class DebtAction extends ActionSupport {
     private int currency;
     private int period;
     private Debt debt;
+    private String uploadedDate;
 
     /*private int quota_id;
     private int quota_number;
@@ -139,10 +139,10 @@ public class DebtAction extends ActionSupport {
         }
     }
 
-
     public String execute(){
-        return SUCCESS;
-    }
+        return SUCCESS;    }
+
+
 
 
    /* public int getQuota_id() {

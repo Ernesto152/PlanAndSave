@@ -145,6 +145,8 @@ public class PSService {
         return getDataStore().createDebt(debt);
     }
 
+    public List<Debt> getDebts(){ return getDataStore().findAllDebts(); }
+
     //Quotes
     public boolean createQuota(Quota quota){
         return getDataStore().createQuota(quota);
