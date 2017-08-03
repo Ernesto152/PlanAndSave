@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
 
-
 /**
  * Created by usuario on 16/06/2017.
  */
@@ -15,9 +14,7 @@ public class DebtsEntity extends BaseEntity{
         super(connection, "debts");
     }
 
-    public DebtsEntity() {
-        super();
-    }
+    public DebtsEntity() {super();}
 
     public List<Debt> findAll(UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity,
                               ExpensesCategoryEntity expensesCategoryEntity, CurrenciesEntity currenciesEntity, PeriodsEntity periodsEntity){
@@ -61,4 +58,13 @@ public class DebtsEntity extends BaseEntity{
                 debt.getPeriod().getIdAsString() +")";
         return change(sql);
     }
+
+
+    public boolean delete(Debt debt){
+        String sql = "DELETE FROM debts WHERE id = " + debt.getIdAsString();
+        return change(sql);
+    }
+
+
+
 }

@@ -22,7 +22,6 @@ public class DebtAction extends ActionSupport {
     private int currency;
     private int period;
     private Debt debt;
-    private String uploadedDate;
 
     /*private int quota_id;
     private int quota_number;
@@ -139,8 +138,19 @@ public class DebtAction extends ActionSupport {
         }
     }
 
-    public String execute(){
-        return SUCCESS;    }
+    public String delete(){
+        try {
+            PSService PSS = new PSService();
+            debt = PSS.getDebtById(debt_id);
+            return SUCCESS;
+        }catch (Exception e){
+            e.printStackTrace();
+            return "input";
+        }
+    }
+
+
+    public String execute(){return SUCCESS;}
 
 
 
