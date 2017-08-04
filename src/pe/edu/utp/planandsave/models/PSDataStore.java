@@ -115,9 +115,25 @@ public class PSDataStore {
         return getIncomesEntity().delete(income);
     }
 
-    public boolean deleteIncome(int id){
-        return getIncomesEntity().delete(id);
+    // Debts
+
+    private DebtsEntity getDebtsEntity(){   if(debtsEntity == null){
+                                            debtsEntity = new DebtsEntity(getConnection());}
+                                            return debtsEntity;
     }
+
+    public List<Debt> findAllDebts(){
+        return  getDebtsEntity().findAll(getUsersEntity(),getSubscriptionsEntity(),getExpensesCategoryEntity(),getCurrenciesEntity(), getPeriodsEntity());
+    }
+
+    public Debt findDebtsById(int id){
+        return getDebtsEntity().findById(id, getUsersEntity(), getSubscriptionsEntity(), getExpensesCategoryEntity(), getCurrenciesEntity(), getPeriodsEntity());
+    }
+
+    public boolean createDebt(Debt debt){return getDebtsEntity().add(debt);}
+
+    public boolean deleteDebt(Debt debt){return getDebtsEntity().delete(debt);}
+
     //Expenses
 
     private ExpensesEntity getExpensesEntity(){
@@ -153,22 +169,6 @@ public class PSDataStore {
 
     public boolean createExpenseCategory(ExpensesCategory expensesCategory){
         return getExpensesCategoryEntity().add(expensesCategory);
-    }
-
-    // Debts
-    private DebtsEntity getDebtsEntity(){
-        if(debtsEntity == null){
-            debtsEntity = new DebtsEntity(getConnection());
-        }
-        return debtsEntity;
-    }
-
-    public Debt findDebtsById(int id){
-        return getDebtsEntity().findById(id, getUsersEntity(), getSubscriptionsEntity(), getExpensesCategoryEntity(), getCurrenciesEntity(), getPeriodsEntity());
-    }
-
-    public boolean createDebt(Debt debt){
-        return getDebtsEntity().add(debt);
     }
 
     //Quotes

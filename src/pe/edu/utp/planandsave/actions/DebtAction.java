@@ -4,8 +4,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import pe.edu.utp.planandsave.models.Debt;
 import pe.edu.utp.planandsave.models.User;
 import pe.edu.utp.planandsave.services.PSService;
-
-import java.util.Date;
+import java.util.*;
 
 /**
  * Created by Abraham on 18/07/2017.
@@ -139,10 +138,21 @@ public class DebtAction extends ActionSupport {
         }
     }
 
-
-    public String execute(){
-        return SUCCESS;
+    public String delete(){
+        try {
+            PSService PSS = new PSService();
+            debt = PSS.getDebtById(debt_id);
+            return SUCCESS;
+        }catch (Exception e){
+            e.printStackTrace();
+            return "input";
+        }
     }
+
+
+    public String execute(){return SUCCESS;}
+
+
 
 
    /* public int getQuota_id() {
