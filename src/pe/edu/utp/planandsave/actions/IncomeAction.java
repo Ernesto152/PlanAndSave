@@ -82,7 +82,7 @@ public class IncomeAction extends ActionSupport {
             return SUCCESS;
         }catch(Exception e) {
             e.printStackTrace();
-            return "input";
+            return INPUT;
         }
     }
 
@@ -90,10 +90,25 @@ public class IncomeAction extends ActionSupport {
         try {
             PSService PSS = new PSService();
             income = PSS.getIncomesById(id);
+            PSS.deleteIncome(income);
             return SUCCESS;
         }catch (Exception e){
             e.printStackTrace();
-            return "input";
+            return INPUT;
+        }
+    }
+
+    public String edit(){
+        try {
+            PSService service = new PSService();
+            income = service.getIncomesById(id);
+            id = income.getId();
+            amount = income.getAmount();
+            description = income.getDescription();
+            return SUCCESS;
+        }catch (Exception e) {
+            e.printStackTrace();
+            return INPUT;
         }
     }
 

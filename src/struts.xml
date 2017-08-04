@@ -41,9 +41,14 @@
             <result name="input">formIncome.jsp</result>
         </action>
 
-        <action name="deleteIncome" class="pe.edu.utp.planandsave.actions.IncomeAction" method="delete">
-            <result name="success">SUCCESS.jsp</result>
+        <action name="delete" class="pe.edu.utp.planandsave.actions.IncomeAction" method="delete">
+            <result name="success">viewIncome.jsp</result>
             <result name="input">ERROR.jsp</result>
+        </action>
+
+        <action name="edit" class="pe.edu.utp.planandsave.actions.IncomeAction" method="edit">
+            <result name="success">edit.jsp</result>
+            <result name="input">viewIncome.jsp</result>
         </action>
     </package>
 </struts>

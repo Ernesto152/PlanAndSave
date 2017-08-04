@@ -115,6 +115,9 @@ public class PSDataStore {
         return getIncomesEntity().delete(income);
     }
 
+    public boolean deleteIncome(int id){
+        return getIncomesEntity().delete(id);
+    }
     //Expenses
 
     private ExpensesEntity getExpensesEntity(){

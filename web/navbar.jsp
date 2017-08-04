@@ -24,8 +24,9 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="index.jsp">Home</a></li>
-                <li><a href="overview.jsp">Monitorea</a></li>
-                <li><a href="viewIncome.jsp">Reduce tus gastos</a></li>
+                <li><a href="overview.jsp">Monitoreo</a></li>
+                <li><a href="viewIncome.jsp">Mis ingreso</a></li>
+                <li><a href="viewExpense.jsp">Mis gastos</a></li>
                 <li><a href="#">Alcanza tus metas</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">¿Deseas registrar algo?<span class="caret"></span></a>
@@ -67,8 +68,8 @@
                     </li>
                 </s:if>
                 <s:if test="%{#session.user_id>0}">
-                    <li><p class="navbar-text">Bienvenido <s:property value="#session.user_email"/></p></li>
-                    <li><a href="<s:url action="logout"/>">Salir</a></li>
+                    <li><p class="navbar-text">Hola, <s:property value="#session.user_name"/> </p></li>
+                    <li><a href="<s:url action="logout"/>"><span class="glyphicon glyphicon-log-out"></span>  Salir</a></li>
                 </s:if>
             </ul>
         </div>

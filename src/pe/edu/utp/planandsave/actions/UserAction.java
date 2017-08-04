@@ -118,6 +118,7 @@ public class UserAction extends ActionSupport{
             PSService PSS = new PSService();
             user = PSS.getUsersByEmail(email, password);
             id = user.getId();
+            firstName = user.getFirstName();
             return SUCCESS;
         }catch (Exception e){
             e.printStackTrace();

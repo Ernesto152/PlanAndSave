@@ -16,6 +16,7 @@
 <body id="index">
 <s:set var="user_id" value="id" scope="session"/>
 <s:set var="user_email" value="email" scope="session"/>
+<s:set var="user_name" value="firstName" scope="session"/>
 <!---->
 <jsp:include page="navbar.jsp"/>
 <!-- Carousel

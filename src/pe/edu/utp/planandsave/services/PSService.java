@@ -115,6 +115,10 @@ public class PSService {
         return getDataStore().deleteIncome(income);
     }
 
+    public boolean deleteIncome(int id){
+        return getDataStore().deleteIncome(id);
+    }
+
     //Users
     public List<User> getUsers(){
         return getDataStore().findAllUsers();
