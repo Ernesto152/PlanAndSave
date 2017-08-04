@@ -35,12 +35,17 @@
             <result name="success">viewDebt.jsp</result>
             <result name="input">ERROR.jsp</result>
         </action>
-
+            
         <action name="deleteDebts" class="pe.edu.utp.planandsave.actions.DebtAction" method="delete">
             <result name="success">SUCCESS.jsp</result>
         <result name="input">ERROR.jsp</result>
         </action>
 
+        <action name="addGoal" class="pe.edu.utp.planandsave.actions.GoalAction" method="addGoal">
+            <result name="success">viewGoal.jsp</result>
+            <result name="input">ERROR.jsp</result>
+        </action>
+            
         <action name="addIncome" class="pe.edu.utp.planandsave.actions.IncomeAction" method="add">
             <result name="success">viewIncome.jsp</result>
             <result name="input">formIncome.jsp</result>
