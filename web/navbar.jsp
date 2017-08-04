@@ -35,7 +35,7 @@
                         <li><a href="formExpense.jsp">Gastos</a></li>
                         <li><a href="debt.jsp">Deudas</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Metas</a></li>
+                        <li><a href="Goal.jsp">Metas</a></li>
                     </ul>
                 </li>
             </ul>
