@@ -19,8 +19,7 @@ public class GoalsEntity extends BaseEntity{
         super();
     }
 
-    List<Goal> findAll(UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity,
-                       CurrenciesEntity currenciesEntity){
+    List<Goal> findAll(UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity, CurrenciesEntity currenciesEntity){
         return findByCriteria("", usersEntity, subscriptionsEntity, currenciesEntity);
     }
 
@@ -58,4 +57,20 @@ public class GoalsEntity extends BaseEntity{
         }
         return null;
     }
+
+    public boolean add(Goal goal) {
+        String sql = "INSERT INTO goals(name, amount, status, image_url, user_id, currency_id) " +
+                "VALUES(    " +
+                goal.getNameAsValue()+ ", " +
+                goal.getAmountAsString() + ", " +
+                goal.getStatusAsValue() + ", " +
+                goal.getImageUrlAsValue() + ", " +
+                goal.getUser().getIdAsString() + " , " +
+                goal.getCurrency().getIdAsString() +")";
+        return change(sql);
+    }
+
+
+
+
 }

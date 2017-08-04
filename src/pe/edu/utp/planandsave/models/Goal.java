@@ -14,6 +14,19 @@ public class Goal {
     private User user;
     private Currency currency;
 
+    public Goal() {
+    }
+
+    public Goal(int id, String name, float amount, String status, String imageUrl, User user, Currency currency) {
+        this.setId(id);
+        this.setName(name);
+        this.setAmount(amount);
+        this.setStatus(status);
+        this.setImageUrl(imageUrl);
+        this.setUser(user);
+        this.setCurrency(currency);
+    }
+
     public int getId() {
         return id;
     }

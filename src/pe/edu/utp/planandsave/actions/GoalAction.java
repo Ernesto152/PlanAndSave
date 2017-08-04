@@ -1,10 +1,8 @@
 package pe.edu.utp.planandsave.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
-import pe.edu.utp.planandsave.models.Goal;
-import pe.edu.utp.planandsave.models.User;
+import pe.edu.utp.planandsave.models.*;
 import pe.edu.utp.planandsave.services.PSService;
-import java.util.*;
 
 public class GoalAction extends ActionSupport {
     private int id;
@@ -12,8 +10,8 @@ public class GoalAction extends ActionSupport {
     private float amount;
     private String status;
     private String imageUrl;
-    private User user;
-    private Currency currency;
+    private int user;
+    private int currency;
     private Goal goal;
 
     public int getId() {return id;}
@@ -26,38 +24,54 @@ public class GoalAction extends ActionSupport {
 
     public float getAmount() {return amount;}
 
-    public void setAmount(float amount) {this.amount = amount;}
+    public void setAmount(float amount) {this.amount = amount; }
 
-    public String getStatus() {return status;}
+    public String getStatus() { return status;}
 
-    public void setStatus(float status) { this.status = status;}
+    public void setStatus(String status) {this.status = status;}
 
-    public String getImageUrl() { return imageUrl;}
+    public String getImageUrl() {return imageUrl;}
 
-    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl;}
+    public void setImageUrl(String imageUrl) {this.imageUrl = imageUrl; }
 
-    public User getUser() { return user; }
+    public int getUser() {
+        return user;
+    }
 
-    public void setUser(User user) { this.user = user; }
+    public void setUser(int user) {
+        this.user = user;
+    }
 
-    public Currency getCurrency() { return currency; }
 
-    public void setCurrency(Currency currency) { this.currency = currency; }
+    public int getCurrency() {
+        return currency;
+    }
 
-    public Goal getGoal() { return goal; }
+    public void setCurrency(int currency) {
+        this.currency = currency;
+    }
 
-    public void setGoal(Goal goal) { this.goal = goal; }
-    
-    public String addGoal(){
+    public Goal getGoal() {
+        return goal;
+    }
+
+    public void setGoal(Goal goal) {
+        this.goal = goal;
+    }
+
+    public String add() {
         try {
             PSService PSS = new PSService();
             goal = new Goal(id, name, amount, status, imageUrl, PSS.getUsersById(user), PSS.getCurrenciesById(currency));
             PSS.createGoal(goal);
             return SUCCESS;
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return "input";
         }
     }
 
-public String execute(){return SUCCESS;}
+    public String execute() {
+        return SUCCESS;
+    }
+}

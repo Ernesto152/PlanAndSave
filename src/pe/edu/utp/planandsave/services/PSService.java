@@ -119,17 +119,21 @@ public class PSService {
         return getDataStore().deleteIncome(id);
     }
 
+    //Goals
+
+    public List<Goal> getGoals() {return getDataStore().findAllGoals();}
+
+    public Goal getGoalById(int id){return getDataStore().findGoalsById(id); }
+
+    public boolean createGoal(Goal goal){ return getDataStore().createGoal(goal);}
+
     // Debts
 
     public List<Debt> getDebts(){ return getDataStore().findAllDebts(); }
 
-    public Debt getDebtById(int id){
-        return getDataStore().findDebtsById(id);
-    }
+    public Debt getDebtById(int id){ return getDataStore().findDebtsById(id); }
 
-    public boolean createDebt(Debt debt){
-        return getDataStore().createDebt(debt);
-    }
+    public boolean createDebt(Debt debt){return getDataStore().createDebt(debt);}
 
     public boolean deleteDebt(Debt debt){return getDataStore().deleteDebt(debt);}
 
@@ -159,9 +163,7 @@ public class PSService {
         return getDataStore().createQuota(quota);
     }
 
-    public Quota getQuotaById(int id){
-        return getDataStore().findQuotaById(id);
-    }
+    public Quota getQuotaById(int id){return getDataStore().findQuotaById(id);}
 
     //Periods
     public List<Period> getPeriods(){

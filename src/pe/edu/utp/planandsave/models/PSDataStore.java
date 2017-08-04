@@ -17,6 +17,7 @@ public class PSDataStore {
     private DebtsEntity debtsEntity;
     private PeriodsEntity periodsEntity;
     private QuotasEntity quotasEntity;
+    private GoalsEntity goalsEntity;
 
 
     public PSDataStore(Connection connection) {
@@ -107,25 +108,36 @@ public class PSDataStore {
         return getIncomesEntity().findById(id,getUsersEntity(),getSubscriptionsEntity(),getCurrenciesEntity());
     }
 
-    public boolean createIncome(Income income){
-        return getIncomesEntity().add(income);
-    }
+    public boolean createIncome(Income income){ return getIncomesEntity().add(income); }
 
     public boolean deleteIncome(Income income){
         return getIncomesEntity().delete(income);
     }
 
-    public boolean deleteIncome(int id){
-        return getIncomesEntity().delete(id);
+    public boolean deleteIncome(int id){return getIncomesEntity().delete(id);}
+
+    //Goals
+    private GoalsEntity getGoalsEntity(){
+        if(goalsEntity == null){
+        goalsEntity = new GoalsEntity(getConnection());}
+        return goalsEntity; }
+
+    public List<Goal> findAllGoals(){
+        return getGoalsEntity().findAll(getUsersEntity(),getSubscriptionsEntity(),getCurrenciesEntity());
     }
+
+    public Goal findGoalsById(int id){
+        return getGoalsEntity().findById(id,getUsersEntity(),getSubscriptionsEntity(),getCurrenciesEntity());
+    }
+
+    public boolean createGoal(Goal goal){return getGoalsEntity().add(goal);}
+
 
     // Debts
 
     private DebtsEntity getDebtsEntity(){   if(debtsEntity == null){
                                             debtsEntity = new DebtsEntity(getConnection());}
-                                            return debtsEntity;
-    }
-
+                                            return debtsEntity; }
     public List<Debt> findAllDebts(){
         return  getDebtsEntity().findAll(getUsersEntity(),getSubscriptionsEntity(),getExpensesCategoryEntity(),getCurrenciesEntity(), getPeriodsEntity());
     }
@@ -190,8 +202,6 @@ public class PSDataStore {
     public boolean createQuota(Quota quota){
         return getQuotasEntity().add(quota);
     }
-
-
 
 
     // Periods
