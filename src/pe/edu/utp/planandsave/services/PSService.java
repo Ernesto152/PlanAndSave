@@ -115,6 +115,10 @@ public class PSService {
         return getDataStore().deleteIncome(income);
     }
 
+    public boolean deleteIncome(int id){
+        return getDataStore().deleteIncome(id);
+    }
+
     // Debts
 
     public List<Debt> getDebts(){ return getDataStore().findAllDebts(); }
