@@ -24,14 +24,37 @@
 </s:if>
 
 <s:if test="%{#session.user_id>0}">
+
+    <jsp:useBean id="service" class="pe.edu.utp.planandsave.services.PSService"/>
+    <c:forEach var="income" items="${service.incomes}">
+        <c:if test="${income.user.id eq user_id}">
+            <c:set var="sumIncome" value="${sumIncome+(income.amount*income.currency.exchangeRate)}"/>
+        </c:if>
+    </c:forEach>
+
+    <c:forEach var="expense" items="${service.expenses}">
+        <c:if test="${expense.user.id eq user_id}">
+            <c:set var="sumExpense" value="${sumExpense+(expense.amount*expense.currency.exchangeRate)}"/>
+        </c:if>
+    </c:forEach>
+
+    <c:forEach var="debt" items="${service.debts}">
+        <c:if test="${debt.user.id eq user_id}">
+            <c:set var="sumDebt" value="${sumDebt+(debt.quota*debt.periodAmount*debt.currency.exchangeRate)}"/>
+        </c:if>
+    </c:forEach>
+
+    <c:set var="saves" value="${sumIncome-sumExpense-sumDebt}"/>
+
     <b:container>
         <b:jumbotron title="Sample">
-            <h1>Metas</h1>
+            <h1>Mis Metas</h1>
             <p>Alcanza tus Metas </p>
+            <fmt:setLocale value = "es_PE"/>
+            <p>Mi saldo : <fmt:formatNumber value = "${saves}" type = "currency"/></p>
         </b:jumbotron>
     </b:container>
     <b:container>
-        <jsp:useBean id="service" class="pe.edu.utp.planandsave.services.PSService"/>
         <div class="row" style="padding-bottom: 50px">
             <div class="col-xs-12 col-sm-12 col-md10 col-md-offset-1 col-lg-10 col-lg-offset-1">
                 <div class="table-responsive">
@@ -67,7 +90,8 @@
                                     <td>
                                         <p>
                                             <a href="<s:url action="completeGoal">
-                                        <s:param name="id"><c:out value="${goal.id}"/></s:param></s:url>"
+                                        <s:param name="id"><c:out value="${goal.id}"/></s:param>
+                                        <s:param name="saves"><c:out value="${saves}"/></s:param></s:url>"
                                                class="btn btn-sm btn-info">Completar</a>
 
                                             <a href="<s:url action="deleteGoal">

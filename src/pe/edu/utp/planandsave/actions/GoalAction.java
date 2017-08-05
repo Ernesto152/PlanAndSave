@@ -17,6 +17,7 @@ public class GoalAction extends ActionSupport {
     private Goal goal;
     private Expense expense;
     private Date date;
+    private float saves;
 
     public int getId() {return id;}
 
@@ -78,6 +79,14 @@ public class GoalAction extends ActionSupport {
         this.date = date;
     }
 
+    public float getSaves() {
+        return saves;
+    }
+
+    public void setSaves(float saves) {
+        this.saves = saves;
+    }
+
     public String add() {
         try {
             PSService PSS = new PSService();
@@ -106,9 +115,11 @@ public class GoalAction extends ActionSupport {
         try {
             PSService PSS = new PSService();
             goal = PSS.getGoalById(id);
-            PSS.completeGoal(goal);
-            expense = new Expense(1, goal.getAmount(), date, goal.getName(), goal.getUser(), PSS.getExpenseCategoriesById(3), goal.getCurrency());
-            PSS.createExpense(expense);
+            if(saves> goal.getAmount()){
+                PSS.completeGoal(goal);
+                expense = new Expense(1, goal.getAmount(), date, goal.getName(), goal.getUser(), PSS.getExpenseCategoriesById(3), goal.getCurrency());
+                PSS.createExpense(expense);
+            }
             return SUCCESS;
         }catch (Exception e){
             e.printStackTrace();
@@ -119,5 +130,6 @@ public class GoalAction extends ActionSupport {
     public String execute() {
         return SUCCESS;
     }
+
 
 }
