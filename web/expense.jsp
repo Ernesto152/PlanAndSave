@@ -52,6 +52,10 @@
           <li role="presentation"><a role="item" href="#">Alimentos</a> </li>
           <li role="presentation"><a role="item" href="#">Ropa</a> </li>
           <li role="presentation"><a role="item" href="#">Servicios Básicos</a> </li>
+          <li role="presentation"><a role="item" href="#">Equipos</a> </li>
+          <li role="presentation"><a role="item" href="#">Vehículos</a> </li>
+          <li role="presentation"><a role="item" href="#">Mobiliario</a> </li>
+          <li role="presentation"><a role="item" href="#">Salud</a> </li>
         </ul>
       </div>
     </div>
