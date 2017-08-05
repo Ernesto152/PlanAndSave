@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="b" uri="http://bootstrapjsp.org/" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <jsp:include page="bootstrap.jsp"/>
 
 <%--
@@ -16,6 +17,12 @@
     <title>Tus gastos</title>
 </head>
 <body>
+
+<s:if test="%{#session.user_id==null || #session.user_id==0}">
+    <jsp:include page="errorLogin.jsp"/>
+</s:if>
+
+<s:if test="%{#session.user_id>0}">
     <b:container>
         <b:jumbotron title="Sample">
             <h1>Gastos</h1>
@@ -67,6 +74,7 @@
             </div>
         </div>
     </b:container>
+</s:if>
     <jsp:include page="footer.jsp"/>
 </body>
 </html>

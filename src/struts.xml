@@ -22,7 +22,7 @@
         </action>
 
         <action name="login" class="pe.edu.utp.planandsave.actions.UserAction" method="login">
-            <result name="success">index.jsp</result>
+            <result name="success">overview.jsp</result>
             <result name="input">ERROR.jsp</result>
         </action>
 
@@ -41,7 +41,7 @@
         <result name="input">ERROR.jsp</result>
         </action>
 
-        <action name="addGoal" class="pe.edu.utp.planandsave.actions.GoalAction" method="addGoal">
+        <action name="addGoal" class="pe.edu.utp.planandsave.actions.GoalAction" method="add">
             <result name="success">viewGoal.jsp</result>
             <result name="input">ERROR.jsp</result>
         </action>
@@ -51,7 +51,7 @@
             <result name="input">formIncome.jsp</result>
         </action>
 
-        <action name="delete" class="pe.edu.utp.planandsave.actions.IncomeAction" method="delete">
+        <action name="deleteIncome" class="pe.edu.utp.planandsave.actions.IncomeAction" method="delete">
             <result name="success">viewIncome.jsp</result>
             <result name="input">ERROR.jsp</result>
         </action>

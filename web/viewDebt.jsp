@@ -16,6 +16,11 @@
 </head>
 <body id="view">
 <jsp:include page="navbar.jsp"/>
+
+<s:if test="%{#session.user_id==null || #session.user_id==0}">
+    <jsp:include page="errorLogin.jsp"/>
+</s:if>
+
 <b:container>
     <b:jumbotron title="Sample">
         <h1>Deudas</h1>

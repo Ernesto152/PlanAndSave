@@ -25,17 +25,17 @@
             <ul class="nav navbar-nav">
                 <li><a href="index.jsp">Home</a></li>
                 <li><a href="overview.jsp">Monitoreo</a></li>
-                <li><a href="viewIncome.jsp">Mis ingreso</a></li>
+                <li><a href="viewIncome.jsp">Mis ingresos</a></li>
                 <li><a href="viewExpense.jsp">Mis gastos</a></li>
-                <li><a href="#">Alcanza tus metas</a></li>
+                <li><a href="viewGoal.jsp">Mis metas</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">¿Deseas registrar algo?<span class="caret"></span></a>
+                    <a href="*" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">¿Deseas registrar algo?<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="formIncome.jsp">Ingresos</a></li>
                         <li><a href="formExpense.jsp">Gastos</a></li>
                         <li><a href="debt.jsp">Deudas</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="Goal.jsp">Metas</a></li>
+                        <li><a href="formGoal.jsp">Metas</a></li>
                     </ul>
                 </li>
             </ul>

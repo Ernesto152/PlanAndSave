@@ -7,17 +7,37 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="b" uri="http://bootstrapjsp.org/" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="c" uri="/struts-tags" %>
 <jsp:include page="bootstrap.jsp"/>
 
 <html>
 <head title="Plan&Save">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript" src="js/overviewChart.js"></script>
 </head>
 <body id="overview">
+<jsp:useBean id="service" class="pe.edu.utp.planandsave.services.PSService"/>
+<c:set id="sumIncome" var="sumIncome" value=""/>
+<c:set id="sumExpense" var="sumExpense" value=""/>
+<c:set id="sumDebt" var="sumDebt" value=""/>
+
+<script type="text/javascript" src="js/overviewChart.js"></script>
+
+
+<s:if test="%{#session.user_id==null || #session.user_id==0}">
+<s:set var="user_id" value="id" scope="session"/>
+<s:set var="user_email" value="email" scope="session"/>
+<s:set var="user_name" value="firstName" scope="session"/>
+</s:if>
+
+<s:if test="%{#session.user_id==null || #session.user_id==0}">
+    <jsp:include page="errorLogin.jsp"/>
+</s:if>
+
 <jsp:include page="navbar.jsp"/>
 
+<s:if test="%{#session.user_id>0}">
 <b:container>
     <b:jumbotron title="Sample">
         <h1>Revisa tu cartera</h1>
@@ -78,6 +98,8 @@
         </div>
     </div>
 </b:container>
+</s:if>
+
 <jsp:include page="footer.jsp"/>
 </body>
 </html>

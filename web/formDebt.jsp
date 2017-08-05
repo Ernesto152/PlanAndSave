@@ -13,6 +13,10 @@
 </head>
 <body>
 
+<s:if test="%{#session.user_id==null || #session.user_id==0}">
+    <jsp:include page="errorLogin.jsp"/>
+</s:if>
+
 <s:form action="addDebt">
     <s:textarea name="debt_description" label="Descripcion"/>
     <s:select list="#{'1':'Alimento','2':'Comida'}" label="Categoria" name="expenseCategory" headerKey="0" headerValue="---Seleccionar---"/>

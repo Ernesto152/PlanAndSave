@@ -18,6 +18,11 @@
 <body id="view">
 <jsp:include page="navbar.jsp"/>
 
+<s:if test="%{#session.user_id==null || #session.user_id==0}">
+    <jsp:include page="errorLogin.jsp"/>
+</s:if>
+
+<s:if test="%{#session.user_id>0}">
 <b:container>
     <b:jumbotron title="Sample">
         <h1>Ingresos</h1>
@@ -54,7 +59,7 @@
                                 <td>
                                     <p>
                                         <a href="<s:url action="edit"><s:param name="id"><c:out value="${income.id}"/></s:param></s:url>" class="btn btn-sm btn-info">Editar</a>
-                                        <a href="<s:url action="delete">
+                                        <a href="<s:url action="deleteIncome">
                                         <s:param name="id"><c:out value="${income.id}"/></s:param></s:url>"
                                            class="btn btn-sm btn-danger">Eliminar</a>
                                     </p>
@@ -71,6 +76,7 @@
             </div>
         </div>
 </b:container>
+</s:if>
 <jsp:include page="footer.jsp"/>
 </body>
 </html>

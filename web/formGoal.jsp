@@ -8,6 +8,12 @@
 </head>
 
 <body>
+
+<s:if test="%{#session.user_id==null || #session.user_id==0}">
+    <jsp:include page="errorLogin.jsp"/>
+</s:if>
+
+<s:if test="%{#session.user_id>0}">
 <s:div cssClass="container">
 <s:div cssClass="row">
     <br>
@@ -49,5 +55,6 @@
     </div>
 </s:div>
 </s:div>
+</s:if>
 </body>
 </html>

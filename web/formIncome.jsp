@@ -15,6 +15,12 @@
     <title>Registra tus ingresos</title>
 </head>
 <body id="income">
+
+<s:if test="%{#session.user_id==null || #session.user_id==0}">
+    <jsp:include page="errorLogin.jsp"/>
+</s:if>
+
+<s:if test="%{#session.user_id>0}">
 <b:container>
     <b:jumbotron title="Sample">
         <h1>Tus Ingresos</h1>
@@ -42,5 +48,6 @@
     </div>
 </b:container>
 <jsp:include page="footer.jsp"/>
+</s:if>
 </body>
 </html>
