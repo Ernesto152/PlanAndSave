@@ -17,6 +17,7 @@ public class IncomeAction extends ActionSupport {
     private int user;
     private int currency;
     private Income income;
+    private String status;
 
     public int getId() {
         return id;
@@ -74,6 +75,14 @@ public class IncomeAction extends ActionSupport {
         this.income = income;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public String add(){
         try {
             PSService PSS = new PSService();
@@ -107,6 +116,18 @@ public class IncomeAction extends ActionSupport {
             description = income.getDescription();
             return SUCCESS;
         }catch (Exception e) {
+            e.printStackTrace();
+            return INPUT;
+        }
+    }
+
+    public String update(){
+        try {
+            PSService PSS = new PSService();
+            income = new Income(id,amount,description,registration_date, PSS.getUsersById(user), PSS.getCurrenciesById(currency));
+            PSS.updateIncome(income);
+            return SUCCESS;
+        }catch(Exception e) {
             e.printStackTrace();
             return INPUT;
         }

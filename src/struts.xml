@@ -43,11 +43,10 @@
             
         <action name="*Income" class="pe.edu.utp.planandsave.actions.IncomeAction" method="{1}">
             <result name="success">viewIncome.jsp</result>
-            <result name="input">formIncome.jsp</result>
         </action>
 
         <action name="edit" class="pe.edu.utp.planandsave.actions.IncomeAction" method="edit">
-            <result name="success">edit.jsp</result>
+            <result name="success">editIncome.jsp</result>
             <result name="input">viewIncome.jsp</result>
         </action>
     </package>

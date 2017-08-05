@@ -115,6 +115,10 @@ public class PSDataStore {
         return getIncomesEntity().delete(income);
     }
 
+    public boolean updateIncome(Income income){
+        return getIncomesEntity().update(income);
+    }
+
     //Goals
     private GoalsEntity getGoalsEntity(){
         if(goalsEntity == null){

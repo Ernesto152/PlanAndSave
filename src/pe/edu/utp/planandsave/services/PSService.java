@@ -126,6 +126,10 @@ public class PSService {
         return getDataStore().deleteIncome(income);
     }
 
+    public boolean updateIncome(Income income){
+        return getDataStore().updateIncome(income);
+    }
+
     //Goals
 
     public List<Goal> getGoals() {return getDataStore().findAllGoals();}

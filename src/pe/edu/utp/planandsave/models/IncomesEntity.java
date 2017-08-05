@@ -57,10 +57,10 @@ public class IncomesEntity extends BaseEntity {
     }
 
     public boolean update(Income income){
-        String sql = "UPDATE incomes SET amount = " + income.getAmountAsString() + ", " +
-                                        "description = " + income.getDescriptionAsValue() + ", " +
-                                        "currency_id = " + income.getCurrency().getId() + ", " +
-                "WHERE id = " + income.getId();
+        String sql = "UPDATE incomes SET amount = " + income.getAmountAsString() + " , " +
+                                        "description = " + income.getDescriptionAsValue() + " , " +
+                                        "currency_id = " + income.getCurrency().getIdAsString() +
+                                        " WHERE id = " + income.getIdAsString();
         return change(sql);
     }
 }
