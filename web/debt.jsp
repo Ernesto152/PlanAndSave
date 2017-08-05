@@ -60,12 +60,9 @@
 
         </s:div>
 
-
-
         <s:div cssClass="form-group">
-            <s:select name="expenseCategory" list="#{'1':'Alimento','2':'Comida'}" cssClass="form-control"
+            <s:select name="expenseCategory" list="#{'1':'Alimento','2':'Vehículos','3':'Equipos','4':'Mobiliario','5':'Ropa', '6':'Salud','7':'Vivienda','8':Educación'}" cssClass="form-control"
                       headerKey="0" headerValue="--Seleccionar--" required="true"/>
-
         </s:div>
 
         <s:div cssClass="form-group">
