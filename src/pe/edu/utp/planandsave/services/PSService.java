@@ -134,6 +134,14 @@ public class PSService {
 
     public boolean createGoal(Goal goal){ return getDataStore().createGoal(goal);}
 
+    public boolean deleteGoal(Goal goal){
+        return getDataStore().deleteGoal(goal);
+    }
+
+    public boolean completeGoal(Goal goal){
+        return  getDataStore().completeGoal(goal);
+    }
+
     // Debts
 
     public List<Debt> getDebts(){ return getDataStore().findAllDebts(); }
@@ -179,6 +187,11 @@ public class PSService {
 
     public Period getPeriodById(int id){
         return getDataStore().findPeriodById(id);
+    }
+
+    //Images
+    public Image getImageById(int id){
+        return getDataStore().findImageById(id);
     }
 
 

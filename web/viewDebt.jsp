@@ -34,7 +34,7 @@
 <b:container>
 <jsp:useBean id="service" class="pe.edu.utp.planandsave.services.PSService"/>
     <div class="row" style="padding-bottom: 50px">
-        <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+        <div class="col-xs-12 col-sm-12 col-md10 col-md-offset-1 col-lg-10 col-lg-offset-1">
             <div class="table-responsive">
                 <table class="table table-bordered table-inverse table-striped table-responsive">
                     <thead>

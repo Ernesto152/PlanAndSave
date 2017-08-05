@@ -10,19 +10,19 @@ public class Goal {
     private String name;
     private float amount;
     private String status;
-    private String imageUrl;
+    private Image image;
     private User user;
     private Currency currency;
 
     public Goal() {
     }
 
-    public Goal(int id, String name, float amount, String status, String imageUrl, User user, Currency currency) {
+    public Goal(int id, String name, float amount, String status, Image image, User user, Currency currency) {
         this.setId(id);
         this.setName(name);
         this.setAmount(amount);
         this.setStatus(status);
-        this.setImageUrl(imageUrl);
+        this.setImage(image);
         this.setUser(user);
         this.setCurrency(currency);
     }
@@ -79,16 +79,12 @@ public class Goal {
         return this;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public Image getImage() {
+        return image;
     }
 
-    public String getImageUrlAsValue(){
-        return "'" + getImageUrl() + "'";
-    }
-
-    public Goal setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public Goal setImage(Image image) {
+        this.image = image;
         return this;
     }
 
@@ -110,7 +106,7 @@ public class Goal {
         return this;
     }
 
-    public static Goal build(ResultSet resultSet, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity,
+    public static Goal build(ResultSet resultSet, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity,ImagesEntity imagesEntity,
                              CurrenciesEntity currenciesEntity){
         try {
             return (new Goal())
@@ -118,7 +114,7 @@ public class Goal {
                     .setName(resultSet.getString("name"))
                     .setAmount(resultSet.getFloat("amount"))
                     .setStatus(resultSet.getString("status"))
-                    .setImageUrl(resultSet.getString("image_url"))
+                    .setImage(imagesEntity.findById(resultSet.getInt("image_id")))
                     .setUser(usersEntity.findById(resultSet.getInt("user_id"), subscriptionsEntity))
                     .setCurrency(currenciesEntity.findById(resultSet.getInt("currency_id")));
         } catch (SQLException e) {

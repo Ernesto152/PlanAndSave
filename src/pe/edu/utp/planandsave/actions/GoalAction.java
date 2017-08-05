@@ -4,15 +4,19 @@ import com.opensymphony.xwork2.ActionSupport;
 import pe.edu.utp.planandsave.models.*;
 import pe.edu.utp.planandsave.services.PSService;
 
+import java.util.Date;
+
 public class GoalAction extends ActionSupport {
     private int id;
     private String name;
     private float amount;
     private String status;
-    private String imageUrl;
+    private int image;
     private int user;
     private int currency;
     private Goal goal;
+    private Expense expense;
+    private Date date;
 
     public int getId() {return id;}
 
@@ -30,9 +34,9 @@ public class GoalAction extends ActionSupport {
 
     public void setStatus(String status) {this.status = status;}
 
-    public String getImageUrl() {return imageUrl;}
+    public int getImage() {return image;}
 
-    public void setImageUrl(String imageUrl) {this.imageUrl = imageUrl; }
+    public void setImage(int image) {this.image = image; }
 
     public int getUser() {
         return user;
@@ -41,7 +45,6 @@ public class GoalAction extends ActionSupport {
     public void setUser(int user) {
         this.user = user;
     }
-
 
     public int getCurrency() {
         return currency;
@@ -59,10 +62,26 @@ public class GoalAction extends ActionSupport {
         this.goal = goal;
     }
 
+    public Expense getExpense() {
+        return expense;
+    }
+
+    public void setExpense(Expense expense) {
+        this.expense = expense;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
     public String add() {
         try {
             PSService PSS = new PSService();
-            goal = new Goal(id, name, amount, status, imageUrl, PSS.getUsersById(user), PSS.getCurrenciesById(currency));
+            goal = new Goal(id, name, amount, "Incompleto", PSS.getImageById(image), PSS.getUsersById(user), PSS.getCurrenciesById(currency));
             PSS.createGoal(goal);
             return SUCCESS;
         } catch (Exception e) {
@@ -71,7 +90,34 @@ public class GoalAction extends ActionSupport {
         }
     }
 
+    public String delete(){
+        try {
+            PSService PSS = new PSService();
+            goal = PSS.getGoalById(id);
+            PSS.deleteGoal(goal);
+            return SUCCESS;
+        }catch (Exception e){
+            e.printStackTrace();
+            return INPUT;
+        }
+    }
+
+    public String complete(){
+        try {
+            PSService PSS = new PSService();
+            goal = PSS.getGoalById(id);
+            PSS.completeGoal(goal);
+            expense = new Expense(1, goal.getAmount(), date, goal.getName(), goal.getUser(), PSS.getExpenseCategoriesById(3), goal.getCurrency());
+            PSS.createExpense(expense);
+            return SUCCESS;
+        }catch (Exception e){
+            e.printStackTrace();
+            return INPUT;
+        }
+    }
+
     public String execute() {
         return SUCCESS;
     }
+
 }

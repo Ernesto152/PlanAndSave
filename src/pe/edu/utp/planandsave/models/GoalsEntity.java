@@ -19,37 +19,37 @@ public class GoalsEntity extends BaseEntity{
         super();
     }
 
-    List<Goal> findAll(UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity, CurrenciesEntity currenciesEntity){
-        return findByCriteria("", usersEntity, subscriptionsEntity, currenciesEntity);
+    List<Goal> findAll(UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity, CurrenciesEntity currenciesEntity,ImagesEntity imagesEntity){
+        return findByCriteria("", usersEntity, subscriptionsEntity, currenciesEntity, imagesEntity);
     }
 
     public Goal findById(int id, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity,
-                         CurrenciesEntity currenciesEntity){
+                         CurrenciesEntity currenciesEntity, ImagesEntity imagesEntity){
         String criteria = " id = " + String.valueOf(id);
-        return findByCriteria(criteria, usersEntity, subscriptionsEntity, currenciesEntity).get(0);
+        return findByCriteria(criteria, usersEntity, subscriptionsEntity, currenciesEntity, imagesEntity).get(0);
     }
 
     public Goal findByName(String name, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity,
-                           CurrenciesEntity currenciesEntity){
+                           CurrenciesEntity currenciesEntity, ImagesEntity imagesEntity){
         String criteria = " name = '" + name + "'";
-        return findByCriteria(criteria, usersEntity, subscriptionsEntity, currenciesEntity).get(0);
+        return findByCriteria(criteria, usersEntity, subscriptionsEntity, currenciesEntity, imagesEntity).get(0);
     }
 
     public Goal findByCost(String cost, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity,
-                           CurrenciesEntity currenciesEntity){
+                           CurrenciesEntity currenciesEntity, ImagesEntity imagesEntity){
         String criteria = " cost = '" + cost + "'";
-        return findByCriteria(criteria, usersEntity, subscriptionsEntity, currenciesEntity).get(0);
+        return findByCriteria(criteria, usersEntity, subscriptionsEntity, currenciesEntity, imagesEntity).get(0);
     }
 
     public List<Goal> findByCriteria(String criteria, UsersEntity usersEntity, SubscriptionsEntity subscriptionsEntity,
-                                     CurrenciesEntity currenciesEntity){
+                                     CurrenciesEntity currenciesEntity, ImagesEntity imagesEntity){
         String sql = getDefaultQuery() + (criteria.isEmpty() ? "" : " WHERE " + criteria);
         List<Goal> goals = new ArrayList<>();
         try {
             ResultSet resultSet = getConnection().createStatement().executeQuery(sql);
             if (resultSet == null) return null;
             while (resultSet.next()){
-                goals.add(Goal.build(resultSet, usersEntity, subscriptionsEntity, currenciesEntity));
+                goals.add(Goal.build(resultSet, usersEntity, subscriptionsEntity, imagesEntity, currenciesEntity));
             }
             return goals;
         } catch (SQLException e) {
@@ -59,18 +59,25 @@ public class GoalsEntity extends BaseEntity{
     }
 
     public boolean add(Goal goal) {
-        String sql = "INSERT INTO goals(name, amount, status, image_url, user_id, currency_id) " +
+        String sql = "INSERT INTO goals(name, amount, status, image_id, user_id, currency_id) " +
                 "VALUES(    " +
                 goal.getNameAsValue()+ ", " +
                 goal.getAmountAsString() + ", " +
                 goal.getStatusAsValue() + ", " +
-                goal.getImageUrlAsValue() + ", " +
+                goal.getImage().getIdAsString() + ", " +
                 goal.getUser().getIdAsString() + " , " +
                 goal.getCurrency().getIdAsString() +")";
         return change(sql);
     }
 
+    public boolean delete(Goal goal){
+        String sql = "DELETE FROM goals WHERE id = " + goal.getIdAsString();
+        return change(sql);
+    }
 
-
+    public boolean complete(Goal goal){
+        String sql = "UPDATE goals SET status = 'Completado' WHERE id = " + goal.getId();
+        return change(sql);
+    }
 
 }

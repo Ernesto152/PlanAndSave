@@ -19,7 +19,7 @@
 <s:div cssClass="row">
     <br>
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-        <img class="featurette-image img-responsive center-block" src="img/goal.jpg" style="padding-top: 35px">
+        <img class="featurette-image img-responsive center-block" src="img/goal.jpg" style="padding-top: 35px; padding-bottom: 35px">
     </div>
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
     <s:div cssClass="container col-md-8">
@@ -28,12 +28,14 @@
         <s:div cssClass="form-group">
             <h2><s:label >Nueva Meta</s:label></h2>
         </s:div>
+
+        <s:hidden name="user" value="%{#session.user_id}"/>
         
         <s:div cssClass="form-group">
-            <s:select name="status" list="#{'1':'Carro','2':'Moto','3':'Cocina','4':'Lavadora'}" cssClass="form-control"
+            <s:select name="image" list="#{'1':'Carro','2':'Moto','3':'Cocina','4':'Lavadora'}" cssClass="form-control"
                       headerKey="0" headerValue="--Seleccionar--"/>
         </s:div>
-        
+
         <s:div cssClass="form-group">
             <s:label cssClass="control-label" for="name">Nombre: </s:label>
             <s:textfield name="name" maxLength="7" cssClass="form-control" placeholder="Ingrese su meta ..." />

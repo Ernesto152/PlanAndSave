@@ -18,6 +18,7 @@ public class PSDataStore {
     private PeriodsEntity periodsEntity;
     private QuotasEntity quotasEntity;
     private GoalsEntity goalsEntity;
+    private ImagesEntity imagesEntity;
 
 
     public PSDataStore(Connection connection) {
@@ -121,14 +122,20 @@ public class PSDataStore {
         return goalsEntity; }
 
     public List<Goal> findAllGoals(){
-        return getGoalsEntity().findAll(getUsersEntity(),getSubscriptionsEntity(),getCurrenciesEntity());
+        return getGoalsEntity().findAll(getUsersEntity(),getSubscriptionsEntity(),getCurrenciesEntity(), getImagesEntity());
     }
 
     public Goal findGoalsById(int id){
-        return getGoalsEntity().findById(id,getUsersEntity(),getSubscriptionsEntity(),getCurrenciesEntity());
+        return getGoalsEntity().findById(id,getUsersEntity(),getSubscriptionsEntity(),getCurrenciesEntity(), getImagesEntity());
     }
 
     public boolean createGoal(Goal goal){return getGoalsEntity().add(goal);}
+
+    public boolean deleteGoal(Goal goal){return getGoalsEntity().delete(goal);}
+
+    public boolean completeGoal(Goal goal){
+        return  getGoalsEntity().complete(goal);
+    }
 
 
     // Debts
@@ -224,6 +231,19 @@ public class PSDataStore {
 
     public Period findPeriodById(int id){
         return getPeriodsEntity().findById(id);
+    }
+
+    // Images
+
+    private ImagesEntity getImagesEntity(){
+        if(imagesEntity == null){
+            imagesEntity = new ImagesEntity((getConnection()));
+        }
+        return imagesEntity;
+    }
+
+    public Image findImageById(int id){
+        return getImagesEntity().findById(id);
     }
 
 
