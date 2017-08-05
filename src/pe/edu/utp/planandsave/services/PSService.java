@@ -91,6 +91,10 @@ public class PSService {
         return  getDataStore().deleteExpense(expense);
     }
 
+    public boolean updateExpense(Expense expense){
+        return getDataStore().updateExpense(expense);
+    }
+
     //ExpenseCategories
     public List<ExpensesCategory> getExpenseCategories() {
         return getDataStore().findAllExpenseCategories();

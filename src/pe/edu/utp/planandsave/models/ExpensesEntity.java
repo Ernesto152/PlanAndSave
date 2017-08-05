@@ -54,13 +54,22 @@ public class ExpensesEntity extends BaseEntity {
                             "CURDATE(), " +
                             expense.getDescriptionAsValue() + "," +
                             expense.getUser().getIdAsString() + ", " +
-                            "1 ," +
+                            expense.getExpensesCategory().getIdAsString() + " ," +
                             expense.getCurrency().getIdAsString() + ")";
         return change(sql);
     }
 
     public boolean delete(Expense expense){
         String sql = "DELETE FROM expenses WHERE id = " + expense.getIdAsString();
+        return change(sql);
+    }
+
+    public boolean update(Expense expense){
+        String sql = "UPDATE expenses SET amount = " + expense.getAmountAsString() + ", " +
+                            "description = " + expense.getDescriptionAsValue() + ", " +
+                            "expense_category_id = " + expense.getExpensesCategory().getIdAsString() + ", " +
+                            "currency_id = " + expense.getCurrency().getIdAsString() +
+                            " WHERE id = " + expense.getIdAsString();
         return change(sql);
     }
 }

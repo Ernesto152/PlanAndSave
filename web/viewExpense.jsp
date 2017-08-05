@@ -71,7 +71,8 @@
                                     <td><c:out value="${expense.currency.name}"/>
                                     <td>
                                         <p>
-                                            <button type="button" class="btn btn-sm btn-info">Editar</button>
+                                            <a href="<s:url action="editExpense"><s:param name="id"><c:out value="${expense.id}"/></s:param></s:url>"
+                                               class="btn btn-sm btn-info">Editar</a>
                                             <a href="<s:url action="deleteExpense">
                                             <s:param name="id"><c:out value="${expense.id}"/></s:param></s:url>"
                                                class="btn btn-sm btn-danger">Eliminar</a>

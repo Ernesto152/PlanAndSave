@@ -13,36 +13,27 @@
 <footer id="myFooter">
     <div class="container">
         <div class="row">
-            <div class="col-sm-3 myCols">
-                <h5>Get started</h5>
+            <div class="col-sm-4 myCols">
+                <h5>Comenzar</h5>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Sign up</a></li>
-                    <li><a href="#">Downloads</a></li>
+                    <li><a href="index.jsp">Home</a></li>
+                    <li><a href="signup.jsp">Registrarse</a></li>
                 </ul>
             </div>
-            <div class="col-sm-3 myCols">
-                <h5>About us</h5>
+            <div class="col-sm-4 myCols">
+                <h5>Sobre nosotros</h5>
                 <ul>
-                    <li><a href="#">Company Information</a></li>
-                    <li><a href="#">Contact us</a></li>
-                    <li><a href="#">Reviews</a></li>
+                    <li><a href="#">Información de la empresa</a></li>
+                    <li><a href="#">Contáctenos</a></li>
+                    <li><a href="#">Comentarios</a></li>
                 </ul>
             </div>
-            <div class="col-sm-3 myCols">
-                <h5>Support</h5>
-                <ul>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Help desk</a></li>
-                    <li><a href="#">Forums</a></li>
-                </ul>
-            </div>
-            <div class="col-sm-3 myCols">
+            <div class="col-sm-4 myCols">
                 <h5>Legal</h5>
                 <ul>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Terms of Use</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Términos de Servicio</a></li>
+                    <li><a href="#">Términos de Uso</a></li>
+                    <li><a href="#">Políticas de Privacidad</a></li>
                 </ul>
             </div>
         </div>

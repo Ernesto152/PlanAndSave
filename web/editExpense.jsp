@@ -7,7 +7,7 @@
 <jsp:include page="navbar.jsp"/>
 <html>
 <head>
-    <title>Registra tus ingresos</title>
+    <title>Registra tus gastos</title>
 </head>
 <body id="income">
 
@@ -20,10 +20,10 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <s:div cssClass="container col-md-8">
-                        <s:form action="updateIncome">
+                        <s:form action="updateExpense">
 
                             <s:div cssClass="form-group">
-                                <h2><s:label >EDICION DE INGRESOS</s:label></h2>
+                                <h2><s:label>EDICION DE GASTOS</s:label></h2>
                             </s:div>
 
                             <s:hidden name="user" value="%{#session.user_id}"/>
@@ -42,7 +42,12 @@
                             <s:div cssClass="form-group">
                                 <s:label cssClass="control-label" for="currency">Moneda: </s:label>
                                 <s:radio name="currency" list="#{'1':'Soles','2':'Dolares','3':'Euros'}" required="true" />
+                            </s:div>
 
+                            <s:div cssClass="form-group">
+                                <s:label cssClass="control-label" for="expenseCategory">Categoría: </s:label>
+                                <s:select name="expenseCategory" list="#{'1':'Alimento','2':'Comida'}" cssClass="form-control"
+                                          headerKey="0" headerValue="--Seleccionar--" required="true"/>
                             </s:div>
 
                             <s:submit value="Ingresar" cssClass="btn btn-block btn-primary "/>

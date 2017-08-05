@@ -106,6 +106,32 @@ public class ExpenseAction extends ActionSupport {
         }
     }
 
+    public String edit(){
+        try {
+            PSService service = new PSService();
+            expense = service.getExpenseById(id);
+            id = expense.getId();
+            amount = expense.getAmount();
+            description = expense.getDescription();
+            return SUCCESS;
+        }catch (Exception e) {
+            e.printStackTrace();
+            return INPUT;
+        }
+    }
+
+    public String update(){
+        try {
+            PSService service = new PSService();
+            expense = new Expense(id, amount, registration_date, description, service.getUsersById(user), service.getExpenseCategoriesById(expenseCategory), service.getCurrenciesById(currency));
+            service.updateExpense(expense);
+            return SUCCESS;
+        }catch(Exception e) {
+            e.printStackTrace();
+            return INPUT;
+        }
+    }
+
     public String execute() {
         return SUCCESS;
     }

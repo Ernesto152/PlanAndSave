@@ -13,7 +13,6 @@
 
         <action name="*Expense" class="pe.edu.utp.planandsave.actions.ExpenseAction" method="{1}">
             <result name="success">viewExpense.jsp</result>
-            <result name="input">ERROR.jsp</result>
         </action>
 
         <action name="*User" class="pe.edu.utp.planandsave.actions.UserAction" method="{1}">
@@ -45,9 +44,14 @@
             <result name="success">viewIncome.jsp</result>
         </action>
 
-        <action name="edit" class="pe.edu.utp.planandsave.actions.IncomeAction" method="edit">
+        <action name="editIncome" class="pe.edu.utp.planandsave.actions.IncomeAction" method="edit">
             <result name="success">editIncome.jsp</result>
             <result name="input">viewIncome.jsp</result>
+        </action>
+
+        <action name="editExpense" class="pe.edu.utp.planandsave.actions.ExpenseAction" method="edit">
+            <result name="success">editExpense.jsp</result>
+            <result name="input">viewExpense.jsp</result>
         </action>
     </package>
 </struts>

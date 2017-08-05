@@ -70,7 +70,7 @@
                                 <td><c:out value="${income.currency.name}"/></td>
                                 <td>
                                     <p>
-                                        <a href="<s:url action="edit"><s:param name="id"><c:out value="${income.id}"/></s:param></s:url>" class="btn btn-sm btn-info">Editar</a>
+                                        <a href="<s:url action="editIncome"><s:param name="id"><c:out value="${income.id}"/></s:param></s:url>" class="btn btn-sm btn-info">Editar</a>
                                         <a href="<s:url action="deleteIncome">
                                         <s:param name="id"><c:out value="${income.id}"/></s:param></s:url>"
                                            class="btn btn-sm btn-danger">Eliminar</a>

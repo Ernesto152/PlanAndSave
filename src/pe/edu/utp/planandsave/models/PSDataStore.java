@@ -184,6 +184,10 @@ public class PSDataStore {
         return getExpensesEntity().delete(expense);
     }
 
+    public boolean updateExpense(Expense expense){
+        return getExpensesEntity().update(expense);
+    }
+
     // Expense Categories
     private ExpensesCategoryEntity getExpensesCategoryEntity(){
         if(expensesCategoryEntity == null){
