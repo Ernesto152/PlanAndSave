@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <%--
   Created by IntelliJ IDEA.
   User: Abraham
@@ -21,31 +22,47 @@
 </s:if>
 
 <s:if test="%{#session.user_id>0}">
+
 <b:container>
-    <b:jumbotron title="Sample">
-        <h1>Tus Ingresos</h1>
-        <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-    </b:jumbotron>
-</b:container>
-<b:container>
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <img class="featurette-image img-responsive center-block" src="img/ahorro.jpg" style="padding-top: 35px">
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <div class="container" id="container">
-                <s:form action="addIncome" id="contact">
-                    <h3>Registra</h3>
-                    <h4>Llena este formulario con un nuevo ingreso</h4>
-                    <s:hidden name="user" value="%{#session.user_id}"/>
-                    <s:textfield name="amount" placeholder="Monto" size="100%"/>
-                    <s:textarea name="description" placeholder="Descripcion" size="100%"/>
-                    <s:radio list="#{'1':'Soles','2':'Dolares','3':'Euros'}" name="currency" size="100%"/>
-                    <s:submit cssClass="btn btn-primary" value="Registrar"/>
-                </s:form>
+    <s:div cssClass="container">
+        <s:div cssClass="row">
+            <br>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <img class="featurette-image img-responsive center-block" src="img/ahorro.jpg" style="padding-top: 35px; padding-bottom: 35px">
             </div>
-        </div>
-    </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <s:div cssClass="container col-md-8">
+                    <s:form action="addIncome">
+
+                        <s:div cssClass="form-group">
+                            <h2><s:label >REGISTRO DE INGRESOS</s:label></h2>
+                        </s:div>
+
+                        <s:hidden name="user" value="%{#session.user_id}"/>
+
+                        <s:div cssClass="form-group">
+                            <s:label cssClass="control-label" for="amount">Monto: </s:label>
+                            <s:textfield name="amount" maxLength="10" cssClass="form-control" placeholder="Ingrese el monto..." required="true" />
+                        </s:div>
+
+                        <s:div cssClass="form-group">
+                            <s:textarea name="description" label="Desripcion" maxLength="100" cssClass="form-control"
+                                        placeholder="Escriba la descripcion del ingreso" required="true"/>
+                        </s:div>
+
+                        <s:div cssClass="form-group">
+                            <s:label cssClass="control-label" for="currency">Moneda: </s:label>
+                            <s:radio name="currency" list="#{'1':'Soles','2':'Dolares','3':'Euros'}" required="true" />
+
+                        </s:div>
+
+                        <s:submit value="Ingresar" cssClass="btn btn-block btn-primary "/>
+
+                    </s:form>
+                </s:div>
+            </div>
+        </s:div>
+    </s:div>
 </b:container>
 <jsp:include page="footer.jsp"/>
 </s:if>

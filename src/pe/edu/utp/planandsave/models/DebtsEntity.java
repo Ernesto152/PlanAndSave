@@ -52,7 +52,7 @@ public class DebtsEntity extends BaseEntity{
                 debt.getFreeAmountAsString() + ", " +
                 debt.getPeriodAmountAsString() + ", " +
                 "CURDATE(), "+
-                "1 , " +
+                debt.getUser().getIdAsString() + " , " +
                 debt.getExpensesCategory().getIdAsString() + ", " +
                 debt.getCurrency().getIdAsString() + ", " +
                 debt.getPeriod().getIdAsString() +")";

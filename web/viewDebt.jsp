@@ -1,6 +1,8 @@
+<!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="b" uri="http://bootstrapjsp.org/" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <jsp:include page="bootstrap.jsp"/>
 <%--
   Created by IntelliJ IDEA.
@@ -21,6 +23,8 @@
     <jsp:include page="errorLogin.jsp"/>
 </s:if>
 
+
+<s:if test="%{#session.user_id>0}">
 <b:container>
     <b:jumbotron title="Sample">
         <h1>Deudas</h1>
@@ -51,11 +55,20 @@
                     <c:set var="count" value="0" scope="page"/>
                     <c:forEach var="debt" items="${service.debts}">
                         <c:if test="${debt.user.id eq user_id}">
+                            <c:if test="${debt.currency.id eq 1}">
+                                <fmt:setLocale value = "es_PE"/>
+                            </c:if>
+                            <c:if test="${debt.currency.id eq 2}">
+                                <fmt:setLocale value = "en_US"/>
+                            </c:if>
+                            <c:if test="${debt.currency.id eq 3}">
+                                <fmt:setLocale value = "es_ES"/>
+                            </c:if>
                             <c:set var="count" value="${count+1}" scope="page"/>
                             <tr>
                                 <td><c:out value="${count}"/></td>
-                                <td><c:out value="${debt.freeAmount}"/></td>
-                                <td><c:out value="${debt.periodAmount}"/></td>
+                                <td align="right"><fmt:formatNumber value = "${debt.freeAmount}" type = "currency"/></td>
+                                <td align="right"><fmt:formatNumber value = "${debt.periodAmount}" type = "currency"/></td>
                                 <td><c:out value="${debt.currency.name}"/></td>
                                 <td><c:out value="${debt.quota}"/></td>
                                 <td><c:out value="${debt.period.name}"/></td>
@@ -65,7 +78,7 @@
                                 <td>
                                     <p>
                                         <a href="#" class="btn btn-sm btn-info">Editar</a>
-                                        <a href="<s:url action="deleteDebts">
+                                        <a href="<s:url action="deleteDebt">
                                         <s:param name="debt_id"><c:out value="${debt.id}"/></s:param></s:url>"
                                            class="btn btn-sm btn-danger">Eliminar</a>
                                     </p>
@@ -82,6 +95,7 @@
         </div>
     </div>
 </b:container>
+</s:if>
 <jsp:include page="footer.jsp"/>
 </body>
 </html>

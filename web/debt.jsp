@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <%@taglib prefix="s" uri="/struts-tags" %>
 
 <%--
@@ -30,7 +31,7 @@
             <h2><s:label >REGISTRO DE DEUDAS</s:label></h2>
         </s:div>
 
-
+        <s:hidden name="user" value="%{#session.user_id}"/>
 
         <s:div cssClass="form-group">
             <s:label cssClass="control-label" for="debt_freeAmount">Monto: </s:label>

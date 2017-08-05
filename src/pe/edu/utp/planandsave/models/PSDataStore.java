@@ -114,8 +114,6 @@ public class PSDataStore {
         return getIncomesEntity().delete(income);
     }
 
-    public boolean deleteIncome(int id){return getIncomesEntity().delete(id);}
-
     //Goals
     private GoalsEntity getGoalsEntity(){
         if(goalsEntity == null){
@@ -163,8 +161,16 @@ public class PSDataStore {
         return  getExpensesEntity().findAll(getUsersEntity(),getSubscriptionsEntity(),getExpensesCategoryEntity(),getCurrenciesEntity());
     }
 
+    public Expense findExpenseById(int id){
+        return getExpensesEntity().findById(id,getUsersEntity(),getSubscriptionsEntity(),getExpensesCategoryEntity(),getCurrenciesEntity());
+    }
+
     public boolean createExpense(Expense expense){
         return getExpensesEntity().add(expense);
+    }
+
+    public boolean deleteExpense(Expense expense){
+        return getExpensesEntity().delete(expense);
     }
 
     // Expense Categories

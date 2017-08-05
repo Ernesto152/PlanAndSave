@@ -9,6 +9,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.List;
 
 /**
@@ -51,6 +52,8 @@ public class PSService {
         return dataStore;
     }
 
+    DecimalFormat DF = new DecimalFormat( "#,###,###,##0.00" );
+
     //Currencies
     public List<Currency> getCurrencies(){
         return getDataStore().findAllCurrencies();
@@ -76,8 +79,16 @@ public class PSService {
         return getDataStore().findAllExpenses();
     }
 
+    public Expense getExpenseById(int id){
+        return getDataStore().findExpenseById(id);
+    }
+
     public boolean createExpense(Expense expense){
         return getDataStore().createExpense(expense);
+    }
+
+    public boolean deleteExpense(Expense expense){
+        return  getDataStore().deleteExpense(expense);
     }
 
     //ExpenseCategories
@@ -113,10 +124,6 @@ public class PSService {
 
     public boolean deleteIncome(Income income){
         return getDataStore().deleteIncome(income);
-    }
-
-    public boolean deleteIncome(int id){
-        return getDataStore().deleteIncome(id);
     }
 
     //Goals

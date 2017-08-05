@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <%@ taglib prefix="b" uri="http://bootstrapjsp.org/" %>
 <%--
   Created by IntelliJ IDEA.
@@ -15,7 +16,7 @@
 <b:container>
     <b:row>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <img class="featurette-image img-responsive center-block" src="img/problema.JPG" style="padding-top: 35px" width="250" height="350">
+            <img class="featurette-image img-responsive center-block" src="img/problema.JPG" style="padding-top: 35px; padding-bottom: 35px" width="250" height="350">
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <b:jumbotron>

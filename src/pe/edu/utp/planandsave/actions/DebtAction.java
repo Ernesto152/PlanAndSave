@@ -2,7 +2,6 @@ package pe.edu.utp.planandsave.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
 import pe.edu.utp.planandsave.models.Debt;
-import pe.edu.utp.planandsave.models.User;
 import pe.edu.utp.planandsave.services.PSService;
 import java.util.*;
 
@@ -17,7 +16,7 @@ public class DebtAction extends ActionSupport {
     private float debt_freeAmount;
     private float debt_periodAmount;
     private Date debt_startDate;
-    private User user;
+    private int user;
     private int expenseCategory;
     private int currency;
     private int period;
@@ -85,11 +84,11 @@ public class DebtAction extends ActionSupport {
         this.debt_startDate = debt_startDate;
     }
 
-    public User getUser() {
+    public int getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(int user) {
         this.user = user;
     }
 
@@ -129,7 +128,7 @@ public class DebtAction extends ActionSupport {
         try {
             PSService PSS = new PSService();
             debt_interest = (debt_periodAmount * debt_quota) - debt_freeAmount;
-            debt = new Debt(debt_id, debt_description, debt_quota, debt_interest, debt_freeAmount, debt_periodAmount, debt_startDate, user, PSS.getExpenseCategoriesById(expenseCategory), PSS.getCurrenciesById(currency), PSS.getPeriodById(period));
+            debt = new Debt(debt_id, debt_description, debt_quota, debt_interest, debt_freeAmount, debt_periodAmount, debt_startDate, PSS.getUsersById(user), PSS.getExpenseCategoriesById(expenseCategory), PSS.getCurrenciesById(currency), PSS.getPeriodById(period));
             PSS.createDebt(debt);
             return SUCCESS;
         }catch (Exception e){
@@ -142,13 +141,13 @@ public class DebtAction extends ActionSupport {
         try {
             PSService PSS = new PSService();
             debt = PSS.getDebtById(debt_id);
+            PSS.deleteDebt(debt);
             return SUCCESS;
         }catch (Exception e){
             e.printStackTrace();
             return "input";
         }
     }
-
 
     public String execute(){return SUCCESS;}
 

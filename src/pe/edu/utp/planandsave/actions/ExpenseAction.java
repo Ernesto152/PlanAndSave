@@ -94,6 +94,18 @@ public class ExpenseAction extends ActionSupport {
         }
     }
 
+    public String delete(){
+        try {
+            PSService PSS = new PSService();
+            expense = PSS.getExpenseById(id);
+            PSS.deleteExpense(expense);
+            return SUCCESS;
+        }catch (Exception e){
+            e.printStackTrace();
+            return INPUT;
+        }
+    }
+
     public String execute() {
         return SUCCESS;
     }

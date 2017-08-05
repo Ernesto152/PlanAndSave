@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <%@ taglib prefix="b" uri="http://bootstrapjsp.org/" %>
 <%--
   Created by IntelliJ IDEA.

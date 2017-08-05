@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <%--
   Created by IntelliJ IDEA.
   User: usuario
@@ -18,6 +19,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="index.jsp">Plan&Save</a>
         </div>
@@ -27,6 +29,7 @@
                 <li><a href="overview.jsp">Monitoreo</a></li>
                 <li><a href="viewIncome.jsp">Mis ingresos</a></li>
                 <li><a href="viewExpense.jsp">Mis gastos</a></li>
+                <li><a href="viewDebt.jsp">Mis deudas</a></li>
                 <li><a href="viewGoal.jsp">Mis metas</a></li>
                 <li class="dropdown">
                     <a href="*" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">¿Deseas registrar algo?<span class="caret"></span></a>

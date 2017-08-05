@@ -1,7 +1,10 @@
+<!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="b" uri="http://bootstrapjsp.org/" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <jsp:include page="bootstrap.jsp"/>
+
 
 <%--
   Created by IntelliJ IDEA.
@@ -49,10 +52,19 @@
                         <c:set var="count" value="0" scope="page"/>
                         <c:forEach var="income" items="${service.incomes}">
                             <c:if test="${income.user.id eq user_id}">
+                                <c:if test="${income.currency.id eq 1}">
+                                    <fmt:setLocale value = "es_PE"/>
+                                </c:if>
+                                <c:if test="${income.currency.id eq 2}">
+                                    <fmt:setLocale value = "en_US"/>
+                                </c:if>
+                                <c:if test="${income.currency.id eq 3}">
+                                    <fmt:setLocale value = "es_ES"/>
+                                </c:if>
                                 <c:set var="count" value="${count+1}" scope="page"/>
                             <tr>
                                 <td><c:out value="${count}"/></td>
-                                <td><c:out value="${income.amount}"/></td>
+                                <td align="right"><fmt:formatNumber value = "${income.amount}" type = "currency"/></td>
                                 <td><c:out value="${income.description}"/></td>
                                 <td><c:out value="${income.registrationDate}"/></td>
                                 <td><c:out value="${income.currency.name}"/></td>

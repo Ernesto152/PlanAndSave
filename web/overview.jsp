@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <%--
   Created by IntelliJ IDEA.
   User: Abraham
@@ -9,6 +10,7 @@
 <%@ taglib prefix="b" uri="http://bootstrapjsp.org/" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <jsp:include page="bootstrap.jsp"/>
 
 <html>
@@ -25,11 +27,11 @@
 <s:set var="user_name" value="firstName" scope="session"/>
 </s:if>
 
+<jsp:include page="navbar.jsp"/>
+
 <s:if test="%{#session.user_id==null || #session.user_id==0}">
     <jsp:include page="errorLogin.jsp"/>
 </s:if>
-
-<jsp:include page="navbar.jsp"/>
 
 <s:if test="%{#session.user_id>0}">
 
@@ -40,19 +42,19 @@
     <jsp:useBean id="service" class="pe.edu.utp.planandsave.services.PSService"/>
     <c:forEach var="income" items="${service.incomes}">
         <c:if test="${income.user.id eq user_id}">
-            <c:set var="sumIncome" value="${sumIncome+income.amount}"/>
+            <c:set var="sumIncome" value="${sumIncome+(income.amount*income.currency.exchangeRate)}"/>
         </c:if>
     </c:forEach>
 
     <c:forEach var="expense" items="${service.expenses}">
         <c:if test="${expense.user.id eq user_id}">
-            <c:set var="sumExpense" value="${sumExpense+expense.amount}"/>
+            <c:set var="sumExpense" value="${sumExpense+(expense.amount*expense.currency.exchangeRate)}"/>
         </c:if>
     </c:forEach>
 
     <c:forEach var="debt" items="${service.debts}">
         <c:if test="${debt.user.id eq user_id}">
-            <c:set var="sumDebt" value="${sumDebt+(debt.quota*debt.periodAmount)}"/>
+            <c:set var="sumDebt" value="${sumDebt+(debt.quota*debt.periodAmount*debt.currency.exchangeRate)}"/>
         </c:if>
     </c:forEach>
 
@@ -92,12 +94,13 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <tr class="info">
+                        <tr class="info" align="right">
                             <td>Total</td>
-                            <td><c:out value="${sumIncome}"/> </td>
-                            <td><c:out value="${sumExpense}"/></td>
-                            <td><c:out value="${sumDebt}"/></td>
-                            <td><c:out value="${sumIncome-sumExpense-sumDebt}"/></td>
+                            <fmt:setLocale value = "es_PE"/>
+                            <td><fmt:formatNumber value = "${sumIncome}" type = "currency"/></td>
+                            <td><fmt:formatNumber value = "${sumExpense}" type = "currency"/></td>
+                            <td><fmt:formatNumber value = "${sumDebt}" type = "currency"/></td>
+                            <td><fmt:formatNumber value = "${sumIncome-sumExpense-sumDebt}" type = "currency"/></td>
                         </tr>
                     </tbody>
                 </table>

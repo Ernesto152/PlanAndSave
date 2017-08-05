@@ -1,6 +1,8 @@
+<!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="b" uri="http://bootstrapjsp.org/" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <jsp:include page="bootstrap.jsp"/>
 
 <%--
@@ -47,11 +49,22 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach var="expense" items="${service.expenses}" varStatus="loop">
+                        <c:set var="count" value="0" scope="page"/>
+                        <c:forEach var="expense" items="${service.expenses}">
                             <c:if test="${expense.user.id eq user_id}">
+                                <c:if test="${expense.currency.id eq 1}">
+                                    <fmt:setLocale value = "es_PE"/>
+                                </c:if>
+                                <c:if test="${expense.currency.id eq 2}">
+                                    <fmt:setLocale value = "en_US"/>
+                                </c:if>
+                                <c:if test="${expense.currency.id eq 3}">
+                                    <fmt:setLocale value = "es_ES"/>
+                                </c:if>
+                                <c:set var="count" value="${count+1}" scope="page"/>
                                 <tr>
-                                    <td><c:out value="${loop.count}"/></td>
-                                    <td><c:out value="${expense.amount}"/>
+                                    <td><c:out value="${count}"/></td>
+                                    <td align="right"><fmt:formatNumber value = "${expense.amount}" type = "currency"/>
                                     <td><c:out value="${expense.registrationDate}"/>
                                     <td><c:out value="${expense.description}"/>
                                     <td><c:out value="${expense.expensesCategory.name}"/>
@@ -59,7 +72,9 @@
                                     <td>
                                         <p>
                                             <button type="button" class="btn btn-sm btn-info">Editar</button>
-                                            <button type="button" class="btn btn-sm btn-danger">Eliminar</button>
+                                            <a href="<s:url action="deleteExpense">
+                                            <s:param name="id"><c:out value="${expense.id}"/></s:param></s:url>"
+                                               class="btn btn-sm btn-danger">Eliminar</a>
                                         </p>
                                     </td>
                                 </tr>

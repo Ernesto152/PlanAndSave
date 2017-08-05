@@ -58,4 +58,9 @@ public class ExpensesEntity extends BaseEntity {
                             expense.getCurrency().getIdAsString() + ")";
         return change(sql);
     }
+
+    public boolean delete(Expense expense){
+        String sql = "DELETE FROM expenses WHERE id = " + expense.getIdAsString();
+        return change(sql);
+    }
 }

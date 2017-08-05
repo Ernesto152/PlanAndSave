@@ -31,14 +31,9 @@
             <result name="input">ERROR.jsp</result>
         </action>
 
-        <action name="addDebt" class="pe.edu.utp.planandsave.actions.DebtAction" method="add">
+        <action name="*Debt" class="pe.edu.utp.planandsave.actions.DebtAction" method="{1}">
             <result name="success">viewDebt.jsp</result>
             <result name="input">ERROR.jsp</result>
-        </action>
-            
-        <action name="deleteDebts" class="pe.edu.utp.planandsave.actions.DebtAction" method="delete">
-            <result name="success">SUCCESS.jsp</result>
-        <result name="input">ERROR.jsp</result>
         </action>
 
         <action name="addGoal" class="pe.edu.utp.planandsave.actions.GoalAction" method="add">
@@ -46,14 +41,9 @@
             <result name="input">ERROR.jsp</result>
         </action>
             
-        <action name="addIncome" class="pe.edu.utp.planandsave.actions.IncomeAction" method="add">
+        <action name="*Income" class="pe.edu.utp.planandsave.actions.IncomeAction" method="{1}">
             <result name="success">viewIncome.jsp</result>
             <result name="input">formIncome.jsp</result>
-        </action>
-
-        <action name="deleteIncome" class="pe.edu.utp.planandsave.actions.IncomeAction" method="delete">
-            <result name="success">viewIncome.jsp</result>
-            <result name="input">ERROR.jsp</result>
         </action>
 
         <action name="edit" class="pe.edu.utp.planandsave.actions.IncomeAction" method="edit">

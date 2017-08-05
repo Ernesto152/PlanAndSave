@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
