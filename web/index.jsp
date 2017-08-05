@@ -8,12 +8,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="b" uri="http://bootstrapjsp.org/" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="bootstrap.jsp"/>
 
 <html>
 <head title="Plan&Save">
 </head>
 <body id="index">
+<s:if test="%{id==0}">
+  <s:set var="user_id" value="id" scope="session"/>
+  <s:set var="user_email" value="email" scope="session"/>
+  <s:set var="user_name" value="firstName" scope="session"/>
+</s:if>
 <!---->
 <jsp:include page="navbar.jsp"/>
 <!-- Carousel

@@ -7,16 +7,27 @@ google.charts.setOnLoadCallback(drawChart);
 // Callback that creates and populates a data table,
 // instantiates the pie chart, passes in the data and
 // draws it.
+
 function drawChart() {
+
+    var var1 = document.getElementById("sumIncome").value;
+    var var2 = document.getElementById("sumExpense").value;
+    var var3 = document.getElementById("sumDebt").value;
+    var var4 = var1-var2-var3;
+
+    var1 = eval(var1)
+    var2 = eval(var2)
+    var3 = eval(var3)
+    var4 = eval(var4)
 
     // Create the data table.
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'Tipo');
     data.addColumn('number', 'Monto');
     data.addRows([
-        ['Gasto',   1800],
-        ['Deuda',   3000],
-        ['Saldo',   4700]
+        ['Gastos', var2],
+        ['Deudas', var3],
+        ['Saldo',  var4],
     ]);
 
     //Set Format
@@ -26,7 +37,7 @@ function drawChart() {
     formatter.format(data, 1);
 
     // Set chart options
-    var options = {'title':'Resumen de Ingresos',
+    var options = {'title':'Resumen',
         fontName: 'Arial',
         colors:['#CC0000', '#FF8C00', '#1E90FF'],
         pieSliceText: 'value',
